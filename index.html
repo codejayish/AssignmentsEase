@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AssignmentEase | Online Assignment Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="overlay" data-overlay></div>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-badge">AE</span>
+          AssignmentEase
+        </a>
+        <nav class="nav-links" data-nav-links>
+          <a href="about.html">About</a>
+          <a href="experts.html">Experts</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="plagiarism.html">Plagiarism Checker</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="#brief">Get Quote</a>
+          <a class="btn btn-primary" href="#brief">Request Help</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" data-menu-toggle>Menu</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badges">
+            <span class="badge">AI-free content</span>
+            <span class="badge">Plagiarism checks</span>
+            <span class="badge">24/7 mentor access</span>
+          </div>
+          <h1>Assignment support that keeps you in control.</h1>
+          <p>
+            AssignmentEase connects you with verified academic mentors, transparent pricing, and a clean workflow so
+            every project ships on time without the stress.
+          </p>
+          <div class="hero-badges">
+            <span class="badge">4.9 average rating</span>
+            <span class="badge">5,200+ vetted experts</span>
+            <span class="badge">400k projects delivered</span>
+          </div>
+          <a class="btn btn-primary" href="#brief">Start a brief</a>
+        </div>
+
+        <div class="card" id="brief">
+          <h3>Start a brief</h3>
+          <p style="color: var(--muted); margin-top: 0;">Describe what you need and we will match the right expert.</p>
+          <form class="form-grid">
+            <label class="input">
+              Project type
+              <select>
+                <option>Essay</option>
+                <option>Case study</option>
+                <option>Research paper</option>
+                <option>Presentation</option>
+                <option>Programming task</option>
+                <option>Proofreading</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="input">
+              Project title
+              <input type="text" placeholder="e.g. Behavioral economics review" />
+            </label>
+            <label class="input">
+              Deadline
+              <input type="date" />
+            </label>
+            <label class="input">
+              Details
+              <textarea rows="4" placeholder="Briefly outline requirements, sources, and formatting."></textarea>
+            </label>
+            <button class="btn btn-primary" type="button">Get matched</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get help</h2>
+          <p>Send your request in two quick steps. We will reply with the best match and pricing.</p>
+        </div>
+        <div class="tiles">
+          <div class="card">
+            <h3>Form 1: Get Help</h3>
+            <form class="form-grid" id="form-help">
+              <label class="input">
+                Choose subject
+                <select name="subject" required>
+                  <option value="">Select</option>
+                  <option>Business</option>
+                  <option>Computer Science</option>
+                  <option>Economics</option>
+                  <option>Engineering</option>
+                  <option>Literature</option>
+                  <option>Mathematics</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="input">
+                Choose type
+                <select name="type" required>
+                  <option value="">Select</option>
+                  <option>Essay</option>
+                  <option>Case study</option>
+                  <option>Research paper</option>
+                  <option>Presentation</option>
+                  <option>Programming task</option>
+                  <option>Proofreading</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="input">
+                Your email
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </label>
+              <button class="btn btn-primary" type="submit">Get Help</button>
+              <p class="status" data-status-help></p>
+            </form>
+          </div>
+          <div class="card">
+            <h3>Form 2: Submit details</h3>
+            <form class="form-grid" id="form-details">
+              <label class="input">
+                Your email
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </label>
+              <label class="input">
+                Brief description
+                <textarea name="description" rows="4" placeholder="Share the key details..." required></textarea>
+              </label>
+              <label class="input">
+                Attachment
+                <input type="file" name="attachment" />
+              </label>
+              <label class="input">
+                Deadline
+                <input type="date" name="deadline" required />
+              </label>
+              <label class="input">
+                Invite an expert
+                <input type="text" name="invite" placeholder="Optional expert name" />
+              </label>
+              <label class="input">
+                Auto match expert
+                <select name="auto_match" required>
+                  <option value="yes">Yes, match for me</option>
+                  <option value="no">No, I will choose</option>
+                </select>
+              </label>
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <p class="status" data-status-details></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container stats">
+        <div class="stat">
+          <h3>12+ years</h3>
+          <span>Helping learners across disciplines</span>
+        </div>
+        <div class="stat">
+          <h3>5k+ experts</h3>
+          <span>Graduates from top universities</span>
+        </div>
+        <div class="stat">
+          <h3>400k+</h3>
+          <span>Projects completed with care</span>
+        </div>
+        <div class="stat">
+          <h3>4.9 / 5</h3>
+          <span>Average satisfaction score</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-title">
+          <h2>Other ways we can help</h2>
+          <p>Choose a support track that matches your subject, timeline, and learning style.</p>
+        </div>
+        <div class="tiles">
+          <div class="tile card-expand" data-expandable>
+            <h4>Essay & report support</h4>
+            <p>Outline guidance, structure, and citation formatting across major styles.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>Includes thesis refinement, outline structure, and full citation style alignment.</p>
+              <p>Turnaround options from 24 hours to 7 days based on scope.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Proofreading & polishing</h4>
+            <p>Grammar, clarity, and tone review with tracked changes and comments.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We flag clarity issues, sentence flow, and formatting inconsistencies.</p>
+              <p>Get a clean version and an annotated version for learning.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Programming projects</h4>
+            <p>Milestone planning, debugging assistance, and review-ready documentation.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>Includes architecture review, code walk-throughs, and test checklist support.</p>
+              <p>Available for Python, Java, JavaScript, and SQL tasks.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Presentation design</h4>
+            <p>Slide structure, visual hierarchy, and speaking notes for confidence.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We help with story flow, key visuals, and speaker notes.</p>
+              <p>Includes a final review to ensure slide timing works.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Research planning</h4>
+            <p>Source selection, method alignment, and annotated bibliography prep.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We help define your research question, methods, and source map.</p>
+              <p>Receive a clear checklist for your next draft.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Data analysis</h4>
+            <p>Interpretation, visualization, and results write-ups in plain language.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We help interpret outputs, build charts, and explain results clearly.</p>
+              <p>Supports Excel, SPSS, Python, and R workflows.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>How AssignmentEase works</h2>
+          <p>Stay in control. You choose the mentor, chat directly, and keep every file in one clean workspace.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <strong>1. Share your brief</strong>
+            <p>Tell us the topic, deadlines, and formatting. We verify the details before matching.</p>
+          </div>
+          <div class="step">
+            <strong>2. Compare experts</strong>
+            <p>Review portfolios, ratings, and turnaround times to pick the best fit.</p>
+          </div>
+          <div class="step">
+            <strong>3. Collaborate live</strong>
+            <p>Message in real time, share drafts, and request revisions until it is perfect.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why learners choose us</h2>
+          <p>We built a clear, supportive workflow so you can focus on learning, not logistics.</p>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <h4>Verified specialists</h4>
+            <p>Every expert goes through credential checks, sample projects, and skill assessments.</p>
+          </div>
+          <div class="feature">
+            <h4>Quality assurance</h4>
+            <p>We run every submission through originality and clarity checks before delivery.</p>
+          </div>
+          <div class="feature">
+            <h4>Subject coverage</h4>
+            <p>From finance to software engineering, our network spans 100+ disciplines.</p>
+          </div>
+          <div class="feature">
+            <h4>Support on demand</h4>
+            <p>Reach our team around the clock to adjust timelines or add milestones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container split">
+        <div>
+          <div class="section-title" style="margin-bottom: 1rem;">
+            <h2>About AssignmentEase</h2>
+            <p>We are building a transparent academic support space that prioritizes learning outcomes.</p>
+          </div>
+          <p style="color: var(--muted);">
+            Every mentor is vetted for subject expertise and communication quality. You keep ownership of every file,
+            and we stay available from first brief to final delivery.
+          </p>
+          <div class="stats" style="margin-top: 1.5rem;">
+            <div class="stat">
+              <h3>98%</h3>
+              <span>On-time delivery</span>
+            </div>
+            <div class="stat">
+              <h3>24/7</h3>
+              <span>Support coverage</span>
+            </div>
+            <div class="stat">
+              <h3>100+</h3>
+              <span>Subjects covered</span>
+            </div>
+          </div>
+        </div>
+        <div class="split-media">
+          <h3>Security and support</h3>
+          <p style="color: var(--muted);">Your data stays private, payment steps are clear, and every project includes a revision window.</p>
+          <div class="tiles">
+            <div class="tile">
+              <h4>Secure payments</h4>
+              <p>Milestone-based releases keep progress transparent.</p>
+            </div>
+            <div class="tile">
+              <h4>Private workspace</h4>
+              <p>Files and chats stay in one protected place.</p>
+            </div>
+            <div class="tile">
+              <h4>Revision ready</h4>
+              <p>Request adjustments until the brief is satisfied.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>What students are saying</h2>
+          <p>Feedback from recent projects across writing, STEM, and business disciplines.</p>
+        </div>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>"Super clear communication and fast revisions. The mentor kept me on schedule all week."</p>
+            <strong>Riya P.</strong>
+          </div>
+          <div class="testimonial">
+            <p>"Great balance of guidance and independence. My draft improved without losing my voice."</p>
+            <strong>Marcus L.</strong>
+          </div>
+          <div class="testimonial">
+            <p>"Reliable, organized, and transparent. The update checkpoints were a life saver."</p>
+            <strong>Jenna A.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently asked questions</h2>
+          <p>Quick answers about how we work, timelines, and quality checks.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How fast can I get matched with an expert?</summary>
+            <p>Most briefs are matched within 15 minutes during peak hours, and within 1 hour off-peak.</p>
+          </details>
+          <details>
+            <summary>Can I request revisions?</summary>
+            <p>Yes. Every project includes a revision window so you can refine the final delivery.</p>
+          </details>
+          <details>
+            <summary>Do you help with urgent deadlines?</summary>
+            <p>We support urgent tasks as long as there is enough time for a quality review.</p>
+          </details>
+          <details>
+            <summary>What subjects are covered?</summary>
+            <p>We cover 100+ subjects including business, STEM, humanities, and creative fields.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta">
+        <div>
+          <h2>Ready to get your next project moving?</h2>
+          <p>Start a brief and we will connect you with the right specialist within minutes.</p>
+        </div>
+        <div>
+          <a class="btn btn-ghost" href="experts.html">Browse experts</a>
+          <a class="btn btn-primary" href="#brief">Request help</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>AssignmentEase</h4>
+          <p style="color: var(--muted);">Clean, guided academic support for modern students.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="about.html">About</a>
+          <a href="experts.html">Experts</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="plagiarism.html">Plagiarism Checker</a>
+          <a href="blog.html">Writing tips</a>
+          <a href="about.html">Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
