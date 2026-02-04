@@ -87,46 +87,37 @@ const sendEmails = async (templateParams) => {
   await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE_ID, templateParams);
 };
 
+// Handle Get Help form submission (on index.html)
 if (helpForm) {
   helpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!supabaseClient && EMAILJS_SERVICE_ID.startsWith("YOUR_")) {
-      setStatus(helpStatus, "Please configure Supabase or EmailJS before deploying.", true);
-      return;
-    }
-    setStatus(helpStatus, "Sending...");
-
+    
     const formData = new FormData(helpForm);
-    const payload = {
-      subject: formData.get("subject"),
-      type: formData.get("type"),
-      email: formData.get("email"),
-      created_at: new Date().toISOString(),
-      form: "help",
-    };
+    const type = formData.get("type");
+    const projectTitle = formData.get("project_title");
+    const email = formData.get("email");
 
-    try {
-      if (supabaseClient) {
-        const { error } = await supabaseClient.from("leads").insert(payload);
-        if (error) throw error;
-      }
-      await sendEmails({
-        client_email: payload.email,
-        subject: payload.subject,
-        type: payload.type,
-        message:
-          "Thanks for contacting AssignmentEase. We provide genuine service and will shortly share a price quotation with the most affordable options. Thank you!",
-      });
+    // Store form data in sessionStorage to pass to next page
+    sessionStorage.setItem("assignmentType", type);
+    sessionStorage.setItem("projectTitle", projectTitle);
+    sessionStorage.setItem("assignmentEmail", email);
 
-      helpForm.reset();
-      setStatus(helpStatus, "Submitted! We will contact you shortly.");
-    } catch (error) {
-      setStatus(helpStatus, "Something went wrong. Please try again.", true);
-    }
+    // Navigate to submit page
+    window.location.href = "submit.html";
   });
 }
 
+// Handle details form submission (on submit.html)
 if (detailsForm) {
+  // Pre-fill email from sessionStorage if available
+  const storedEmail = sessionStorage.getItem("assignmentEmail");
+  if (storedEmail) {
+    const emailInput = detailsForm.querySelector('input[name="email"]');
+    if (emailInput) {
+      emailInput.value = storedEmail;
+    }
+  }
+
   detailsForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!supabaseClient && EMAILJS_SERVICE_ID.startsWith("YOUR_")) {
@@ -140,43 +131,86 @@ if (detailsForm) {
     let fileUrl = "";
 
     try {
+      // Upload file to Supabase storage if provided
       if (supabaseClient && attachment && attachment.name) {
-        const filePath = `uploads/${Date.now()}-${attachment.name}`;
-        const { error } = await supabaseClient.storage.from("assignments").upload(filePath, attachment);
-        if (error) throw error;
-        const { data } = supabaseClient.storage.from("assignments").getPublicUrl(filePath);
-        fileUrl = data.publicUrl || "";
+        try {
+          const filePath = `uploads/${Date.now()}-${attachment.name}`;
+          const { error: uploadError } = await supabaseClient.storage.from("assignments").upload(filePath, attachment, {
+            cacheControl: '3600',
+            upsert: false
+          });
+          
+          if (uploadError) {
+            console.error("Upload error:", uploadError);
+            // If upload fails due to RLS, continue without file URL
+            if (uploadError.message.includes("row-level security") || uploadError.message.includes("RLS")) {
+              setStatus(detailsStatus, "Warning: File upload failed due to security policy. Please configure RLS policies in Supabase. Continuing with form submission...");
+            } else {
+              throw uploadError;
+            }
+          } else {
+            const { data } = supabaseClient.storage.from("assignments").getPublicUrl(filePath);
+            fileUrl = data.publicUrl || "";
+          }
+        } catch (uploadErr) {
+          console.error("File upload error:", uploadErr);
+          // Continue with form submission even if file upload fails
+          setStatus(detailsStatus, "Warning: File could not be uploaded. Form will be submitted without attachment.");
+        }
       }
 
+      // Get stored data from sessionStorage
+      const assignmentType = sessionStorage.getItem("assignmentType") || "";
+      const projectTitle = sessionStorage.getItem("projectTitle") || "";
+
+      // Prepare payload with only columns that exist in the requests table
       const payload = {
         email: formData.get("email"),
         description: formData.get("description"),
         deadline: formData.get("deadline"),
-        invite: formData.get("invite"),
+        invite: formData.get("invite") || "",
         auto_match: formData.get("auto_match"),
         file_url: fileUrl,
         created_at: new Date().toISOString(),
         form: "details",
       };
 
+      // Save to Supabase (only existing columns)
       if (supabaseClient) {
         const { error } = await supabaseClient.from("requests").insert(payload);
-        if (error) throw error;
+        if (error) {
+          console.error("Database error:", error);
+          throw error;
+        }
       }
 
+      // Prepare email message with all details including type and project title
+      const emailMessage = `Assignment Type: ${assignmentType || "Not specified"}\nProject Title: ${projectTitle || "Not specified"}\nDescription: ${payload.description}\nDeadline: ${payload.deadline}\nAuto Match: ${payload.auto_match === "yes" ? "Yes" : "No"}\n${payload.invite ? `Invited Expert: ${payload.invite}\n` : ""}${fileUrl ? `File URL: ${fileUrl}` : "No file attached"}`;
+
+      // Send admin notification email with file URL
       await sendEmails({
         client_email: payload.email,
         subject: "Assignment request submitted",
-        type: payload.auto_match === "yes" ? "Auto match" : "Invite expert",
-        message:
-          "Thanks for contacting AssignmentEase. We provide genuine service and will shortly share a price quotation with the most affordable options. Thank you!",
+        type: assignmentType || "Assignment",
+        message: emailMessage,
         deadline: payload.deadline,
-        file_url: payload.file_url,
+        file_url: fileUrl || "No file attached",
       });
 
+      // Clear sessionStorage
+      sessionStorage.removeItem("assignmentType");
+      sessionStorage.removeItem("projectTitle");
+      sessionStorage.removeItem("assignmentEmail");
+
       detailsForm.reset();
-      setStatus(detailsStatus, "Submitted! We will review your request.");
+      setStatus(detailsStatus, "Submitted! We will review your request and contact you shortly.");
+      
+      // Redirect to home page after 3 seconds
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
     } catch (error) {
+      console.error("Error:", error);
       setStatus(detailsStatus, "Upload failed. Please try again.", true);
     }
   });

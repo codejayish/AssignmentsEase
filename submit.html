@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submit Details | AssignmentEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <span class="brand-badge">AE</span>
+          AssignmentEase
+        </a>
+        <nav class="nav-links" data-nav-links>
+          <a href="about.html">About</a>
+          <a href="experts.html">Experts</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="plagiarism.html">Plagiarism Checker</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="index.html">Back to Home</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" data-menu-toggle>Menu</button>
+      </div>
+    </header>
+
+    <section class="section page-hero">
+      <div class="container">
+        <h1>Submit Your Assignment Details</h1>
+        <p style="color: var(--muted);">Please provide additional information about your assignment so we can match you with the perfect expert.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card" style="max-width: 700px; margin: 0 auto;">
+          <h3>Assignment Details</h3>
+          <form class="form-grid" id="form-details">
+            <label class="input">
+              Your email
+              <input type="email" name="email" placeholder="you@email.com" required />
+            </label>
+            <label class="input">
+              Brief description
+              <textarea name="description" rows="4" placeholder="Share the key details about your assignment..." required></textarea>
+            </label>
+            <label class="input">
+              Attachment
+              <input type="file" name="attachment" />
+            </label>
+            <label class="input">
+              Deadline
+              <input type="date" name="deadline" required />
+            </label>
+            <label class="input">
+              Invite an expert (optional)
+              <input type="text" name="invite" placeholder="Expert name or ID" />
+            </label>
+            <label class="input">
+              Auto match expert
+              <select name="auto_match" required>
+                <option value="yes">Yes, match for me</option>
+                <option value="no">No, I will choose</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <p class="status" data-status-details></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>AssignmentEase</h4>
+          <p style="color: var(--muted);">Clean, guided academic support for modern students.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="about.html">About</a>
+          <a href="experts.html">Experts</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="plagiarism.html">Plagiarism Checker</a>
+          <a href="blog.html">Writing tips</a>
+          <a href="about.html">Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

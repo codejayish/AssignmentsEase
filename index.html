@@ -25,8 +25,7 @@
           <a href="blog.html">Blog</a>
         </nav>
         <div class="nav-cta">
-          <a class="btn btn-ghost" href="#brief">Get Quote</a>
-          <a class="btn btn-primary" href="#brief">Request Help</a>
+          <a class="btn btn-primary" href="#brief">Get Help</a>
         </div>
         <button class="menu-toggle" type="button" aria-label="Toggle menu" data-menu-toggle>Menu</button>
       </div>
@@ -39,8 +38,11 @@
             <span class="badge">AI-free content</span>
             <span class="badge">Plagiarism checks</span>
             <span class="badge">24/7 mentor access</span>
+            <span class="badge">Top Rated Writers</span>
+            <span class="badge">Complete Confidentiality</span>
+            <span class="badge">Money back guarantee</span>
           </div>
-          <h1>Assignment support that keeps you in control.</h1>
+          <h1>Get expert assignment help from verified specialists</h1>
           <p>
             AssignmentEase connects you with verified academic mentors, transparent pricing, and a clean workflow so
             every project ships on time without the stress.
@@ -50,39 +52,59 @@
             <span class="badge">5,200+ vetted experts</span>
             <span class="badge">400k projects delivered</span>
           </div>
-          <a class="btn btn-primary" href="#brief">Start a brief</a>
         </div>
 
-        <div class="card" id="brief">
-          <h3>Start a brief</h3>
-          <p style="color: var(--muted); margin-top: 0;">Describe what you need and we will match the right expert.</p>
-          <form class="form-grid">
+        <div class="card hero-form-card" id="brief">
+          <h3>Get Help</h3>
+          <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+          <form class="form-grid" id="form-help">
             <label class="input">
-              Project type
-              <select>
+              Choose type
+              <select name="type" required>
+                <option value="">Select type</option>
+                <option>Annotated Bibliography</option>
+                <option>Application Essay</option>
+                <option>Article</option>
+                <option>Business Plan</option>
+                <option>Capstone Project</option>
+                <option>Case Study</option>
+                <option>Code</option>
+                <option>Content Writing</option>
+                <option>Coursework</option>
+                <option>Creative Writing</option>
+                <option>Dissertation</option>
+                <option>Proposal</option>
+                <option>Editing</option>
                 <option>Essay</option>
-                <option>Case study</option>
-                <option>Research paper</option>
+                <option>Excel Assignment</option>
+                <option>Review</option>
+                <option>Math Solving</option>
+                <option>Outline</option>
+                <option>Personal Statement</option>
                 <option>Presentation</option>
-                <option>Programming task</option>
-                <option>Proofreading</option>
-                <option>Other</option>
+                <option>Reflective Writing</option>
+                <option>Report</option>
+                <option>Research Paper</option>
+                <option>Speech</option>
+                <option>Term paper</option>
+                <option>Test</option>
+                <option>Thesis</option>
+                <option>Q&A</option>
+                <option>Other types</option>
               </select>
             </label>
             <label class="input">
-              Project title
-              <input type="text" placeholder="e.g. Behavioral economics review" />
+              Project Title
+              <input type="text" name="project_title" placeholder="e.g. Behavioral economics review" required />
             </label>
             <label class="input">
-              Deadline
-              <input type="date" />
+              Your email
+              <input type="email" name="email" placeholder="you@email.com" required />
             </label>
-            <label class="input">
-              Details
-              <textarea rows="4" placeholder="Briefly outline requirements, sources, and formatting."></textarea>
-            </label>
-            <button class="btn btn-primary" type="button">Get matched</button>
+            <button class="btn btn-primary" type="submit">Get Help</button>
+            <p class="status" data-status-help></p>
           </form>
+          <p class="writers-ready">Writers are ready to hire now</p>
         </div>
       </div>
     </section>
@@ -90,80 +112,91 @@
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <h2>Get help</h2>
-          <p>Send your request in two quick steps. We will reply with the best match and pricing.</p>
+          <h2>Who Are the Experts?</h2>
+          <p>We engage alumni of the world's top universities and colleges to become AssignmentEase experts. We carefully check each candidate's academic and professional background before hiring.</p>
         </div>
+        <p style="text-align: center; color: var(--muted); margin-bottom: 2rem;">Cooperate with those who graduated from the best universities and colleges</p>
         <div class="tiles">
-          <div class="card">
-            <h3>Form 1: Get Help</h3>
-            <form class="form-grid" id="form-help">
-              <label class="input">
-                Choose subject
-                <select name="subject" required>
-                  <option value="">Select</option>
-                  <option>Business</option>
-                  <option>Computer Science</option>
-                  <option>Economics</option>
-                  <option>Engineering</option>
-                  <option>Literature</option>
-                  <option>Mathematics</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label class="input">
-                Choose type
-                <select name="type" required>
-                  <option value="">Select</option>
-                  <option>Essay</option>
-                  <option>Case study</option>
-                  <option>Research paper</option>
-                  <option>Presentation</option>
-                  <option>Programming task</option>
-                  <option>Proofreading</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label class="input">
-                Your email
-                <input type="email" name="email" placeholder="you@email.com" required />
-              </label>
-              <button class="btn btn-primary" type="submit">Get Help</button>
-              <p class="status" data-status-help></p>
-            </form>
+          <div class="tile card-expand" data-expandable>
+            <h4>Verification</h4>
+            <p>We care about your projects and pick the best specialists to help with assignments of yours. Before claiming that the person is an expert, we verify the identity of each candidate via social media.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>Every expert goes through credential checks, sample projects, and skill assessments.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
           </div>
-          <div class="card">
-            <h3>Form 2: Submit details</h3>
-            <form class="form-grid" id="form-details">
-              <label class="input">
-                Your email
-                <input type="email" name="email" placeholder="you@email.com" required />
-              </label>
-              <label class="input">
-                Brief description
-                <textarea name="description" rows="4" placeholder="Share the key details..." required></textarea>
-              </label>
-              <label class="input">
-                Attachment
-                <input type="file" name="attachment" />
-              </label>
-              <label class="input">
-                Deadline
-                <input type="date" name="deadline" required />
-              </label>
-              <label class="input">
-                Invite an expert
-                <input type="text" name="invite" placeholder="Optional expert name" />
-              </label>
-              <label class="input">
-                Auto match expert
-                <select name="auto_match" required>
-                  <option value="yes">Yes, match for me</option>
-                  <option value="no">No, I will choose</option>
-                </select>
-              </label>
-              <button class="btn btn-primary" type="submit">Submit</button>
-              <p class="status" data-status-details></p>
-            </form>
+          <div class="tile card-expand" data-expandable>
+            <h4>Skill Test</h4>
+            <p>We test each candidate by examining their skills and knowledge with various examinations in different academic fields.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We make sure the education level and work experience that the expert describes on their profile match their real expertise.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Quality Analysis</h4>
+            <p>We developed an AI-based system that analyses the quality of each expert's performance.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We form a rating based on the data we collect and reviews that experts get from their clients, so you can be sure the assignment helper you find on AssignmentEase is skilled and reliable.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Education Level</h4>
+            <p>Our experts are graduates of the world's leading universities.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>We carefully check diplomas and credentials to make sure each document is legit and matches the education level that is claimed.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Broad Expertise</h4>
+            <p>It doesn't matter how complicated your assignment is. We can find a specialist that is competent enough to provide you with a clear and effective solution.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>From finance to software engineering, our network spans 100+ disciplines.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+          <div class="tile card-expand" data-expandable>
+            <h4>Communication Skills</h4>
+            <p>You can chat with all the experts who can help you with your assignments, even before you hire them.</p>
+            <span class="expand-hint">Click to expand</span>
+            <div class="expand-content">
+              <p>Make your decision based not only on reviews and ratings but also on your own impression of the direct interaction with the person.</p>
+            </div>
+            <button class="close-btn" type="button" data-close-card>Close</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>How AssignmentEase Works</h2>
+          <p>Stay in control. You choose the mentor, chat directly, and keep every file in one clean workspace.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <strong>1. Fill in a brief</strong>
+            <p>Tell us what you need help with, describe your project requirements, and set the deadline.</p>
+          </div>
+          <div class="step">
+            <strong>2. Choose an expert</strong>
+            <p>Receive offers from those who can help with assignments, compare their ratings, and pick the best one for your task.</p>
+          </div>
+          <div class="step">
+            <strong>3. Get it done on time</strong>
+            <p>Chat with the expert directly, discuss your project in detail, and get professional academic assistance by the deadline.</p>
+          </div>
+          <div class="step">
+            <strong>4. Make it perfect</strong>
+            <p>Get your finished assignment checked for plagiarism and errors, and request revisions if needed — it's all free.</p>
           </div>
         </div>
       </div>
@@ -193,8 +226,8 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-title">
-          <h2>Other ways we can help</h2>
-          <p>Choose a support track that matches your subject, timeline, and learning style.</p>
+          <h2>What Makes Assignment Help From Our Experts So Special?</h2>
+          <p>AssignmentEase gives you a chance to cooperate with top experts within different fields of study. Work on your projects being guided by a professional and be sure everything will be done by the deadline.</p>
         </div>
         <div class="tiles">
           <div class="tile card-expand" data-expandable>
@@ -256,29 +289,6 @@
               <p>Supports Excel, SPSS, Python, and R workflows.</p>
             </div>
             <button class="close-btn" type="button" data-close-card>Close</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>How AssignmentEase works</h2>
-          <p>Stay in control. You choose the mentor, chat directly, and keep every file in one clean workspace.</p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <strong>1. Share your brief</strong>
-            <p>Tell us the topic, deadlines, and formatting. We verify the details before matching.</p>
-          </div>
-          <div class="step">
-            <strong>2. Compare experts</strong>
-            <p>Review portfolios, ratings, and turnaround times to pick the best fit.</p>
-          </div>
-          <div class="step">
-            <strong>3. Collaborate live</strong>
-            <p>Message in real time, share drafts, and request revisions until it is perfect.</p>
           </div>
         </div>
       </div>
@@ -416,7 +426,7 @@
         </div>
         <div>
           <a class="btn btn-ghost" href="experts.html">Browse experts</a>
-          <a class="btn btn-primary" href="#brief">Request help</a>
+          <a class="btn btn-primary" href="#brief">Get Help</a>
         </div>
       </div>
     </section>
