@@ -47,6 +47,46 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Nav dropdown toggles (for mobile / click)
+const navDropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
+
+navDropdownToggles.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    const parent = btn.closest(".nav-dropdown");
+    const isOpen = parent.classList.contains("is-open");
+    document.querySelectorAll(".nav-dropdown.is-open").forEach((open) => {
+      open.classList.remove("is-open");
+    });
+    if (!isOpen) {
+      parent.classList.add("is-open");
+    }
+    event.stopPropagation();
+  });
+});
+
+document.addEventListener("click", () => {
+  document.querySelectorAll(".nav-dropdown.is-open").forEach((open) => {
+    open.classList.remove("is-open");
+  });
+});
+
+// Simple horizontal scroll controls for experts carousel
+const expertsCarousel = document.querySelector("[data-experts-carousel]");
+const expertsPrev = document.querySelector("[data-experts-prev]");
+const expertsNext = document.querySelector("[data-experts-next]");
+
+if (expertsCarousel && expertsPrev && expertsNext) {
+  const scrollAmount = 320; // roughly one card
+
+  expertsPrev.addEventListener("click", () => {
+    expertsCarousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  expertsNext.addEventListener("click", () => {
+    expertsCarousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+}
+
 const helpForm = document.querySelector("#form-help");
 const detailsForm = document.querySelector("#form-details");
 const helpStatus = document.querySelector("[data-status-help]");
