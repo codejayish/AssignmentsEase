@@ -86,95 +86,157 @@
       </div>
     </header>
 
-    <section class="page-hero">
+    <section class="page-hero" style="padding: 4rem 0;">
       <div class="container">
-        <h1>Reviews & outcomes</h1>
-        <p style="color: var(--muted); max-width: 680px;">What learners say about clarity, support, and on-time delivery.</p>
+        <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 0.5rem;">What Our Customers Think About Us</h1>
+        <p style="color: var(--muted); max-width: 800px; margin: 1.5rem auto 2rem; font-size: 1.1rem; line-height: 1.7;">Our platform maintains excellent ratings across all major review sites. Customers praise our expert quality, responsive support, and on-time delivery.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem;">
+          <div style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem; font-weight: 600;">
+            <span style="color: var(--accent); font-style: italic; font-size: 1.4rem; font-weight: 700;">AssignmentEase</span>
+            <span style="color: var(--accent); font-size: 1.3rem;">★</span>
+            <span style="font-size: 1.2rem;">4.7</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem; font-weight: 600;">
+            <span style="background: #9b4b96; color: #fff; padding: 0.4rem 0.9rem; border-radius: 4px; font-size: 0.9rem; font-weight: 700;">ReviewCentre</span>
+            <span style="color: var(--accent); font-size: 1.3rem;">★</span>
+            <span style="font-size: 1.2rem;">4.8</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem; font-weight: 600;">
+            <span style="color: #ff6b35; font-weight: 700;">SiteJabber</span>
+            <span style="color: var(--accent); font-size: 1.3rem;">★</span>
+            <span style="font-size: 1.2rem;">4.7</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container stats">
-        <div class="stat">
-          <h3>4.9 / 5</h3>
-          <span>Average mentor rating</span>
-        </div>
-        <div class="stat">
-          <h3>94%</h3>
-          <span>Repeat learners</span>
-        </div>
-        <div class="stat">
-          <h3>48 hr</h3>
-          <span>Typical turnaround</span>
-        </div>
-        <div class="stat">
-          <h3>100%</h3>
-          <span>Quality check before delivery</span>
-        </div>
-      </div>
-    </section>
+      <div class="container">
+        <div class="reviews-carousel-wrapper" style="display:flex;align-items:center;gap:1rem;">
+          <button class="carousel-btn" data-reviews-prev aria-label="Previous review">‹</button>
+          <div class="reviews-carousel" data-reviews-carousel style="display:flex;flex-wrap:nowrap;overflow-x:auto;">
+            <!-- Review Card 1 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Manning393</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">I hired 3 different experts 4 so far and they all did a great job. They all finished the assignments on time with high quality. They are online most of the time and answer any questions right away!</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">ReviewCentre</span>
+              </div>
+            </div>
 
-    <section class="section">
-      <div class="container page-grid">
-        <div class="review-card card-expand" data-expandable>
-          <h4>Clear, detailed guidance</h4>
-          <p>My mentor broke the assignment into steps and helped me build confidence in each section.</p>
-          <span>Business case study · 5 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Support included outline check-ins, references, and final clarity edits.</p>
+            <!-- Review Card 2 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Imaan Malik</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">This site is amazing for full time workers and full time students! It helps me balance them both out without getting stressed. They are amazing at what they do!</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
+
+            <!-- Review Card 3 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">T A.</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">Very happy with my experience. Helpful staff and people. What I needed help with, got delivered within hours after putting in request :)</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
+
+            <!-- Review Card 4 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Guest's review</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">Excellent work, within deadline, to the point. Accurate Good job. Just give proper instructions and your work is done</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">ReviewCentre</span>
+              </div>
+            </div>
+
+            <!-- Review Card 5 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Victor David</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">Go here when you feel overwhelmed with your assignments. They'll help you out at a reasonable price and the writer does a very good job with their work.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
+
+            <!-- Review Card 6 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Dubah T.</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">I love studybay, I don't even stressed about my class papers anymore lol. I highly recommend this site.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">SiteJabber</span>
+              </div>
+            </div>
+
+            <!-- Review Card 7 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Mirka Mo</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">My writer was very professional and their work was good and helpful. Thanks so much for the help.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
+
+            <!-- Review Card 8 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">asad532715</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">Very helpful and good customer service. Good quality work and punctuality is the best thing that always makes me happy.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">ReviewCentre</span>
+              </div>
+            </div>
+
+            <!-- Review Card 9 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Jennifer A.</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">I love this platform, i always got a good writer with fully understanding my instruction, the website is user friendly.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">SiteJabber</span>
+              </div>
+            </div>
+
+            <!-- Review Card 10 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Aziz Rashid</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">This website is the most reliable page that I use to get help with my assignments. it shows the experts and their majors.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
+
+            <!-- Review Card 11 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Charles K.</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">I have been using AssignmentEase for nearly two years now and the service has provided top star quality. I highly recommend this site!</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">SiteJabber</span>
+              </div>
+            </div>
+
+            <!-- Review Card 12 -->
+            <div class="reviews-slide" style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(37,99,235,0.08); border: 1px solid var(--line); min-width:320px; flex:0 0 320px;">
+              <div style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;">Michelle</div>
+              <div style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">★★★★★</div>
+              <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">I love AssignmentEase. I have been using it forever. The service was amazing and so helpful. Thanks for the great assistance!</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-size: 0.9rem; color: var(--muted);">AssignmentEase</span>
+              </div>
+            </div>
           </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="review-card card-expand" data-expandable>
-          <h4>Fast and consistent</h4>
-          <p>The turnaround was quick and the communication stayed smooth throughout the project.</p>
-          <span>Statistics report · 4.9 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Included a mid-point check and a final review for charts and formatting.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="review-card card-expand" data-expandable>
-          <h4>Helped me learn</h4>
-          <p>They explained the logic, not just the answers, so I could complete the last draft myself.</p>
-          <span>Programming assignment · 5 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>We reviewed code step-by-step and added comments for clarity.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="review-card card-expand" data-expandable>
-          <h4>Great revisions</h4>
-          <p>The revision window made it easy to refine the final version without extra stress.</p>
-          <span>Literature review · 4.8 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Revisions included tone edits, citation alignment, and structure polish.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="review-card card-expand" data-expandable>
-          <h4>Professional layout</h4>
-          <p>Everything was formatted correctly and the slides were polished.</p>
-          <span>Presentation · 4.9 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Included visual hierarchy checks, speaker notes, and final export tips.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="review-card card-expand" data-expandable>
-          <h4>Reliable deadlines</h4>
-          <p>Every checkpoint landed on time and I always knew what was next.</p>
-          <span>Research paper · 5 stars</span>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>We set milestone check-ins for sources, draft, and final proof.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
+          <button class="carousel-btn" data-reviews-next aria-label="Next review">›</button>
         </div>
       </div>
     </section>
@@ -183,11 +245,11 @@
       <div class="container cta">
         <div>
           <h2>Ready to join the success stories?</h2>
-          <p>Start a brief and we will match you with a top-rated mentor.</p>
+          <p>Start a brief and we will match you with a top-rated expert.</p>
         </div>
         <div>
           <a class="btn btn-ghost" href="experts.html">Browse experts</a>
-          <a class="btn btn-primary" href="index.html#brief">Start a brief</a>
+          <a class="btn btn-primary" href="index.html#brief">Get Help</a>
         </div>
       </div>
     </section>

@@ -87,6 +87,50 @@ if (expertsCarousel && expertsPrev && expertsNext) {
   });
 }
 
+// Reviews carousel: circular left/right navigation
+const reviewsCarousel = document.querySelector("[data-reviews-carousel]");
+const reviewsPrev = document.querySelector("[data-reviews-prev]");
+const reviewsNext = document.querySelector("[data-reviews-next]");
+
+if (reviewsCarousel && reviewsPrev && reviewsNext) {
+  const getScrollAmount = () => Math.max(280, Math.round(reviewsCarousel.clientWidth * 0.8));
+
+  const scrollToStart = () => {
+    reviewsCarousel.scrollTo({ left: 0, behavior: "smooth" });
+  };
+
+  const scrollToEnd = () => {
+    const max = reviewsCarousel.scrollWidth - reviewsCarousel.clientWidth;
+    reviewsCarousel.scrollTo({ left: max, behavior: "smooth" });
+  };
+
+  reviewsPrev.addEventListener("click", () => {
+    const max = reviewsCarousel.scrollWidth - reviewsCarousel.clientWidth;
+    const amount = getScrollAmount();
+    if (reviewsCarousel.scrollLeft <= 1) {
+      // wrap to end
+      reviewsCarousel.scrollTo({ left: max, behavior: "smooth" });
+    } else if (reviewsCarousel.scrollLeft - amount <= 0) {
+      reviewsCarousel.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      reviewsCarousel.scrollBy({ left: -amount, behavior: "smooth" });
+    }
+  });
+
+  reviewsNext.addEventListener("click", () => {
+    const max = reviewsCarousel.scrollWidth - reviewsCarousel.clientWidth;
+    const amount = getScrollAmount();
+    if (Math.ceil(reviewsCarousel.scrollLeft) >= max - 1) {
+      // wrap to start
+      reviewsCarousel.scrollTo({ left: 0, behavior: "smooth" });
+    } else if (reviewsCarousel.scrollLeft + amount >= max) {
+      reviewsCarousel.scrollTo({ left: max, behavior: "smooth" });
+    } else {
+      reviewsCarousel.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  });
+}
+
 const helpForm = document.querySelector("#form-help");
 const detailsForm = document.querySelector("#form-details");
 const helpStatus = document.querySelector("[data-status-help]");
