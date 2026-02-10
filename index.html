@@ -8,6 +8,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .hero-title { animation: fadeInDown 0.8s ease-out; }
+      .hero-subtitle { animation: fadeInUp 0.8s ease-out 0.2s both; }
+      .step-card { animation: slideUp 0.6s ease-out; }
+      .tile-special { animation: scaleIn 0.6s ease-out; }
+      .feature-card { animation: fadeInUp 0.6s ease-out; }
+      .testimonial-card { animation: fadeInUp 0.6s ease-out; }
+    </style>
   </head>
   <body>
     <div class="overlay" data-overlay></div>
@@ -92,12 +124,12 @@
             <span class="badge">AI-free content</span>
             <span class="badge">Plagiarism checks</span>
             <span class="badge">24/7 mentor access</span>
-            <span class="badge">Top Rated Writers</span>
+            <span class="badge">Top Rated Experts</span>
             <span class="badge">Complete Confidentiality</span>
             <span class="badge">Money back guarantee</span>
           </div>
-          <h1>Get expert assignment help from verified specialists</h1>
-          <p>
+          <h1 class="hero-title" style="font-size: 4.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.8px;">Get expert assignment help from verified specialists</h1>
+          <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 600; line-height: 1.8; color: var(--muted); max-width: 720px;">
             AssignmentEase connects you with verified academic mentors, transparent pricing, and a clean workflow so
             every project ships on time without the stress.
           </p>
@@ -172,17 +204,25 @@
         <div class="experts-panel">
           <div class="experts-copy">
             <span class="experts-accent"></span>
-            <p>Cooperate with those who graduated from the best universities and colleges</p>
+            <p style="font-size: 1.2rem; font-weight: 700; color: #222;">Cooperate with those who graduated from the best universities and colleges</p>
           </div>
           <div class="experts-logos-row" aria-label="Universities our experts come from">
-            <div class="experts-logos">
-              <img src="assets/img/logo-oxford.svg" alt="University of Oxford" />
-              <img src="assets/img/logo-harvard.svg" alt="Harvard University" />
-              <img src="assets/img/logo-mit.svg" alt="MIT" />
-              <img src="assets/img/logo-stanford.svg" alt="Stanford University" />
-              <img src="assets/img/logo-iitb.svg" alt="IIT Bombay" />
-              <img src="assets/img/logo-iitd.svg" alt="IIT Delhi" />
-              <img src="assets/img/logo-iitkgp.svg" alt="IIT Kharagpur" />
+            <div class="experts-logos" style="display: flex; gap: 2rem; align-items: center; justify-content: flex-start;">
+              <div style="text-align: center;" onmouseover="this.style.transform='scale(1.08)'; this.style.transition='transform 0.3s';" onmouseout="this.style.transform='scale(1)';">
+                <img src="assets/img/logo-oxford.png" alt="University of Oxford" style="height: 110px; object-fit: contain;" />
+              </div>
+              <div style="text-align: center;" onmouseover="this.style.transform='scale(1.08)'; this.style.transition='transform 0.3s';" onmouseout="this.style.transform='scale(1)';">
+                <img src="assets/img/logo-cambridge.png" alt="University of Cambridge" style="height: 110px; object-fit: contain;" />
+              </div>
+              <div style="text-align: center;" onmouseover="this.style.transform='scale(1.08)'; this.style.transition='transform 0.3s';" onmouseout="this.style.transform='scale(1)';">
+                <img src="assets/img/logo-mit.png" alt="MIT" style="height: 110px; object-fit: contain;" />
+              </div>
+              <div style="text-align: center;" onmouseover="this.style.transform='scale(1.08)'; this.style.transition='transform 0.3s';" onmouseout="this.style.transform='scale(1)';">
+                <img src="assets/img/logo-iitbmb.png" alt="IIT Bombay" style="height: 75px; object-fit: contain;" />
+              </div>
+              <div style="text-align: center;" onmouseover="this.style.transform='scale(1.08)'; this.style.transition='transform 0.3s';" onmouseout="this.style.transform='scale(1)';">
+                <img src="assets/img/logo-iitkgp.jpg" alt="IIT Kharagpur" style="height: 75px; object-fit: contain;" />
+              </div>
             </div>
           </div>
         </div>
@@ -211,11 +251,11 @@
                 <div class="expert-rating"><span aria-hidden="true">★</span> 4.5</div>
               </div>
               <div class="expert-tags">
-                <span class="tag">Essay</span>
-                <span class="tag">Term paper</span>
-                <span class="tag">Dissertation</span>
-                <span class="tag">Coursework</span>
-                <span class="tag">Article</span>
+                <span class="tag" style="background: #e3f2fd; color: #1976d2;">Programming</span>
+                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Psychology</span>
+                <span class="tag" style="background: #e8f5e9; color: #388e3c;">Data Analysis</span>
+                <span class="tag" style="background: #fff3e0; color: #f57c00;">Essay</span>
+                <span class="tag" style="background: #fce4ec; color: #c2185b;">Research Paper</span>
               </div>
               <div class="expert-footer">
                 <strong>2691</strong>
@@ -245,11 +285,11 @@
                 <div class="expert-rating"><span aria-hidden="true">★</span> 4.9</div>
               </div>
               <div class="expert-tags">
-                <span class="tag">Essay</span>
-                <span class="tag">Term paper</span>
-                <span class="tag">Dissertation</span>
-                <span class="tag">Coursework</span>
-                <span class="tag">Article</span>
+                <span class="tag" style="background: #e0f7fa; color: #00838f;">Statistics</span>
+                <span class="tag" style="background: #f1f5fe; color: #283593;">Computer Science</span>
+                <span class="tag" style="background: #ede7f6; color: #512da8;">Nursing</span>
+                <span class="tag" style="background: #fff8e1; color: #f57f17;">Thesis</span>
+                <span class="tag" style="background: #e0f2f1; color: #00695c;">Biology</span>
               </div>
               <div class="expert-footer">
                 <strong>5197</strong>
@@ -279,11 +319,11 @@
                 <div class="expert-rating"><span aria-hidden="true">★</span> 4.8</div>
               </div>
               <div class="expert-tags">
-                <span class="tag">Essay</span>
-                <span class="tag">Term paper</span>
-                <span class="tag">Dissertation</span>
-                <span class="tag">Coursework</span>
-                <span class="tag">Article</span>
+                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Economics</span>
+                <span class="tag" style="background: #ffe0b2; color: #e65100;">Presentation</span>
+                <span class="tag" style="background: #e8f5e9; color: #2e7d32;">Mathematics</span>
+                <span class="tag" style="background: #fcf5e5; color: #bf360c;">Coursework</span>
+                <span class="tag" style="background: #f0f4c3; color: #555620;">Physics</span>
               </div>
               <div class="expert-footer">
                 <strong>1709</strong>
@@ -313,11 +353,11 @@
                 <div class="expert-rating"><span aria-hidden="true">★</span> 4.9</div>
               </div>
               <div class="expert-tags">
-                <span class="tag">Essay</span>
-                <span class="tag">Term paper</span>
-                <span class="tag">Dissertation</span>
-                <span class="tag">Coursework</span>
-                <span class="tag">Article</span>
+                <span class="tag" style="background: #e1f5fe; color: #01579b;">Literature</span>
+                <span class="tag" style="background: #f8bbd0; color: #880e4f;">Proofreading</span>
+                <span class="tag" style="background: #ede7f6; color: #4a148c;">Philosophy</span>
+                <span class="tag" style="background: #e0f2f1; color: #004d40;">Case Study</span>
+                <span class="tag" style="background: #fce4ec; color: #b71c1c;">Accounting</span>
               </div>
               <div class="expert-footer">
                 <strong>5616</strong>
@@ -347,11 +387,11 @@
                 <div class="expert-rating"><span aria-hidden="true">★</span> 4.9</div>
               </div>
               <div class="expert-tags">
-                <span class="tag">Essay</span>
-                <span class="tag">Term paper</span>
-                <span class="tag">Dissertation</span>
-                <span class="tag">Coursework</span>
-                <span class="tag">Article</span>
+                <span class="tag" style="background: #c8e6c9; color: #1b5e20;">Marketing</span>
+                <span class="tag" style="background: #b3e5fc; color: #01237e;">Editing</span>
+                <span class="tag" style="background: #f8bbd0; color: #590d82;">History</span>
+                <span class="tag" style="background: #fff9c4; color: #f57f17;">Lab Report</span>
+                <span class="tag" style="background: #d1c4e9; color: #311b92;">Sociology</span>
               </div>
               <div class="expert-footer">
                 <strong>4080</strong>
@@ -374,22 +414,26 @@
           <h2>How AssignmentEase Works</h2>
           <p>Stay in control. You choose the mentor, chat directly, and keep every file in one clean workspace.</p>
         </div>
-        <div class="steps">
-          <div class="step">
-            <strong>1. Fill in a brief</strong>
-            <p>Tell us what you need help with, describe your project requirements, and set the deadline.</p>
+        <div class="steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="step-card" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3f6ff 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #2563eb; animation: slideInLeft 0.6s ease-out;">
+            <div style="width: 50px; height: 50px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">1</div>
+            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Fill in a brief</strong>
+            <p style="color: var(--muted); line-height: 1.6;">Tell us what you need help with, describe your project requirements, and set the deadline.</p>
           </div>
-          <div class="step">
-            <strong>2. Choose an expert</strong>
-            <p>Receive offers from those who can help with assignments, compare their ratings, and pick the best one for your task.</p>
+          <div class="step-card" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #10b981; animation: slideInRight 0.6s ease-out 0.1s both;">
+            <div style="width: 50px; height: 50px; background: #10b981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">2</div>
+            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Choose an expert</strong>
+            <p style="color: var(--muted); line-height: 1.6;">Receive offers from those who can help with assignments, compare their ratings, and pick the best one for your task.</p>
           </div>
-          <div class="step">
-            <strong>3. Get it done on time</strong>
-            <p>Chat with the expert directly, discuss your project in detail, and get professional academic assistance by the deadline.</p>
+          <div class="step-card" style="background: linear-gradient(135deg, #fff3e0 0%, #fffbf5 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #f59e0b; animation: slideInLeft 0.6s ease-out 0.2s both;">
+            <div style="width: 50px; height: 50px; background: #f59e0b; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">3</div>
+            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Get it done on time</strong>
+            <p style="color: var(--muted); line-height: 1.6;">Chat with the expert directly, discuss your project in detail, and get professional academic assistance by the deadline.</p>
           </div>
-          <div class="step">
-            <strong>4. Make it perfect</strong>
-            <p>Get your finished assignment checked for plagiarism and errors, and request revisions if needed — it's all free.</p>
+          <div class="step-card" style="background: linear-gradient(135deg, #fce4ec 0%, #fdf6f9 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #ec4899; animation: slideInRight 0.6s ease-out 0.3s both;">
+            <div style="width: 50px; height: 50px; background: #ec4899; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">4</div>
+            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Make it perfect</strong>
+            <p style="color: var(--muted); line-height: 1.6;">Get your finished assignment checked for plagiarism and errors, and request revisions if needed — it's all free.</p>
           </div>
         </div>
       </div>
@@ -422,66 +466,66 @@
           <h2>What Makes Assignment Help From Our Experts So Special?</h2>
           <p>AssignmentEase gives you a chance to cooperate with top experts within different fields of study. Work on your projects being guided by a professional and be sure everything will be done by the deadline.</p>
         </div>
-        <div class="tiles">
-          <div class="tile card-expand" data-expandable>
-            <h4>Essay & report support</h4>
-            <p>Outline guidance, structure, and citation formatting across major styles.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>Includes thesis refinement, outline structure, and full citation style alignment.</p>
-              <p>Turnaround options from 24 hours to 7 days based on scope.</p>
+        <div class="tiles" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e3f2fd 0%, #e8eef7 100%); border-radius: 12px; padding: 2rem; border: 1px solid #bbdefb; animation: scaleIn 0.6s ease-out; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #1e40af; font-weight: 700; margin-bottom: 0.5rem;">Essay & report support</h4>
+            <p style="color: var(--muted);">Outline guidance, structure, and citation formatting across major styles.</p>
+            <span class="expand-hint" style="color: #2563eb; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(37, 99, 235, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">Includes thesis refinement, outline structure, and full citation style alignment.</p>
+              <p style="color: var(--muted);">Turnaround options from 24 hours to 7 days based on scope.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable>
-            <h4>Proofreading & polishing</h4>
-            <p>Grammar, clarity, and tone review with tracked changes and comments.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>We flag clarity issues, sentence flow, and formatting inconsistencies.</p>
-              <p>Get a clean version and an annotated version for learning.</p>
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f4 100%); border-radius: 12px; padding: 2rem; border: 1px solid #c8e6c9; animation: scaleIn 0.6s ease-out 0.1s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(16, 185, 129, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #065f46; font-weight: 700; margin-bottom: 0.5rem;">Proofreading & polishing</h4>
+            <p style="color: var(--muted);">Grammar, clarity, and tone review with tracked changes and comments.</p>
+            <span class="expand-hint" style="color: #10b981; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(16, 185, 129, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">We flag clarity issues, sentence flow, and formatting inconsistencies.</p>
+              <p style="color: var(--muted);">Get a clean version and an annotated version for learning.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable>
-            <h4>Programming projects</h4>
-            <p>Milestone planning, debugging assistance, and review-ready documentation.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>Includes architecture review, code walk-throughs, and test checklist support.</p>
-              <p>Available for Python, Java, JavaScript, and SQL tasks.</p>
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #fff3e0 0%, #fef8f5 100%); border-radius: 12px; padding: 2rem; border: 1px solid #ffe0b2; animation: scaleIn 0.6s ease-out 0.2s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(245, 158, 11, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #92400e; font-weight: 700; margin-bottom: 0.5rem;">Programming projects</h4>
+            <p style="color: var(--muted);">Milestone planning, debugging assistance, and review-ready documentation.</p>
+            <span class="expand-hint" style="color: #f59e0b; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(245, 158, 11, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">Includes architecture review, code walk-throughs, and test checklist support.</p>
+              <p style="color: var(--muted);">Available for Python, Java, JavaScript, and SQL tasks.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #f59e0b; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable>
-            <h4>Presentation design</h4>
-            <p>Slide structure, visual hierarchy, and speaking notes for confidence.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>We help with story flow, key visuals, and speaker notes.</p>
-              <p>Includes a final review to ensure slide timing works.</p>
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #fce4ec 0%, #fdf7fa 100%); border-radius: 12px; padding: 2rem; border: 1px solid #f8bbd0; animation: scaleIn 0.6s ease-out 0.3s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(236, 72, 153, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #831843; font-weight: 700; margin-bottom: 0.5rem;">Presentation design</h4>
+            <p style="color: var(--muted);">Slide structure, visual hierarchy, and speaking notes for confidence.</p>
+            <span class="expand-hint" style="color: #ec4899; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(236, 72, 153, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">We help with story flow, key visuals, and speaker notes.</p>
+              <p style="color: var(--muted);">Includes a final review to ensure slide timing works.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #ec4899; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable>
-            <h4>Research planning</h4>
-            <p>Source selection, method alignment, and annotated bibliography prep.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>We help define your research question, methods, and source map.</p>
-              <p>Receive a clear checklist for your next draft.</p>
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e0f7fa 0%, #f0fafb 100%); border-radius: 12px; padding: 2rem; border: 1px solid #b3e5fc; animation: scaleIn 0.6s ease-out 0.4s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(6, 182, 212, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #164e63; font-weight: 700; margin-bottom: 0.5rem;">Research planning</h4>
+            <p style="color: var(--muted);">Source selection, method alignment, and annotated bibliography prep.</p>
+            <span class="expand-hint" style="color: #06b6d4; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(6, 182, 212, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">We help define your research question, methods, and source map.</p>
+              <p style="color: var(--muted);">Receive a clear checklist for your next draft.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #06b6d4; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable>
-            <h4>Data analysis</h4>
-            <p>Interpretation, visualization, and results write-ups in plain language.</p>
-            <span class="expand-hint">Click to expand</span>
-            <div class="expand-content">
-              <p>We help interpret outputs, build charts, and explain results clearly.</p>
-              <p>Supports Excel, SPSS, Python, and R workflows.</p>
+          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #f3e5f5 0%, #faf7fc 100%); border-radius: 12px; padding: 2rem; border: 1px solid #e1bee7; animation: scaleIn 0.6s ease-out 0.5s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(147, 51, 234, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <h4 style="color: #581c87; font-weight: 700; margin-bottom: 0.5rem;">Data analysis</h4>
+            <p style="color: var(--muted);">Interpretation, visualization, and results write-ups in plain language.</p>
+            <span class="expand-hint" style="color: #a855f7; font-size: 0.9rem;">Click to expand</span>
+            <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(168, 85, 247, 0.1);">
+              <p style="color: var(--muted); margin-bottom: 0.75rem;">We help interpret outputs, build charts, and explain results clearly.</p>
+              <p style="color: var(--muted);">Supports Excel, SPSS, Python, and R workflows.</p>
             </div>
-            <button class="close-btn" type="button" data-close-card>Close</button>
+            <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #a855f7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
         </div>
       </div>
@@ -493,22 +537,30 @@
           <h2>Why learners choose us</h2>
           <p>We built a clear, supportive workflow so you can focus on learning, not logistics.</p>
         </div>
-        <div class="features">
-          <div class="feature">
-            <h4>Verified specialists</h4>
-            <p>Every expert goes through credential checks, sample projects, and skill assessments.</p>
+        <div class="features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✓</div>
+            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Verified specialists</h4>
+            <p style="color: var(--muted); line-height: 1.6;">Every expert goes through credential checks, sample projects, and skill assessments.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, transparent); border-radius: 0 0 12px 12px;"></div>
           </div>
-          <div class="feature">
-            <h4>Quality assurance</h4>
-            <p>We run every submission through originality and clarity checks before delivery.</p>
+          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.1s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Quality assurance</h4>
+            <p style="color: var(--muted); line-height: 1.6;">We run every submission through originality and clarity checks before delivery.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10b981, transparent); border-radius: 0 0 12px 12px;"></div>
           </div>
-          <div class="feature">
-            <h4>Subject coverage</h4>
-            <p>From finance to software engineering, our network spans 100+ disciplines.</p>
+          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.2s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
+            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Subject coverage</h4>
+            <p style="color: var(--muted); line-height: 1.6;">From finance to software engineering, our network spans 100+ disciplines.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #f59e0b, transparent); border-radius: 0 0 12px 12px;"></div>
           </div>
-          <div class="feature">
-            <h4>Support on demand</h4>
-            <p>Reach our team around the clock to adjust timelines or add milestones.</p>
+          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.3s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Support on demand</h4>
+            <p style="color: var(--muted); line-height: 1.6;">Reach our team around the clock to adjust timelines or add milestones.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ec4899, transparent); border-radius: 0 0 12px 12px;"></div>
           </div>
         </div>
       </div>
@@ -567,18 +619,39 @@
           <h2>What students are saying</h2>
           <p>Feedback from recent projects across writing, STEM, and business disciplines.</p>
         </div>
-        <div class="testimonials">
-          <div class="testimonial">
-            <p>"Super clear communication and fast revisions. The mentor kept me on schedule all week."</p>
-            <strong>Riya P.</strong>
+        <div class="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="testimonial-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fbfe 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #2563eb; animation: fadeInUp 0.6s ease-out;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #2563eb;">”</div>
+            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"The expert matched to me had exactly the right background for my project. AssignmentEase's matching process understood my requirements perfectly, and the expert delivered excellent work on time."</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">RP</div>
+              <div>
+                <strong style="display: block; color: #111;">Riya P.</strong>
+                <span style="color: var(--muted); font-size: 0.9rem;">Business Studies</span>
+              </div>
+            </div>
           </div>
-          <div class="testimonial">
-            <p>"Great balance of guidance and independence. My draft improved without losing my voice."</p>
-            <strong>Marcus L.</strong>
+          <div class="testimonial-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #f8fdfa 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #10b981; animation: fadeInUp 0.6s ease-out 0.1s both;" onmouseover="this.style.boxShadow='0 12px 32px rgba(16, 185, 129, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #10b981;">”</div>
+            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"I submitted my requirements and within 15 minutes had expert options. I could review their profiles, expertise, and ratings. The selected expert was the perfect fit. I really appreciated the ability to suggest preferences through the platform."</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">ML</div>
+              <div>
+                <strong style="display: block; color: #111;">Marcus L.</strong>
+                <span style="color: var(--muted); font-size: 0.9rem;">STEM - Engineering</span>
+              </div>
+            </div>
           </div>
-          <div class="testimonial">
-            <p>"Reliable, organized, and transparent. The update checkpoints were a life saver."</p>
-            <strong>Jenna A.</strong>
+          <div class="testimonial-card" style="background: linear-gradient(135deg, #fdf2f8 0%, #fef8fc 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #ec4899; animation: fadeInUp 0.6s ease-out 0.2s both;" onmouseover="this.style.boxShadow='0 12px 32px rgba(236, 72, 153, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #ec4899;">”</div>
+            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"AssignmentEase handled the entire process - I just described what I needed and they matched me with a qualified expert. The communication through the platform was organized, and I could request revisions all in one place. Exactly what I needed."</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; background: #ec4899; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">JA</div>
+              <div>
+                <strong style="display: block; color: #111;">Jenna A.</strong>
+                <span style="color: var(--muted); font-size: 0.9rem;">Psychology</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -624,27 +697,157 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div>
-          <h4>AssignmentEase</h4>
-          <p style="color: var(--muted);">Clean, guided academic support for modern students.</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="about.html">About</a>
-          <a href="experts.html">Experts</a>
-          <a href="reviews.html">Reviews</a>
-          <a href="blog.html">Blog</a>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <a href="plagiarism.html">Plagiarism Checker</a>
-          <a href="blog.html">Writing tips</a>
-          <a href="about.html">Support</a>
+<footer style="background: #1a1a1a; color: #fff; padding: 3rem 0 2rem;">
+  <div class="container">
+    <!-- Contact & App Section -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333;">
+      <div>
+        <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">9391738281</p>
+        <p style="color: #aaa; margin-bottom: 0.5rem;">
+          <a href="mailto:assignments.taskease@gmail.com" style="color: #aaa; text-decoration: none;">assignments.taskease@gmail.com</a>
+        </p>
+        <a href="index.html#brief" style="display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; cursor: pointer;">Get Help</a>
+      </div>
+
+      <!-- Quick Contact Info -->
+      <div style="text-align: right;">
+        <h4 style="margin-bottom: 1rem; color: #fff;">AssignmentEase Services</h4>
+        <p style="color: #aaa; margin-bottom: 1rem; line-height: 1.6;">
+          Connecting students with verified academic experts across all subjects and project types.
+        </p>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+          <strong>Operating Hours:</strong><br>
+          24/7 Customer Support Available
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <a href="https://www.linkedin.com/company/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">in</a>
+          <a href="https://twitter.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">𝕏</a>
+          <a href="https://www.facebook.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">f</a>
+          <a href="https://www.instagram.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">📷</a>
         </div>
       </div>
-    </footer>
+    </div>
+
+    <!-- Main Footer Grid - 5 Columns -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      
+      <!-- Column 1: AssignmentEase Products -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">AssignmentEase Products</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Place a Project</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Plagiarism Checker</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Become an Expert</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog & Resources</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Legal & Policies -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Legal & Policies</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">User Agreement</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Cookie Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Data Security</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Honor Code</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Customer Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html#faq" style="color: #aaa; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Expert Ratings</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Project Types</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Popular Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Popular Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Essay" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Essay Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Research%20Paper" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Research Papers</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Thesis" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Thesis & Dissertation</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Coursework" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Coursework Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="subject.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Subject List</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Main Navigation -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Main Navigation</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Home</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Experts</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HQ & Office Info -->
+    <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+      <h4 style="color: #fff; margin-bottom: 1rem;">AssignmentEase Headquarters</h4>
+      <p style="color: #aaa; margin-bottom: 1.5rem;">Serving students and professionals worldwide with expert academic support and guidance.</p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Global Support Centers</p>
+          <p style="color: #aaa; font-size: 0.9rem;">Supporting 24/7 customer service across multiple time zones</p>
+        </div>
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Customer Support</p>
+          <p style="color: #aaa; font-size: 0.9rem;">
+            <strong>Phone:</strong> 9391738281<br>
+            <strong>Email:</strong> assignments.taskease@gmail.com<br>
+            <strong>Availability:</strong> 24/7
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Methods & Social -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333; align-items: center;">
+      <div>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Secure Payment Methods</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 Visa</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 MC</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🅿️ PayPal</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🏦 Bank</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🍎 Apple</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🔵 G Pay</div>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Security & Trust</p>
+        <div style="display: inline-block; background: #27ae60; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">
+          🔒 DMCA Protected
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Info -->
+    <div style="text-align: center; padding-top: 2rem;">
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Cardholder's Responsibility:</strong> Know the laws concerning academic services in your country or state of domicile.
+      </p>
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+        © 2011–2026 AssignmentEase. All Rights Reserved | Trusted by thousands of students worldwide
+      </p>
+      <p style="color: #888; font-size: 0.85rem;">
+        AssignmentEase is a platform connecting students with verified academic experts. We prioritize academic integrity and compliance with all applicable laws.
+      </p>
+    </div>
+  </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

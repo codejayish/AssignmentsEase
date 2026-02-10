@@ -13,6 +13,53 @@
         background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('assets/img/bg.jpg') center/cover no-repeat !important;
         background-attachment: fixed !important;
       }
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+      .hero-title {
+        animation: fadeInDown 0.8s ease-out;
+      }
+      .hero-subtitle {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+      }
+      .value-card {
+        animation: fadeInUp 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .value-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(37, 99, 235, 0.15) !important;
+      }
+      .logo-container {
+        animation: fadeInUp 0.6s ease-out 0.3s both;
+      }
+      .quality-card {
+        animation: scaleIn 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .quality-card:hover {
+        transform: translateY(-4px);
+      }
+      .nav-link:hover {
+        animation: pulse 1.5s ease-in-out;
+      }
     </style>
   </head>
   <body>
@@ -93,8 +140,8 @@
 
     <section class="page-hero">
       <div class="container">
-        <h1>About AssignmentEase</h1>
-        <p style="color: var(--muted); max-width: 680px;">AssignmentEase is an online platform connecting ambitious students and top experts from all over the world. It's a great place where people can cooperate with skilled professionals in any subject to succeed in learning or share their expertise with those who seek help.</p>
+        <h1 class="hero-title" style="font-size: 4.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; color: var(--ink); letter-spacing: -0.8px;">About AssignmentEase</h1>
+        <p class="hero-subtitle" style="color: var(--muted); max-width: 780px; font-size: 1.35rem; line-height: 1.8; font-weight: 500;">AssignmentEase is an online platform connecting ambitious students and top experts from all over the world. It's a great place where people can cooperate with skilled professionals in any subject to succeed in learning or share their expertise with those who seek help.</p>
       </div>
     </section>
 
@@ -135,26 +182,26 @@
         <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--ink); margin-bottom: 2.5rem;">Our Values</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
           <!-- Row 1: Text | Image -->
-          <div style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Protective</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We provide a warranty on every project so that every client could make any edits, if needed, for free. Only after the client accepts their project as completed, we transfer payment to the expert.</div>
           </div>
-          <img src="assets/img/protective.png" alt="Protective" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
+          <img src="assets/img/protective.png" alt="Protective" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
           <!-- Row 2: Image | Text -->
-          <img src="assets/img/smart.png" alt="Smart" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
-          <div style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <img src="assets/img/smart.png" alt="Smart" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
+          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Smart</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We use fast, convenient, and modern payment tools and solutions, such as Paypal, Payoneer, Visa/Mastercard, for payments and withdrawals. And we're constantly working on adding more options.</div>
           </div>
           <!-- Row 3: Text | Image -->
-          <div style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Secure</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We care about security, therefore we encrypt all personal data to make every user feel safe while using AssignmentEase and we don't share any personal information with any third parties without your permission.</div>
           </div>
-          <img src="assets/img/secure.png" alt="Secure" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
+          <img src="assets/img/secure.png" alt="Secure" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
           <!-- Row 4: Image | Text -->
-          <img src="assets/img/supportive.png" alt="Supportive" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
-          <div style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <img src="assets/img/supportive.png" alt="Supportive" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
+          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Supportive</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">And, of course, our Support team is here for you 24/7. Feel free to contact us whenever you need it!</div>
           </div>
@@ -169,18 +216,18 @@
         
         <div style="display: flex; align-items: center; gap: 3rem; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line);">
           <div style="font-size: 1.05rem; color: var(--muted); font-weight: 600; border-left: 4px solid var(--accent); padding-left: 1.5rem; min-width: fit-content;">Our experts have graduated from<br/>the best universities in the world</div>
-          <div style="display: flex; gap: 1.8rem; align-items: center; flex-wrap: nowrap;">
-            <img src="assets/img/logo-oxford.png" alt="Oxford" style="height: 75px; width: 75px; object-fit: contain; padding: 10px;" />
+          <div class="logo-container" style="display: flex; gap: 1.8rem; align-items: center; flex-wrap: nowrap;">
+            <img src="assets/img/logo-oxford.png" alt="Oxford" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
             <img src="assets/img/logo-cambridge.png" alt="Cambridge" style="height: 75px; width: 75px; object-fit: contain; padding: 10px;" />
-            <img src="assets/img/logo-mit.png" alt="MIT" style="height: 75px; width: 75px; object-fit: contain; padding: 10px;" />
-            <img src="assets/img/logo-iitkgp.jpg" alt="IIT KGP" style="height: 75px; width: 75px; object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-mit.png" alt="MIT" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
+            <img src="assets/img/logo-iitkgp.jpg" alt="IIT KGP" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
             <img src="assets/img/logo-iitbmb.png" alt="IITBMB" style="height: 75px; width: 75px; object-fit: contain; padding: 10px;" />
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2.5rem;">
           <!-- Verification Card -->
-          <div style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #e0ecff 0%, #f0f7ff 100%); border-radius: 18px; border-left: 6px solid var(--accent); position: relative; overflow: hidden;">
+          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #e0ecff 0%, #f0f7ff 100%); border-radius: 18px; border-left: 6px solid var(--accent); position: relative; overflow: hidden;">
             <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(37, 99, 235, 0.1); border-radius: 50%;"></div>
             <div style="font-size: 3rem; color: var(--accent); position: relative; z-index: 1;">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +245,7 @@
           </div>
 
           <!-- Skill Test Card -->
-          <div style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15); border-top: 6px solid var(--accent); position: relative;">
+          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15); border-top: 6px solid var(--accent); position: relative;">
             <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%); border-radius: 0 18px 0 20px;"></div>
             <div style="font-size: 3rem; color: var(--accent);">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +264,7 @@
           </div>
 
           <!-- Quality Analysis Card -->
-          <div style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f0ff 100%); border-radius: 18px; border-right: 6px solid var(--accent); position: relative; overflow: hidden;">
+          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f0ff 100%); border-radius: 18px; border-right: 6px solid var(--accent); position: relative; overflow: hidden;">
             <div style="position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; background: rgba(37, 99, 235, 0.08); border-radius: 50%;"></div>
             <div style="font-size: 3rem; color: var(--accent); position: relative; z-index: 1;">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,27 +300,157 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div>
-          <h4>AssignmentEase</h4>
-          <p style="color: var(--muted);">Clean, guided academic support for modern students.</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="about.html">About</a>
-          <a href="experts.html">Experts</a>
-          <a href="reviews.html">Reviews</a>
-          <a href="blog.html">Blog</a>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <a href="plagiarism.html">Plagiarism Checker</a>
-          <a href="blog.html">Writing tips</a>
-          <a href="about.html">Support</a>
+<footer style="background: #1a1a1a; color: #fff; padding: 3rem 0 2rem;">
+  <div class="container">
+    <!-- Contact & App Section -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333;">
+      <div>
+        <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">9391738281</p>
+        <p style="color: #aaa; margin-bottom: 0.5rem;">
+          <a href="mailto:assignments.taskease@gmail.com" style="color: #aaa; text-decoration: none;">assignments.taskease@gmail.com</a>
+        </p>
+        <a href="index.html#brief" style="display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--accent-dark)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--accent)'; this.style.transform='translateY(0)'">Get Help</a>
+      </div>
+
+      <!-- Quick Contact Info -->
+      <div style="text-align: right;">
+        <h4 style="margin-bottom: 1rem; color: #fff;">AssignmentEase Services</h4>
+        <p style="color: #aaa; margin-bottom: 1rem; line-height: 1.6;">
+          Connecting students with verified academic experts across all subjects and project types.
+        </p>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+          <strong>Operating Hours:</strong><br>
+          24/7 Customer Support Available
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <a href="https://www.linkedin.com/company/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='#333'; this.style.transform='translateY(0)'">in</a>
+          <a href="https://twitter.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='#333'; this.style.transform='translateY(0)'">𝕏</a>
+          <a href="https://www.facebook.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='#333'; this.style.transform='translateY(0)'">f</a>
+          <a href="https://www.instagram.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='#333'; this.style.transform='translateY(0)'">📷</a>
         </div>
       </div>
-    </footer>
+    </div>
+
+    <!-- Main Footer Grid - 5 Columns -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      
+      <!-- Column 1: AssignmentEase Products -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">AssignmentEase Products</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Place a Project</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Plagiarism Checker</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Become an Expert</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog & Resources</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Legal & Policies -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Legal & Policies</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">User Agreement</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Cookie Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Data Security</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Honor Code</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Customer Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html#faq" style="color: #aaa; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Expert Ratings</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Project Types</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Popular Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Popular Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Essay" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Essay Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Research%20Paper" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Research Papers</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Thesis" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Thesis & Dissertation</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Coursework" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Coursework Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="subject.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Subject List</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Main Navigation -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Main Navigation</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Home</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Experts</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HQ & Office Info -->
+    <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+      <h4 style="color: #fff; margin-bottom: 1rem;">AssignmentEase Headquarters</h4>
+      <p style="color: #aaa; margin-bottom: 1.5rem;">Serving students and professionals worldwide with expert academic support and guidance.</p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Global Support Centers</p>
+          <p style="color: #aaa; font-size: 0.9rem;">Supporting 24/7 customer service across multiple time zones</p>
+        </div>
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Customer Support</p>
+          <p style="color: #aaa; font-size: 0.9rem;">
+            <strong>Phone:</strong> 9391738281<br>
+            <strong>Email:</strong> assignments.taskease@gmail.com<br>
+            <strong>Availability:</strong> 24/7
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Methods & Social -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333; align-items: center;">
+      <div>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Secure Payment Methods</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 Visa</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 MC</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🅿️ PayPal</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🏦 Bank</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🍎 Apple</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🔵 G Pay</div>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Security & Trust</p>
+        <div style="display: inline-block; background: #27ae60; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">
+          🔒 DMCA Protected
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Info -->
+    <div style="text-align: center; padding-top: 2rem;">
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Cardholder's Responsibility:</strong> Know the laws concerning academic services in your country or state of domicile.
+      </p>
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+        © 2011–2026 AssignmentEase. All Rights Reserved | Trusted by thousands of students worldwide
+      </p>
+      <p style="color: #888; font-size: 0.85rem;">
+        AssignmentEase is a platform connecting students with verified academic experts. We prioritize academic integrity and compliance with all applicable laws.
+      </p>
+    </div>
+  </div>
+</footer>
 
     <script src="assets/js/main.js"></script>
   </body>

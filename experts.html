@@ -86,125 +86,612 @@
       </div>
     </header>
 
-    <section class="page-hero">
+    <!-- Hero section removed - replaced with new design below -->
+
+    <section style="background: var(--accent); padding: 4rem 0; color: white;">
       <div class="container">
-        <h1>Meet our experts</h1>
-        <p style="color: var(--muted); max-width: 680px;">Browse top-rated mentors with proven results in writing, research, data analysis, and programming.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container page-grid">
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">Writing & Literature</span>
-          <h4>Dr. Maya Patel</h4>
-          <p style="color: var(--muted);">4.9 rating · 1,240 reviews</p>
-          <p>Expert in argumentative essays, literature reviews, and APA/MLA formatting.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Specializes in thesis structure, tone refinement, and citation accuracy.</p>
-            <p>Typical turnaround: 48-72 hours for standard essays.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
+        <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: white;">Professional Experts for Hire</h1>
+        <p style="max-width: 600px; margin: 1rem 0 2.5rem 0; font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.95);">Hire experienced experts in any fields of study to help with your projects. Find those who are online, and pick the right one for your project based on customer reviews, rating, specialty, and education level.</p>
+        
+        <!-- Search and Filter Controls -->
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; margin-bottom: 1rem;">
+          <input type="text" id="expert-search-name" placeholder="Search by name" style="flex: 1; min-width: 250px; padding: 0.75rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+          <select id="expert-filter-type" style="padding: 0.75rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+            <option value="">All project types</option>
+            <option value="Essay">Essay</option>
+            <option value="Admissions Essay">Admissions Essay</option>
+            <option value="PowerPoint Presentation">PowerPoint Presentation</option>
+            <option value="Paper">Paper</option>
+            <option value="Research Paper">Research Paper</option>
+            <option value="Assignment">Assignment</option>
+            <option value="Homework">Homework</option>
+            <option value="Speech">Speech</option>
+            <option value="Book Reviews">Book Reviews</option>
+            <option value="Coursework">Coursework</option>
+            <option value="Personal Statement">Personal Statement</option>
+            <option value="Ph.D Dissertation">Ph.D Dissertation</option>
+            <option value="Thesis">Thesis</option>
+            <option value="Case Study">Case Study</option>
+            <option value="Term Paper">Term Paper</option>
+            <option value="Lab Report">Lab Report</option>
+            <option value="Editing">Editing</option>
+            <option value="Proofreading">Proofreading</option>
+            <option value="Rewrite">Rewrite</option>
+          </select>
+          <select id="expert-filter-subject" style="padding: 0.75rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+            <option value="">All subjects</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Literature">Literature</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Math">Math</option>
+            <option value="CPM">CPM</option>
+            <option value="Statistics">Statistics</option>
+            <option value="Physics">Physics</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="Accounting">Accounting</option>
+            <option value="Economics">Economics</option>
+            <option value="Biology">Biology</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Programming">Programming</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Nursing">Nursing</option>
+            <option value="History">History</option>
+          </select>
+          <button id="expert-search-btn" style="padding: 0.75rem 2rem; border-radius: 8px; border: none; background: #000; color: white; font-weight: 600; cursor: pointer; font-size: 1rem;">Search</button>
         </div>
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">STEM & Analytics</span>
-          <h4>Andre Kim</h4>
-          <p style="color: var(--muted);">4.8 rating · 980 reviews</p>
-          <p>Focus on statistics, econometrics, and data visualization projects.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Supports regression modeling, SPSS outputs, and reporting templates.</p>
-            <p>Available for quick consults and full project guidance.</p>
+        
+        <!-- Toggle Controls -->
+        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+          <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-weight: 500; margin: 0;">
+            <input type="checkbox" style="width: 20px; height: 20px; cursor: pointer;">
+            <span>Online</span>
+          </label>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <label style="font-weight: 500; margin: 0;">Finished projects</label>
+            <select style="padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 0.95rem; cursor: pointer;">
+              <option style="color: #000;">Latest</option>
+              <option style="color: #000;">Most</option>
+              <option style="color: #000;">Oldest</option>
+            </select>
           </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">Business & Finance</span>
-          <h4>Sophia Nguyen</h4>
-          <p style="color: var(--muted);">5.0 rating · 760 reviews</p>
-          <p>Case studies, market research, and presentation coaching.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Helps with competitive analysis, strategic frameworks, and slide decks.</p>
-            <p>Clear milestone planning for multi-week projects.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">Programming</span>
-          <h4>Leo Carter</h4>
-          <p style="color: var(--muted);">4.9 rating · 1,510 reviews</p>
-          <p>Python, Java, and full-stack project guidance with milestone planning.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Special focus on project architecture and debugging walkthroughs.</p>
-            <p>Can review code and suggest documentation improvements.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">Social Sciences</span>
-          <h4>Amina El-Sayed</h4>
-          <p style="color: var(--muted);">4.8 rating · 1,100 reviews</p>
-          <p>Qualitative research, interviews, and thematic analysis support.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Supports interview design, coding approaches, and writing up findings.</p>
-            <p>Great for dissertation and thesis support.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="profile-card card-expand" data-expandable>
-          <span class="badge">Design & Media</span>
-          <h4>Javier Diaz</h4>
-          <p style="color: var(--muted);">4.7 rating · 620 reviews</p>
-          <p>Presentations, storytelling, and visual narrative refinement.</p>
-          <span class="expand-hint">Click to view profile</span>
-          <div class="expand-content">
-            <p>Focus on narrative flow, layout systems, and visual consistency.</p>
-            <p>Includes coaching on delivering presentations confidently.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container cta">
-        <div>
-          <h2>Want a perfect match?</h2>
-          <p>Share your brief and we will introduce the right mentor within minutes.</p>
-        </div>
-        <div>
-          <a class="btn btn-ghost" href="reviews.html">See reviews</a>
-          <a class="btn btn-primary" href="index.html#brief">Start a brief</a>
+      <div class="container" id="experts-container">
+        <div id="experts-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem;">
+          <!-- Expert cards will be generated by JavaScript -->
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div>
-          <h4>AssignmentEase</h4>
-          <p style="color: var(--muted);">Clean, guided academic support for modern students.</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="about.html">About</a>
-          <a href="experts.html">Experts</a>
-          <a href="reviews.html">Reviews</a>
-          <a href="blog.html">Blog</a>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <a href="plagiarism.html">Plagiarism Checker</a>
-          <a href="blog.html">Writing tips</a>
-          <a href="about.html">Support</a>
+    <!-- Find Expert Form Section -->
+    <section style="background: var(--accent); padding: 4rem 0; color: white; margin: 4rem 0;">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; color: white;">Find It Difficult to Choose?</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2.5rem; color: rgba(255,255,255,0.95);">Tell us about your project, and we will pick the best experts for you.</p>
+        
+        <form id="find-expert-form" style="max-width: 1000px; margin: 0 auto;">
+          <!-- First Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <input type="text" id="form-project-title" placeholder="Project title" required style="padding: 0.9rem 1.2rem; border-radius: 8px; border: 2px solid white; font-size: 1rem; font-family: inherit;">
+            <input type="email" id="form-email" placeholder="Email" required style="padding: 0.9rem 1.2rem; border-radius: 8px; border: 2px solid white; font-size: 1rem; font-family: inherit;">
+          </div>
+
+          <!-- Second Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+            <select id="form-project-type" required style="padding: 0.9rem 1.2rem; border-radius: 8px; border: 2px solid white; font-size: 1rem; font-family: inherit; background: white; color: #333;">
+              <option value="">Project type</option>
+              <option value="Essay">Essay</option>
+              <option value="Admissions Essay">Admissions Essay</option>
+              <option value="PowerPoint Presentation">PowerPoint Presentation</option>
+              <option value="Paper">Paper</option>
+              <option value="Research Paper">Research Paper</option>
+              <option value="Assignment">Assignment</option>
+              <option value="Homework">Homework</option>
+              <option value="Speech">Speech</option>
+              <option value="Book Reviews">Book Reviews</option>
+              <option value="Coursework">Coursework</option>
+              <option value="Personal Statement">Personal Statement</option>
+              <option value="Ph.D Dissertation">Ph.D Dissertation</option>
+              <option value="Thesis">Thesis</option>
+              <option value="Case Study">Case Study</option>
+              <option value="Term Paper">Term Paper</option>
+              <option value="Lab Report">Lab Report</option>
+              <option value="Editing">Editing</option>
+              <option value="Proofreading">Proofreading</option>
+              <option value="Rewrite">Rewrite</option>
+            </select>
+
+            <select id="form-subject-area" required style="padding: 0.9rem 1.2rem; border-radius: 8px; border: 2px solid white; font-size: 1rem; font-family: inherit; background: white; color: #333;">
+              <option value="">Subject area</option>
+              <option value="Psychology">Psychology</option>
+              <option value="Literature">Literature</option>
+              <option value="Sociology">Sociology</option>
+              <option value="Math">Math</option>
+              <option value="CPM">CPM</option>
+              <option value="Statistics">Statistics</option>
+              <option value="Physics">Physics</option>
+              <option value="English">English</option>
+              <option value="Spanish">Spanish</option>
+              <option value="French">French</option>
+              <option value="Accounting">Accounting</option>
+              <option value="Economics">Economics</option>
+              <option value="Biology">Biology</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Programming">Programming</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Nursing">Nursing</option>
+              <option value="History">History</option>
+            </select>
+
+            <input type="date" id="form-deadline" required style="padding: 0.9rem 1.2rem; border-radius: 8px; border: 2px solid white; font-size: 1rem; font-family: inherit; background: white; color: #333;">
+          </div>
+
+          <!-- Button -->
+          <div style="text-align: center;">
+            <button type="submit" style="padding: 0.9rem 3rem; border-radius: 8px; border: none; background: #FFD700; color: #000; font-weight: 700; cursor: pointer; font-size: 1.05rem; font-family: inherit;">Find an Expert</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Form Results Section -->
+    <section class="section" id="form-results-section" style="display:none;">
+      <div class="container">
+        <h2 style="margin-bottom: 2rem;">Experts Matching Your Requirements</h2>
+        <div id="form-results-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem;">
+          <!-- Results will be populated here -->
         </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- Professional Experts Section -->
+    <section class="section" style="background: #f8f9fa; padding: 4rem 0;">
+      <div class="container">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <h2 style="text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem;">Professional Experts for Hire</h2>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin-bottom: 2rem;">
+            Being a student isn't all nights out and weekend parties. In fact, being a student is one of the most stressful occupations there is. Not only do you have to worry about coursework, exams, and essays, but you have to find some way to balance that with your other obligations.
+          </p>
+          <a href="#" style="color: var(--accent); font-weight: 600; text-decoration: none; font-size: 1rem;">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: #fff; padding: 4rem 0;">
+      <div class="container">
+        <h2 id="faq" style="text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 3rem;">FAQ</h2>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">How much does it cost to hire a professional expert?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">Our pricing varies based on project complexity, deadline, and expert expertise. Get a free quote tailored to your specific needs.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">Where to hire professional experts?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">AssignmentEase is your one-stop platform to connect with verified, professional experts across all academic fields and project types.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">Why hire a professional expert on AssignmentEase?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">We connect you with top-rated experts, ensure quality work, guarantee on-time delivery, and provide 24/7 customer support for your peace of mind.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">How do I hire a professional expert on AssignmentEase?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">Simply submit your project details, browse our expert professionals, select the perfect match, and get started. It takes just minutes to connect with your ideal expert.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">How many words a day do professional experts write?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">Most professional experts complete 1,000-3,000 words per day, depending on research requirements and project complexity. Rush deadlines may vary.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">How fast do professional experts work?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">Professional experts deliver quality work within your specified deadline. We offer expedited services for urgent projects without compromising on quality.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">Can I hire a professional expert within 24 hours?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">Yes! Our 24-hour express service connects you with available experts who can start immediately and deliver within your tight timeline.</p>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #000;">Will it be noticeable that my work is done by a professional expert?</h3>
+            <p style="color: var(--muted); line-height: 1.6;">No. Our experts follow your specific instructions, maintain your writing style, and ensure the work is indistinguishable from your own academic work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<footer style="background: #1a1a1a; color: #fff; padding: 3rem 0 2rem;">
+  <div class="container">
+    <!-- Contact & App Section -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333;">
+      <div>
+        <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">9391738281</p>
+        <p style="color: #aaa; margin-bottom: 0.5rem;">
+          <a href="mailto:assignments.taskease@gmail.com" style="color: #aaa; text-decoration: none;">assignments.taskease@gmail.com</a>
+        </p>
+        <a href="index.html#brief" style="display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; cursor: pointer;">Get Help</a>
+        
+        <!-- App Store Badges -->
+        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" style="text-decoration: none;">
+            <div style="background: #000; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #fff; display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.9rem; font-weight: 600;">
+              <span>📱</span> App Store
+            </div>
+          </a>
+          <a href="#" style="text-decoration: none;">
+            <div style="background: #000; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #fff; display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.9rem; font-weight: 600;">
+              <span>🎮</span> Google Play
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Contact Info -->
+      <div style="text-align: right;">
+        <h4 style="margin-bottom: 1rem; color: #fff;">AssignmentEase Services</h4>
+        <p style="color: #aaa; margin-bottom: 1rem; line-height: 1.6;">
+          Connecting students with verified academic experts across all subjects and project types.
+        </p>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+          <strong>Operating Hours:</strong><br>
+          24/7 Customer Support Available
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <a href="https://www.linkedin.com/company/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">in</a>
+          <a href="https://twitter.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">𝕏</a>
+          <a href="https://www.facebook.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">f</a>
+          <a href="https://www.instagram.com/assignmentease/" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-weight: bold;">📷</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer Grid - 5 Columns -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      
+      <!-- Column 1: AssignmentEase Products -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">AssignmentEase Products</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Place a Project</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Plagiarism Checker</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Become an Expert</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog & Resources</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Legal & Policies -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Legal & Policies</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">User Agreement</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Cookie Policy</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Data Security</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="plagiarism.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Honor Code</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Customer Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html#faq" style="color: #aaa; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Expert Ratings</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Project Types</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="index.html#brief" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Popular Services -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Popular Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Essay" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Essay Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Research%20Paper" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Research Papers</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Thesis" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Thesis & Dissertation</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="project.html?type=Coursework" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Coursework Help</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="subject.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Subject List</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Main Navigation -->
+      <div>
+        <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Main Navigation</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Home</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">About</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Experts</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Reviews</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HQ & Office Info -->
+    <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+      <h4 style="color: #fff; margin-bottom: 1rem;">AssignmentEase Headquarters</h4>
+      <p style="color: #aaa; margin-bottom: 1.5rem;">Serving students and professionals worldwide with expert academic support and guidance.</p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Global Support Centers</p>
+          <p style="color: #aaa; font-size: 0.9rem;">Supporting 24/7 customer service across multiple time zones</p>
+        </div>
+        <div>
+          <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Customer Support</p>
+          <p style="color: #aaa; font-size: 0.9rem;">
+            <strong>Phone:</strong> 9391738281<br>
+            <strong>Email:</strong> assignments.taskease@gmail.com<br>
+            <strong>Availability:</strong> 24/7
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Methods & Social -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333; align-items: center;">
+      <div>
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Secure Payment Methods</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 Visa</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">💳 MC</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🏧️ PayPal</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🏦 Bank</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🍎 Apple</div>
+          <div style="width: 50px; height: 35px; background: #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border: 1px solid #555;">🔵 G Pay</div>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Security & Trust</p>
+        <div style="display: inline-block; background: #27ae60; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">
+          🔒 DMCA Protected
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Info -->
+    <div style="text-align: center; padding-top: 2rem;">
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0.5rem;">
+        <strong>Cardholder's Responsibility:</strong> Know the laws concerning academic services in your country or state of domicile.
+      </p>
+      <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 1rem;">
+        © 2011–2026 AssignmentEase. All Rights Reserved | Trusted by thousands of students worldwide
+      </p>
+      <p style="color: #888; font-size: 0.85rem;">
+        AssignmentEase is a platform connecting students with verified academic experts. We prioritize academic integrity and compliance with all applicable laws.
+      </p>
+    </div>
+  </div>
+</footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+      // Expert data with Indian names and international names
+      const expertNames = [
+        'Prajay Kumar', 'Karthik Sharma', 'Ravi Teja', 'Bhuvan Singh', 
+        'Charly B', 'Marcy W', 'Bailey T', 'Kaylan D',
+        'Arjun Verma', 'Vikram Reddy', 'Anisha Patel', 'Rohan Gupta',
+        'Priya Nair', 'Aditya Malhotra', 'Divya Kapur', 'Sameer Khan'
+      ];
+
+      const projectTypes = [
+        'Essay', 'Admissions Essay', 'PowerPoint Presentation', 'Paper', 'Research Paper',
+        'Assignment', 'Homework', 'Speech', 'Book Reviews', 'Coursework', 'Personal Statement',
+        'Ph.D Dissertation', 'Thesis', 'Case Study', 'Term Paper', 'Lab Report',
+        'Editing', 'Proofreading', 'Rewrite'
+      ];
+
+      const subjects = [
+        'Psychology', 'Literature', 'Sociology', 'Math', 'CPM', 'Statistics',
+        'Physics', 'English', 'Spanish', 'French', 'Accounting', 'Economics',
+        'Biology', 'Marketing', 'Philosophy', 'Programming', 'Computer Science',
+        'Nursing', 'History'
+      ];
+
+      const degrees = ['Bachelor\'s Degree', 'Master\'s Degree', 'Ph.D'];
+
+      // Function to get random items from array
+      function getRandomItems(arr, count) {
+        const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      }
+
+      // Function to get random number
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // Generate expert data
+      function generateExperts() {
+        return expertNames.map((name, index) => ({
+          id: index + 1,
+          name: name,
+          rating: (getRandomNumber(45, 50) / 10).toFixed(1),
+          degree: degrees[getRandomNumber(0, degrees.length - 1)],
+          projects: getRandomNumber(2000, 20000),
+          reviews: getRandomNumber(800, 8000),
+          projectTypes: getRandomItems(projectTypes, getRandomNumber(2, 4)),
+          subjects: getRandomItems(subjects, getRandomNumber(2, 4)),
+          image: `assets/img/experts/expert${(index % 8) + 1}.jpg`,
+          isOnline: Math.random() > 0.3
+        }));
+      }
+
+      let allExperts = generateExperts();
+      
+      // Function to render expert cards
+      function renderExperts(experts = allExperts) {
+        const grid = document.getElementById('experts-grid');
+        grid.innerHTML = '';
+
+        if (experts.length === 0) {
+          grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 2rem;">No experts found matching your criteria.</p>';
+          return;
+        }
+
+        experts.forEach(expert => {
+          const card = document.createElement('div');
+          card.className = 'expert-card';
+          card.dataset.name = expert.name.toLowerCase();
+          card.dataset.types = expert.projectTypes.join('|').toLowerCase();
+          card.dataset.subjects = expert.subjects.join('|').toLowerCase();
+          
+          const subjectsHtml = expert.subjects.map(s => 
+            `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${s}</span>`
+          ).join('');
+
+          const projectsHtml = expert.projectTypes.map(p => 
+            `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${p}</span>`
+          ).join('');
+
+          card.innerHTML = `
+            <div style="background: #fff; border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; position: relative; height: 100%;">
+              <div style="position: relative; margin-bottom: 1rem;">
+                <img src="${expert.image}" alt="${expert.name}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; background: #f0f0f0;">
+                <div style="position: absolute; bottom: 0; right: 50%; transform: translateX(50%); background: ${expert.isOnline ? '#1abc9c' : '#999'}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+              </div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #000;">${expert.name}</h3>
+              <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="color: var(--accent); font-size: 1.1rem;">★</span>
+                <span style="font-weight: 600; color: #000;">${expert.rating}</span>
+                <span style="font-size: 0.9rem; color: var(--muted);">${expert.degree}</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+                <strong>${expert.projects.toLocaleString()} projects</strong><br>
+                <strong>${expert.reviews.toLocaleString()} reviews</strong>
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                ${expert.subjects.slice(0, 2).map(s => `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${s}</span>`).join('')}
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem 0;">
+                ${expert.projectTypes.slice(0, 2).map(p => `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${p}</span>`).join('')}
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      // Filter and search function
+      function filterExperts() {
+        const nameFilter = document.getElementById('expert-search-name').value.toLowerCase();
+        const typeFilter = document.getElementById('expert-filter-type').value.toLowerCase();
+        const subjectFilter = document.getElementById('expert-filter-subject').value.toLowerCase();
+
+        const filtered = allExperts.filter(expert => {
+          const matchName = expert.name.toLowerCase().includes(nameFilter);
+          const matchType = !typeFilter || expert.projectTypes.some(t => t.toLowerCase().includes(typeFilter));
+          const matchSubject = !subjectFilter || expert.subjects.some(s => s.toLowerCase().includes(subjectFilter));
+          return matchName && matchType && matchSubject;
+        });
+
+        renderExperts(filtered);
+      }
+
+      // Event listeners
+      document.getElementById('expert-search-btn').addEventListener('click', filterExperts);
+      document.getElementById('expert-search-name').addEventListener('keyup', filterExperts);
+      document.getElementById('expert-filter-type').addEventListener('change', filterExperts);
+      document.getElementById('expert-filter-subject').addEventListener('change', filterExperts);
+
+      // Form submission handler
+      document.getElementById('find-expert-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const projectTitle = document.getElementById('form-project-title').value;
+        const email = document.getElementById('form-email').value;
+        const projectType = document.getElementById('form-project-type').value;
+        const subjectArea = document.getElementById('form-subject-area').value;
+        const deadline = document.getElementById('form-deadline').value;
+
+        // First, try to find experts matching both type and subject
+        let matchingExperts = allExperts.filter(expert => {
+          const hasType = expert.projectTypes.some(t => t.toLowerCase().includes(projectType.toLowerCase()));
+          const hasSubject = expert.subjects.some(s => s.toLowerCase().includes(subjectArea.toLowerCase()));
+          return hasType && hasSubject;
+        });
+
+        // If no exact match, find experts with at least one match
+        if (matchingExperts.length === 0) {
+          matchingExperts = allExperts.filter(expert => {
+            const hasType = expert.projectTypes.some(t => t.toLowerCase().includes(projectType.toLowerCase()));
+            const hasSubject = expert.subjects.some(s => s.toLowerCase().includes(subjectArea.toLowerCase()));
+            return hasType || hasSubject;
+          });
+        }
+
+        // If still no match, return top experts
+        if (matchingExperts.length === 0) {
+          matchingExperts = allExperts.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)).slice(0, 8);
+        }
+
+        // Sort by rating and limit to 8 results
+        matchingExperts = matchingExperts.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)).slice(0, 8);
+
+        // Display results
+        displayFormResults(matchingExperts);
+
+        // Scroll to results
+        setTimeout(() => {
+          document.getElementById('form-results-section').scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
+
+      // Display form results
+      function displayFormResults(experts) {
+        const resultsSection = document.getElementById('form-results-section');
+        const resultsGrid = document.getElementById('form-results-grid');
+        
+        resultsSection.style.display = 'block';
+        resultsGrid.innerHTML = '';
+
+        experts.forEach(expert => {
+          const card = document.createElement('div');
+          card.innerHTML = `
+            <div style="background: #fff; border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; position: relative; height: 100%;">
+              <div style="position: relative; margin-bottom: 1rem;">
+                <img src="${expert.image}" alt="${expert.name}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; background: #f0f0f0;">
+                <div style="position: absolute; bottom: 0; right: 50%; transform: translateX(50%); background: ${expert.isOnline ? '#1abc9c' : '#999'}; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+              </div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #000;">${expert.name}</h3>
+              <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="color: var(--accent); font-size: 1.1rem;">★</span>
+                <span style="font-weight: 600; color: #000;">${expert.rating}</span>
+                <span style="font-size: 0.9rem; color: var(--muted);">${expert.degree}</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0;">
+                <strong>${expert.projects.toLocaleString()} projects</strong><br>
+                <strong>${expert.reviews.toLocaleString()} reviews</strong>
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+                ${expert.subjects.slice(0, 2).map(s => `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${s}</span>`).join('')}
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem 0;">
+                ${expert.projectTypes.slice(0, 2).map(p => `<span style="background: #f0f0f0; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${p}</span>`).join('')}
+              </div>
+            </div>
+          `;
+          resultsGrid.appendChild(card);
+        });
+      }
+
+      // Initial render
+      renderExperts();
+    </script>
   </body>
 </html>
