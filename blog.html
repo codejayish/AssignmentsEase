@@ -86,87 +86,325 @@
       </div>
     </header>
 
-    <section class="page-hero">
+    <!-- Page Hero Section -->
+    <section style="padding: 4rem 0 3rem; background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft-alt) 100%);">
       <div class="container">
-        <h1>AssignmentEase Blog</h1>
-        <p style="color: var(--muted); max-width: 680px;">Tips, templates, and mentor insights to keep your projects on track.</p>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin: 0 0 1rem; color: var(--accent-dark);">AssignmentEase Blog</h1>
+        <p style="color: var(--muted); max-width: 680px; font-size: 1.1rem;">Expert insights, writing tips, and strategies to help you excel in your academic projects.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container page-grid">
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">Writing</span>
-          <h4>How to structure a high-impact thesis statement</h4>
-          <p style="color: var(--muted);">A quick framework for clarity, focus, and evidence alignment.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Focus on one main claim, align with evidence, and preview your key points.</p>
+    <!-- Featured Article Section -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: var(--surface); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);">
+          <!-- Image Side -->
+          <div style="background: linear-gradient(120deg, #2b3990 0%, #2563eb 100%); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="text-align: center;">
+              <div style="width: 280px; height: 280px; background: var(--accent-soft); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);">
+                <span style="font-size: 6rem;">📚</span>
+              </div>
+            </div>
           </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">Research</span>
-          <h4>Choosing credible sources in under 30 minutes</h4>
-          <p style="color: var(--muted);">A practical checklist for fast, reliable research.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Check author credentials, publication dates, and citations before you use sources.</p>
+          <!-- Content Side -->
+          <div style="padding: 3rem;">
+            <a href="#" style="display: inline-block; background: var(--accent-soft); color: var(--accent-dark); padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; text-decoration: none;">Student Life</a>
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: var(--ink); margin: 0 0 1.2rem; line-height: 1.2;">Breaking the Code: How AI Cheating is Transforming College Campuses</h2>
+            <p style="color: var(--muted); font-size: 1.05rem; margin: 0 0 1.5rem; line-height: 1.7;">Artificial intelligence (AI) has come a pretty long way from its earliest iterations. Large language models (LLMs) have "learned" a lot about what works and what doesn't in academia. However, this has become a problem for many college lecturers and teaching assistants. Is using AI cheating?</p>
+            <a href="#" class="btn btn-primary" style="display: inline-block;">Read Full Article</a>
           </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">Productivity</span>
-          <h4>Planning a semester project with milestone sprints</h4>
-          <p style="color: var(--muted);">Break big tasks into 3-4 manageable phases.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Define milestones for research, draft, revision, and final polish.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">Presentations</span>
-          <h4>Slide design tips for non-designers</h4>
-          <p style="color: var(--muted);">Build clean, readable decks with minimal effort.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Use consistent spacing, clear headings, and a strong visual hierarchy.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">STEM</span>
-          <h4>Explaining your math solution clearly</h4>
-          <p style="color: var(--muted);">Write explanations that graders can follow instantly.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Show each step, define variables, and state the conclusion clearly.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
-        </div>
-        <div class="blog-card card-expand" data-expandable>
-          <span class="badge">Editing</span>
-          <h4>Polishing a final draft without over-editing</h4>
-          <p style="color: var(--muted);">Keep your voice while tightening structure.</p>
-          <span class="expand-hint">Click to expand</span>
-          <div class="expand-content">
-            <p>Check sentence flow, remove repeated ideas, and preserve your tone.</p>
-          </div>
-          <button class="close-btn" type="button" data-close-card>Close</button>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container cta">
-        <div>
-          <h2>Want a custom writing plan?</h2>
-          <p>Share your topic and we will suggest a focused study plan.</p>
+    <!-- Blog Categories Navigation -->
+    <section style="padding: 2rem 0; border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="#" style="color: var(--ink); font-weight: 600; text-decoration: none; padding-bottom: 0.5rem; border-bottom: 3px solid var(--accent);">All</a>
+          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Student Life</a>
+          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Writing Tips</a>
+          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Admission</a>
+          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Science</a>
+          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">StudyTech</a>
         </div>
-        <div>
-          <a class="btn btn-ghost" href="experts.html">Meet experts</a>
-          <a class="btn btn-primary" href="index.html#brief">Start a brief</a>
+      </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 2.5rem; text-align: center;">Latest News</h2>
+        
+        <!-- Main Featured News Grid -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2.5rem;">
+          
+          <!-- Featured News 1 - Large (2x1) -->
+          <div style="grid-column: span 2; grid-row: span 1;">
+            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="position: relative; height: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 200px; background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.08) saturate(1.04);">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1200&h=800&fit=crop" alt="AI in Academia" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(37,99,235,0.25));"></div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
+                  <span style="font-size: 2rem;">🤖</span>
+                </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">How AI is Impacting Academic Writing</h3>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Technology & Academia</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured News 2 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&h=800&fit=crop" alt="Writing Mistakes" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(240,244,255,0.08) 0%, rgba(232,238,255,0.08) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Top Writing Mistakes Students Make</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured News 3 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&h=800&fit=crop" alt="MLA vs APA" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,245,255,0.08) 0%, rgba(238,242,255,0.08) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">MLA vs APA: Complete Guide</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Formatting Guide</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured News 4 - Large (2x1) -->
+          <div style="grid-column: span 2; grid-row: span 1;">
+            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="position: relative; height: 100%; background: linear-gradient(135deg, #059669 0%, #047857 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 200px; background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.08) saturate(1.04);">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200&h=800&fit=crop" alt="Research Methods" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(5,150,105,0.25));"></div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
+                  <span style="font-size: 2rem;">🔍</span>
+                </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Effective Research Methods for Academia</h3>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Research Tips</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured News 5 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&h=800&fit=crop" alt="Critical Analysis" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,244,232,0.08) 0%, rgba(255,232,204,0.08) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Mastering Critical Analysis</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Essay Writing</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured News 6 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=800&fit=crop" alt="Time Management" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,232,255,0.08) 0%, rgba(232,220,255,0.08) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Time Management for Writers</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Student Tips</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Additional News Articles -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+          <!-- News Card 1 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Plagiarism" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);"> 
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,234,167,0.12) 0%, rgba(255,203,92,0.12) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Understanding Plagiarism & Academic Integrity</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Learn proper citation and avoid plagiarism.</p>
+            </div>
+          </a>
+
+          <!-- News Card 2 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+              <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop" alt="Digital Tools" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);">
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(162,155,254,0.12) 0%, rgba(116,185,255,0.12) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Digital Tools for Research & Writing</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Best software and apps for student writers.</p>
+            </div>
+          </a>
+
+          <!-- News Card 3 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #ffd89b 0%, #ff6b6b 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+              <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&h=400&fit=crop" alt="Interview Essays" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);">
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,216,155,0.12) 0%, rgba(255,107,107,0.12) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Excelling in Interview Essays</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Master the art of reflective writing.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Stories Section -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 2.5rem; text-align: center;">Trending Stories</h2>
+        
+        <!-- Main Featured Articles Grid -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2.5rem;">
+          
+          <!-- Featured Article 1 - Large (2x2) -->
+          <div style="grid-column: span 2; grid-row: span 1;">
+            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; transform: translateY(0);">
+              <div style="position: relative; height: 100%; background: linear-gradient(135deg, #5a4a6b 0%, #3d2b4d 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 220px; background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(90,74,107,0.18));"></div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
+                  <span style="font-size: 2rem;">👨‍👩‍👧</span>
+                </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Comprehensive Family Bonding Essay</h3>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Writing Tips</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured Article 2 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(240,244,255,0.12) 0%, rgba(232,238,255,0.12) 100%);"></div>
+                </div>
+                <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Self-Introduction</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Admission</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured Article 3 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,245,255,0.12) 0%, rgba(238,242,255,0.12) 100%);"></div>
+                </div>
+                <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Profile Essay</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured Article 4 - Large -->
+          <div style="grid-column: span 2; grid-row: span 1;">
+            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="position: relative; height: 100%; background: linear-gradient(135deg, #1a5f3f 0%, #2d8659 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 220px; background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(26,95,63,0.2));"></div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
+                  <span style="font-size: 2rem;">🌿</span>
+                </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Botany: Study Guide & Tips</h3>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Science</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured Article 5 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); height: 120px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&h=800&fit=crop" alt="Essay Types" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,244,232,0.04) 0%, rgba(255,232,204,0.04) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Essay Types Guide</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Featured Article 6 -->
+          <div style="grid-column: span 1;">
+            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+              <div style="background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=450&fit=crop'); background-size: cover; background-position: center;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,232,255,0.28) 0%, rgba(232,220,255,0.28) 100%);"></div>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--line);">
+                <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Study Tech Stack</h4>
+                <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">StudyTech</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Additional Trending Articles -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+          <!-- Article Card 1 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-150784272343-583f20270319?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,234,167,0.28) 0%, rgba(255,203,92,0.28) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Essay Structure</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Master essay organization.</p>
+            </div>
+          </a>
+
+          <!-- Article Card 2 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(162,155,254,0.28) 0%, rgba(116,185,255,0.28) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Research Papers</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Write impactful papers.</p>
+            </div>
+          </a>
+
+          <!-- Article Card 3 -->
+          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+            <div style="height: 160px; background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
+              <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(250,177,160,0.28) 0%, rgba(255,118,117,0.28) 100%);"></div>
+            </div>
+            <div style="padding: 1.2rem;">
+              <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Success Tips</h4>
+              <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Excel in academics.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); border-radius: 22px; padding: 3.5rem; text-align: center; color: white;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin: 0 0 1rem;">Need Help With Your Project?</h2>
+          <p style="font-size: 1.1rem; margin: 0 0 2rem; opacity: 0.95;">Connect with expert writers and get professional academic support from our verified team.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="experts.html" class="btn" style="background: white; color: var(--accent-dark); font-weight: 600; padding: 0.9rem 2rem; border-radius: 999px;">Browse Experts</a>
+            <a href="index.html#brief" class="btn" style="background: rgba(255, 255, 255, 0.2); color: white; font-weight: 600; padding: 0.9rem 2rem; border-radius: 999px; border: 2px solid white;">Get a Quote</a>
+          </div>
         </div>
       </div>
     </section>
@@ -338,5 +576,6 @@
 </footer>
 
     <script src="assets/js/main.js"></script>
+
   </body>
 </html>
