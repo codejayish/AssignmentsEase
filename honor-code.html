@@ -146,51 +146,15 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #1a1a1a; color: #fff; padding: 3rem 0 2rem; margin-top: 4rem;">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333;">
-          <div>
-            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">9391738281</p>
-            <p style="color: #aaa; margin-bottom: 0.5rem;">
-              <a href="mailto:assignments.taskease@gmail.com" style="color: #aaa; text-decoration: none;">assignments.taskease@gmail.com</a>
-            </p>
-            <a href="index.html#brief" style="display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; cursor: pointer;">Get Help</a>
-          </div>
-          <div style="text-align: right;">
-            <h4 style="margin-bottom: 1rem; color: #fff;">AssignmentEase Services</h4>
-            <p style="color: #aaa; margin-bottom: 1rem; line-height: 1.6;">Connecting students with verified academic experts across all subjects.</p>
-            <p style="color: #aaa; font-size: 0.9rem;">
-              <strong>Operating Hours:</strong> 24/7 Customer Support Available
-            </p>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-          <div>
-            <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Legal & Policies</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 0.75rem;"><a href="privacy-policy.html" style="color: #aaa; text-decoration: none;">Privacy Policy</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="user-agreement.html" style="color: #aaa; text-decoration: none;">User Agreement</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="cookie-policy.html" style="color: #aaa; text-decoration: none;">Cookie Policy</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="data-security.html" style="color: #aaa; text-decoration: none;">Data Security</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="honor-code.html" style="color: #aaa; text-decoration: none;">Honor Code</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 style="margin-bottom: 1.5rem; color: #fff; font-size: 1rem;">Main Navigation</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: #aaa; text-decoration: none;">Home</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #aaa; text-decoration: none;">About</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="experts.html" style="color: #aaa; text-decoration: none;">Experts</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="reviews.html" style="color: #aaa; text-decoration: none;">Reviews</a></li>
-              <li style="margin-bottom: 0.75rem;"><a href="blog.html" style="color: #aaa; text-decoration: none;">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #333;">
-          <p style="color: #aaa; font-size: 0.9rem;">&copy; 2024-2026 AssignmentEase. All rights reserved. | <a href="privacy-policy.html" style="color: #2563eb; text-decoration: none;">Privacy</a> | <a href="user-agreement.html" style="color: #2563eb; text-decoration: none;">Terms</a></p>
-        </div>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch("footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
 
     <script src="assets/js/main.js"></script>
   </body>
