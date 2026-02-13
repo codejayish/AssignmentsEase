@@ -99,37 +99,78 @@
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: var(--surface); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);">
           <!-- Image Side -->
-          <div style="background: linear-gradient(120deg, #2b3990 0%, #2563eb 100%); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-            <div style="text-align: center;">
-              <div style="width: 280px; height: 280px; background: var(--accent-soft); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);">
-                <span style="font-size: 6rem;">📚</span>
-              </div>
-            </div>
+          <div style="background-image: url('assets/img/blog1.png'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; padding: 2rem; border-radius: 16px;">
           </div>
           <!-- Content Side -->
           <div style="padding: 3rem;">
             <a href="#" style="display: inline-block; background: var(--accent-soft); color: var(--accent-dark); padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; text-decoration: none;">Student Life</a>
             <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: var(--ink); margin: 0 0 1.2rem; line-height: 1.2;">Breaking the Code: How AI Cheating is Transforming College Campuses</h2>
             <p style="color: var(--muted); font-size: 1.05rem; margin: 0 0 1.5rem; line-height: 1.7;">Artificial intelligence (AI) has come a pretty long way from its earliest iterations. Large language models (LLMs) have "learned" a lot about what works and what doesn't in academia. However, this has become a problem for many college lecturers and teaching assistants. Is using AI cheating?</p>
-            <a href="#" class="btn btn-primary" style="display: inline-block;">Read Full Article</a>
+            <button onclick="openArticleModal()" class="btn btn-primary" style="display: inline-block; cursor: pointer; border: none; padding: 0.9rem 2rem; border-radius: 8px;">Read Full Article</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Blog Categories Navigation -->
-    <section style="padding: 2rem 0; border-bottom: 1px solid var(--line);">
-      <div class="container">
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-          <a href="#" style="color: var(--ink); font-weight: 600; text-decoration: none; padding-bottom: 0.5rem; border-bottom: 3px solid var(--accent);">All</a>
-          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Student Life</a>
-          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Writing Tips</a>
-          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Admission</a>
-          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">Science</a>
-          <a href="#" style="color: var(--muted); font-weight: 500; text-decoration: none; padding-bottom: 0.5rem; transition: color 0.2s;">StudyTech</a>
+    <!-- Article Modal -->
+    <div id="articleModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <!-- Modal Header -->
+        <div style="position: relative; height: 300px; background-image: url('assets/img/blog1.png'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; flex-shrink: 0;">
+          <button onclick="closeArticleModal()" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+          <button onclick="closeArticleModal()" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        
+        <!-- Modal Content -->
+        <div style="padding: 3rem; max-height: calc(70vh - 300px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Breaking the Code: How AI Cheating is Transforming College Campuses</h2>
+          
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;">
+            <span>📅 February 10, 2026</span>
+            <span>⏱️ 8 min read</span>
+          </div>
+
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Introduction</strong></p>
+            <p>Artificial intelligence (AI) has come a pretty long way from its earliest iterations. Large language models (LLMs) have "learned" a lot about what works and what doesn't in academia. However, this has become a problem for many college lecturers and teaching assistants. Is using AI cheating?</p>
+
+            <p style="margin-top: 2rem;"><strong>The Rise of AI in Student Submissions</strong></p>
+            <p>In recent years, the advent of sophisticated AI tools like ChatGPT, Gemini, and Claude has revolutionized how students approach their assignments. These tools can generate essays, solve problems, and provide explanations with remarkable accuracy. While some argue these are useful study aids, others contend they represent a fundamental threat to academic integrity.</p>
+
+            <p style="margin-top: 2rem;"><strong>Understanding Academic Integrity</strong></p>
+            <p>Academic integrity is built on the principle that students' work should be their own. When students use AI to generate substantial portions of their assignments without proper disclosure or approval, they violate this fundamental principle. The question becomes: at what point does using AI as a tool cross the line into cheating?</p>
+
+            <p style="margin-top: 2rem;"><strong>Impact on Learning Outcomes</strong></p>
+            <p>There's growing concern that excessive reliance on AI might hinder genuine learning. When students bypass the cognitive struggle of problem-solving and writing, they may miss crucial opportunities for intellectual development. However, proponents argue that AI can democratize education by making quality assistance accessible to all students, regardless of background or resources.</p>
+
+            <p style="margin-top: 2rem;"><strong>What Universities Are Doing</strong></p>
+            <p>Institutions worldwide are grappling with this challenge. Some have banned AI tools entirely, while others are adapting their curricula to incorporate AI literacy. Progressive approaches focus on teaching students how to use AI ethically and responsibly, recognizing that AI literacy will be essential in future workplaces.</p>
+
+            <p style="margin-top: 2rem;"><strong>Practical Solutions for Students</strong></p>
+            <p>Students can navigate this landscape by being transparent about their use of AI tools, understanding institutional policies, using AI as a brainstorming partner rather than a replacement, and prioritizing genuine learning over getting perfect grades. Always consult your syllabus and ask professors about acceptable AI use.</p>
+
+            <p style="margin-top: 2rem;"><strong>Conclusion</strong></p>
+            <p>The integration of AI in academia is inevitable. Rather than viewing it solely as a threat, we can see it as an opportunity to redefine what academic excellence means in the 21st century. The key is finding a balance between leveraging AI's potential while maintaining the integrity that makes education valuable.</p>
+          </div>
+
+          <!-- Author Info -->
+          <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); display: flex; gap: 1.5rem; align-items: center;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">AE</div>
+            <div>
+              <p style="margin: 0; color: var(--ink); font-weight: 600;">AssignmentEase Team</p>
+              <p style="margin: 0.3rem 0 0; color: var(--muted); font-size: 0.9rem;">Expert insights on academic excellence and student success</p>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;">
+            <button onclick="closeArticleModal()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+
+
 
     <!-- Latest News Section -->
     <section style="padding: 4rem 0;">
@@ -141,7 +182,7 @@
           
           <!-- Featured News 1 - Large (2x1) -->
           <div style="grid-column: span 2; grid-row: span 1;">
-            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('ai-writing')" style="display: block; height: 100%; width: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="position: relative; height: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 200px; background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.08) saturate(1.04);">
                 <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1200&h=800&fit=crop" alt="AI in Academia" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(37,99,235,0.25));"></div>
@@ -151,12 +192,12 @@
                   <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">How AI is Impacting Academic Writing</h3>
                 <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Technology & Academia</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured News 2 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('writing-mistakes')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200&h=800&fit=crop" alt="Writing Mistakes" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(240,244,255,0.08) 0%, rgba(232,238,255,0.08) 100%);"></div>
@@ -165,12 +206,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Top Writing Mistakes Students Make</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured News 3 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('mla-apa')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&h=800&fit=crop" alt="MLA vs APA" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,245,255,0.08) 0%, rgba(238,242,255,0.08) 100%);"></div>
@@ -179,12 +220,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">MLA vs APA: Complete Guide</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Formatting Guide</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured News 4 - Large (2x1) -->
           <div style="grid-column: span 2; grid-row: span 1;">
-            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('research-methods')" style="display: block; height: 100%; width: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="position: relative; height: 100%; background: linear-gradient(135deg, #059669 0%, #047857 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 200px; background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.08) saturate(1.04);">
                 <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200&h=800&fit=crop" alt="Research Methods" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(5,150,105,0.25));"></div>
@@ -194,12 +235,12 @@
                   <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Effective Research Methods for Academia</h3>
                 <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Research Tips</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured News 5 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('critical-analysis')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&h=800&fit=crop" alt="Critical Analysis" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,244,232,0.08) 0%, rgba(255,232,204,0.08) 100%);"></div>
@@ -208,12 +249,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Mastering Critical Analysis</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Essay Writing</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured News 6 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openNewsModal('time-management')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); height: 135px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=800&fit=crop" alt="Time Management" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,232,255,0.08) 0%, rgba(232,220,255,0.08) 100%);"></div>
@@ -222,14 +263,14 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Time Management for Writers</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Student Tips</p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
 
         <!-- Additional News Articles -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
           <!-- News Card 1 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openNewsModal('plagiarism')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
               <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Plagiarism" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);"> 
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,234,167,0.12) 0%, rgba(255,203,92,0.12) 100%);"></div>
@@ -238,10 +279,10 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Understanding Plagiarism & Academic Integrity</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Learn proper citation and avoid plagiarism.</p>
             </div>
-          </a>
+          </button>
 
           <!-- News Card 2 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openNewsModal('digital-tools')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
               <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop" alt="Digital Tools" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);">
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(162,155,254,0.12) 0%, rgba(116,185,255,0.12) 100%);"></div>
@@ -250,10 +291,10 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Digital Tools for Research & Writing</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Best software and apps for student writers.</p>
             </div>
-          </a>
+          </button>
 
           <!-- News Card 3 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openNewsModal('interview-essays')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #ffd89b 0%, #ff6b6b 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
               <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&h=400&fit=crop" alt="Interview Essays" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.1) saturate(1.05);">
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,216,155,0.12) 0%, rgba(255,107,107,0.12) 100%);"></div>
@@ -262,7 +303,7 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Excelling in Interview Essays</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Master the art of reflective writing.</p>
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -277,7 +318,7 @@
           
           <!-- Featured Article 1 - Large (2x2) -->
           <div style="grid-column: span 2; grid-row: span 1;">
-            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; transform: translateY(0);">
+            <button onclick="openTrendingModal('family-bonding')" style="display: block; height: 100%; width: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="position: relative; height: 100%; background: linear-gradient(135deg, #5a4a6b 0%, #3d2b4d 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 220px; background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(90,74,107,0.18));"></div>
                   <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
@@ -286,12 +327,12 @@
                   <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Comprehensive Family Bonding Essay</h3>
                 <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Writing Tips</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured Article 2 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openTrendingModal('self-intro')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(240,244,255,0.12) 0%, rgba(232,238,255,0.12) 100%);"></div>
                 </div>
@@ -299,12 +340,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Self-Introduction</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Admission</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured Article 3 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openTrendingModal('profile-essay')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,245,255,0.12) 0%, rgba(238,242,255,0.12) 100%);"></div>
                 </div>
@@ -312,12 +353,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Profile Essay</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured Article 4 - Large -->
           <div style="grid-column: span 2; grid-row: span 1;">
-            <a href="#" style="display: block; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openTrendingModal('botany')" style="display: block; height: 100%; width: 100%; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="position: relative; height: 100%; background: linear-gradient(135deg, #1a5f3f 0%, #2d8659 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: white; min-height: 220px; background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(26,95,63,0.2));"></div>
                   <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; position: relative; z-index: 1;">
@@ -326,12 +367,12 @@
                   <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.6rem; line-height: 1.3; position: relative; z-index: 1;">Botany: Study Guide & Tips</h3>
                 <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0; position: relative; z-index: 1;">Science</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured Article 5 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openTrendingModal('essay-types')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); height: 120px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200&h=800&fit=crop" alt="Essay Types" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; filter:brightness(1.08) saturate(1.04);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,244,232,0.04) 0%, rgba(255,232,204,0.04) 100%);"></div>
@@ -340,12 +381,12 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Essay Types Guide</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">Writing Tips</p>
               </div>
-            </a>
+            </button>
           </div>
 
           <!-- Featured Article 6 -->
           <div style="grid-column: span 1;">
-            <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s;">
+            <button onclick="openTrendingModal('study-tech')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12); transition: transform 0.3s, box-shadow 0.3s; width: 100%; border: none; cursor: pointer; padding: 0; background: none;">
               <div style="background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=450&fit=crop'); background-size: cover; background-position: center;">
                 <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,232,255,0.28) 0%, rgba(232,220,255,0.28) 100%);"></div>
               </div>
@@ -353,14 +394,14 @@
                 <h4 style="color: var(--ink); margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 700; line-height: 1.3;">Study Tech Stack</h4>
                 <p style="color: var(--muted); font-size: 0.85rem; margin: 0;">StudyTech</p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
 
         <!-- Additional Trending Articles -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
           <!-- Article Card 1 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openTrendingModal('essay-structure')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-150784272343-583f20270319?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,234,167,0.28) 0%, rgba(255,203,92,0.28) 100%);"></div>
             </div>
@@ -368,10 +409,10 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Essay Structure</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Master essay organization.</p>
             </div>
-          </a>
+          </button>
 
           <!-- Article Card 2 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openTrendingModal('research-paper')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(162,155,254,0.28) 0%, rgba(116,185,255,0.28) 100%);"></div>
             </div>
@@ -379,10 +420,10 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Research Papers</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Write impactful papers.</p>
             </div>
-          </a>
+          </button>
 
           <!-- Article Card 3 -->
-          <a href="#" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface);">
+          <button onclick="openTrendingModal('success-tips')" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background: var(--surface); border: none; cursor: pointer; padding: 0; width: 100%;">
             <div style="height: 160px; background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300&h=160&fit=crop'); background-size: cover; background-position: center;">
               <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(250,177,160,0.28) 0%, rgba(255,118,117,0.28) 100%);"></div>
             </div>
@@ -390,7 +431,7 @@
               <h4 style="color: var(--ink); margin: 0 0 0.5rem; font-size: 0.95rem; font-weight: 700;">Success Tips</h4>
               <p style="color: var(--muted); font-size: 0.85rem; margin: 0; line-height: 1.4;">Excel in academics.</p>
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -408,6 +449,44 @@
         </div>
       </div>
     </section>
+
+    <!-- News Modals -->
+    <div id="newsModal-ai-writing" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); flex-shrink: 0;"><button onclick="closeNewsModal('ai-writing')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">How AI is Impacting Academic Writing</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 6 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>AI and Modern Academia</strong></p><p>Artificial intelligence tools are fundamentally changing how students approach academic writing. From brainstorming to editing, AI can assist at every stage of the writing process.</p><p style="margin-top: 1.5rem;"><strong>Benefits of AI in Writing</strong></p><p>Grammar checking, style suggestions, plagiarism detection, and content organization are becoming easier with AI assistance. These tools help students write more efficiently and produce better-quality work.</p><p style="margin-top: 1.5rem;"><strong>Challenges and Concerns</strong></p><p>While AI offers tremendous benefits, institutions must establish clear guidelines on how and when AI tools can be used. Transparency and proper attribution are essential.</p><p style="margin-top: 1.5rem;"><strong>Best Practices</strong></p><p>Use AI as a tool to enhance your writing, not replace it. Always review AI suggestions critically and maintain your unique voice throughout your work.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('ai-writing')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-writing-mistakes" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); flex-shrink: 0;"><button onclick="closeNewsModal('writing-mistakes')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Top Writing Mistakes Students Make</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 7 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Common Writing Errors</strong></p><p>Students often struggle with clarity, organization, and grammar. These mistakes can significantly impact your grades and academic credibility.</p><p style="margin-top: 1.5rem;"><strong>Grammar and Punctuation</strong></p><p>Incorrect comma usage, run-on sentences, and subject-verb disagreement are frequent issues. Proofreading carefully and using grammar tools can help eliminate these errors.</p><p style="margin-top: 1.5rem;"><strong>Structure and Organization</strong></p><p>Lacking a clear thesis statement, poor paragraph transitions, and weak conclusions are structural problems that confuse readers. Plan your essay structure before writing.</p><p style="margin-top: 1.5rem;"><strong>Citation Mistakes</strong></p><p>Improper citations can lead to plagiarism accusations. Always cite your sources correctly using the required format (MLA, APA, Chicago, etc.).</p><p style="margin-top: 1.5rem;"><strong>How to Improve</strong></p><p>Read your work aloud, seek peer feedback, use editing tools, and revise multiple times. Professional editors can also provide valuable guidance.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('writing-mistakes')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-mla-apa" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); flex-shrink: 0;"><button onclick="closeNewsModal('mla-apa')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">MLA vs APA: Complete Guide</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Understanding Citation Styles</strong></p><p>MLA and APA are the two most common citation formats in academia. Each has specific rules for in-text citations and Works Cited/References pages.</p><p style="margin-top: 1.5rem;"><strong>MLA Format</strong></p><p>Modern Language Association (MLA) format is commonly used in humanities. It employs (Author Page#) for in-text citations and requires a Works Cited page.</p><p style="margin-top: 1.5rem;"><strong>APA Format</strong></p><p>American Psychological Association (APA) format is prevalent in social sciences. It uses (Author, Year) for in-text citations and requires a References page with specific formatting rules.</p><p style="margin-top: 1.5rem;"><strong>Key Differences</strong></p><p>APA requires author-date citations, while MLA uses author-page citations. Reference formatting, capitalization, and punctuation also differ significantly between the two styles.</p><p style="margin-top: 1.5rem;"><strong>Tips for Citation Success</strong></p><p>Always check your professor's preference before starting. Use citation generators like EasyBib or Citationmachine for accuracy, but always review them manually.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('mla-apa')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-research-methods" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #059669 0%, #047857 100%); flex-shrink: 0;"><button onclick="closeNewsModal('research-methods')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Effective Research Methods for Academia</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 9 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Foundation of Quality Research</strong></p><p>Proper research methodology ensures that your findings are credible and your conclusions are well-supported. Academic research requires systematic approaches and careful documentation.</p><p style="margin-top: 1.5rem;"><strong>Primary vs Secondary Sources</strong></p><p>Primary sources are original research or firsthand accounts, while secondary sources analyze or interpret primary sources. Use both types for comprehensive research.</p><p style="margin-top: 1.5rem;"><strong>Evaluating Sources</strong></p><p>Check the credibility of sources by examining the author's credentials, publication date, and whether the information is peer-reviewed. University databases provide vetted academic sources.</p><p style="margin-top: 1.5rem;"><strong>Research Tools and Databases</strong></p><p>Library databases, Google Scholar, JSTOR, and ResearchGate are excellent resources for finding scholarly articles. Learn to use advanced search filters for more targeted results.</p><p style="margin-top: 1.5rem;"><strong>Note-Taking Strategies</strong></p><p>Maintain detailed notes with proper citations from the beginning. Use annotation tools to highlight key points and track direct quotes versus paraphrased information.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('research-methods')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-critical-analysis" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); flex-shrink: 0;"><button onclick="closeNewsModal('critical-analysis')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Mastering Critical Analysis</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 7 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>What is Critical Analysis?</strong></p><p>Critical analysis involves examining information carefully, evaluating arguments, and forming reasoned judgments. It goes beyond summarization to offer deeper insights and interpretations.</p><p style="margin-top: 1.5rem;"><strong>Key Components</strong></p><p>Identify the author's thesis, examine the evidence provided, evaluate the strength of arguments, consider counterarguments, and determine the overall validity of the claims.</p><p style="margin-top: 1.5rem;"><strong>Asking the Right Questions</strong></p><p>Ask yourself: What assumptions does the author make? Is the evidence sufficient? Are there logical fallacies? What alternative perspectives exist? These questions develop analytical thinking.</p><p style="margin-top: 1.5rem;"><strong>Building Your Critical Essay</strong></p><p>Start with a clear thesis that critiques the original work. Use specific examples and evidence to support your analysis. Avoid mere opinion; back every claim with logical reasoning.</p><p style="margin-top: 1.5rem;"><strong>Common Mistakes to Avoid</strong></p><p>Don't summarize instead of analyzing. Don't dismiss arguments without proper evaluation. Always present counterarguments and explain why you find certain points more compelling.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('critical-analysis')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-time-management" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); flex-shrink: 0;"><button onclick="closeNewsModal('time-management')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Time Management for Writers</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 6 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>The Writing Challenge</strong></p><p>Many students struggle with procrastination and poor time management. Effective time management is crucial for producing quality written work without last-minute stress.</p><p style="margin-top: 1.5rem;"><strong>Breaking Down Your Project</strong></p><p>Divide your writing project into manageable stages: research, outlining, drafting, revising, and proofreading. Allocate specific time to each stage and set realistic deadlines.</p><p style="margin-top: 1.5rem;"><strong>The Pomodoro Technique</strong></p><p>Work in focused 25-minute intervals followed by short breaks. This technique increases productivity and prevents burnout while maintaining quality.</p><p style="margin-top: 1.5rem;"><strong>Create a Writing Schedule</strong></p><p>Plan your writing calendar weeks in advance. Start research early, give yourself buffer time for revisions, and never leave writing for the last day.</p><p style="margin-top: 1.5rem;"><strong>Minimize Distractions</strong></p><p>Find a quiet workspace, silence notifications, and use website blockers to eliminate digital distractions during writing sessions. Your focused time is valuable.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('time-management')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-plagiarism" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); flex-shrink: 0;"><button onclick="closeNewsModal('plagiarism')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Understanding Plagiarism & Academic Integrity</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>What is Plagiarism?</strong></p><p>Plagiarism is presenting someone else's work, ideas, or words as your own without proper attribution. This includes copying text directly, paraphrasing without credit, and using sources without citation.</p><p style="margin-top: 1.5rem;"><strong>Types of Plagiarism</strong></p><p>Direct copying, paraphrasing without attribution, self-plagiarism (reusing your own work), mosaic plagiarism (mixing sources without proper citations), and accidental plagiarism from poor note-taking practices.</p><p style="margin-top: 1.5rem;"><strong>Proper Citation Techniques</strong></p><p>Always cite direct quotes with quotation marks and citations. Paraphrase properly by rewriting in your own words and still providing citations. Use in-text citations and create a comprehensive bibliography.</p><p style="margin-top: 1.5rem;"><strong>Avoiding Plagiarism</strong></p><p>Take detailed notes with proper source documentation from the beginning. Use quotation marks for direct quotes. Keep track of all sources consulted. When in doubt, cite the source.</p><p style="margin-top: 1.5rem;"><strong>Consequences of Plagiarism</strong></p><p>Academic penalties range from failing grades to expulsion. Beyond academics, plagiarism damages your professional reputation and can lead to legal consequences in publishing and professional contexts.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('plagiarism')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-digital-tools" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); flex-shrink: 0;"><button onclick="closeNewsModal('digital-tools')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Digital Tools for Research & Writing</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 7 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Essential Research Tools</strong></p><p>Google Scholar, ResearchGate, and JSTOR provide access to peer-reviewed articles. Library databases specific to your institution often offer comprehensive collections of academic resources.</p><p style="margin-top: 1.5rem;"><strong>Writing and Organization Software</strong></p><p>Notion, Evernote, and Scrivener help organize research and thoughts. Google Docs and Microsoft Word offer real-time collaboration features for group projects and professor feedback.</p><p style="margin-top: 1.5rem;"><strong>Citation Management</strong></p><p>Zotero, Mendeley, and EasyBib automate citation creation and management. These tools save time and reduce citation errors significantly.</p><p style="margin-top: 1.5rem;"><strong>Editing and Proofreading</strong></p><p>Grammarly, Hemingway Editor, and ProWritingAid provide real-time grammar checking and style suggestions. These tools complement manual proofreading.</p><p style="margin-top: 1.5rem;"><strong>Collaboration Platforms</strong></p><p>Slack, Teams, and Discord facilitate group work and communication. Google Drive allows seamless document sharing and collaborative editing.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('digital-tools')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <!-- Trending Stories Modals Section -->
+    <div id="trendingModal-self-intro" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('self-intro')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Mastering the Self-Introduction Essay</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Purpose of Self-Introduction</strong></p><p>Self-introduction essays serve admission committees by revealing who you are beyond test scores and transcripts. They showcase your character, values, aspirations, and what you'll contribute to a community.</p><p style="margin-top: 1.5rem;"><strong>Crafting Your Narrative</strong></p><p>Begin with a compelling hook—an interesting anecdote, surprising detail, or vivid scene. Use this to introduce yourself authentically, showing rather than merely telling admissions officers about your background.</p><p style="margin-top: 1.5rem;"><strong>Highlighting Unique Perspectives</strong></p><p>Identify what sets you apart from other applicants. Perhaps it's your cultural background, unique hobby, unusual family situation, or perspective shaped by life experiences. Make this distinctive element central to your essay.</p><p style="margin-top: 1.5rem;"><strong>Demonstrating Growth and Reflection</strong></p><p>Show how experiences have shaped you. Reflect on challenges you've overcome, lessons learned, and how these experiences inform your future direction. Colleges value self-awareness and growth mindset.</p><p style="margin-top: 1.5rem;"><strong>Connecting Past to Future</strong></p><p>Demonstrate how your background, interests, and values connect to your chosen path. Explain how the institution you're applying to aligns with your goals and who you are becoming.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('self-intro')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-profile-essay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('profile-essay')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Writing Compelling Profile Essays</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Understanding Profile Essays</strong></p><p>Profile essays create vivid portraits of people or unique locations. They combine description, dialogue, and analysis to reveal character and significance. A great profile brings subjects to life for readers.</p><p style="margin-top: 1.5rem;"><strong>Observational Details Matter</strong></p><p>Use sensory details—what you see, hear, smell, taste, feel. Describe specific mannerisms, speech patterns, appearance, and environment. These details make your subject memorable and authentic.</p><p style="margin-top: 1.5rem;"><strong>Incorporating Dialogue</strong></p><p>Direct quotes reveal personality and voice. Allow your subject's words to show who they are. Include dialogue that's natural and revelatory, not staged or artificial.</p><p style="margin-top: 1.5rem;"><strong>Balancing Objective and Subjective</strong></p><p>While profiles contain your perspective, maintain journalistic fairness. Show the subject's complexity, contradictions, and nuance. Avoid overly idealized or harshly critical portrayals.</p><p style="margin-top: 1.5rem;"><strong>Revealing Through Action</strong></p><p>Show your subject in their environment, engaged in meaningful activity. This reveals character through behavior more effectively than direct description. Let readers draw conclusions through observed actions.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('profile-essay')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-botany" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #1a5f3f 0%, #2d8659 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('botany')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Botany: Comprehensive Study Guide</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 10 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Fundamentals of Plant Biology</strong></p><p>Botany studies plant structure, function, reproduction, and ecology. Understanding plant cells, tissues, and organ systems forms the foundation for advanced botanical studies. Master cellular organization and photosynthesis mechanics.</p><p style="margin-top: 1.5rem;"><strong>Plant Anatomy and Morphology</strong></p><p>Learn to identify plant tissues: epidermis, vascular tissue, and ground tissue. Understand root function in nutrient absorption and plant support. Study leaf structure for photosynthesis and gas exchange mechanisms.</p><p style="margin-top: 1.5rem;"><strong>Reproduction and Life Cycles</strong></p><p>Study plant reproduction both sexual and asexual. Understand flower structure, pollination, and seed development. Trace plant life cycles from germination through maturity and senescence.</p><p style="margin-top: 1.5rem;"><strong>Plant Ecology and Environment</strong></p><p>Explore how plants interact with their environment. Study adaptations to different climates and soil conditions. Understand plant communities and their role in ecosystems.</p><p style="margin-top: 1.5rem;"><strong>Study Strategies for Success</strong></p><p>Use visual diagrams and labeled illustrations to master plant structures. Practice identifying plant specimens in labs. Study seasonal changes in plant behavior. Connect botanical concepts to real-world agriculture and conservation.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('botany')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-essay-types" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('essay-types')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Complete Essay Types Guide</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 9 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Narrative Essays</strong></p><p>Tell a story with a clear beginning, middle, and end. Use vivid details and dialogue. Narrative essays reveal character through action and create emotional connection with readers through personal experiences.</p><p style="margin-top: 1.5rem;"><strong>Expository Essays</strong></p><p>Explain concepts, processes, or ideas objectively. Provide facts, evidence, and clear organization. Expository essays inform readers without personal opinion or persuasion.</p><p style="margin-top: 1.5rem;"><strong>Persuasive Essays</strong></p><p>Argue a position using evidence and logical reasoning. Address counterarguments and build compelling cases. Persuasive essays aim to change reader opinion or inspire action.</p><p style="margin-top: 1.5rem;"><strong>Descriptive Essays</strong></p><p>Paint vivid pictures through sensory details. Transport readers to places or moments through precise language. Descriptive essays prioritize imagery and emotional impact.</p><p style="margin-top: 1.5rem;"><strong>Analytical Essays</strong></p><p>Break down complex subjects to examine components and relationships. Use evidence to support analysis. Analytical essays develop deeper understanding through systematic examination.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('essay-types')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-study-tech" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('study-tech')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">The Modern Study Tech Stack</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 7 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Note-Taking Platforms</strong></p><p>OneNote, Notion, and Obsidian revolutionize how students capture and organize information. Choose platforms that support multimedia, tagging, and cross-linking for interconnected learning. Cloud sync ensures access anywhere.</p><p style="margin-top: 1.5rem;"><strong>Spaced Repetition Tools</strong></p><p>Anki and Quizlet use scientifically-proven spaced repetition to maximize retention. Create decks for any subject. These tools adapt to your learning pace for efficient memorization.</p><p style="margin-top: 1.5rem;"><strong>Focus and Productivity</strong></p><p>Forest, Freedom, and Focus Writer minimize distractions. Pomodoro timers maintain focus sessions. Apps that block social media during study hours boost concentration and time management.</p><p style="margin-top: 1.5rem;"><strong>Collaboration and Communication</strong></p><p>Discord, Slack, and Teams facilitate group study and project coordination. Google Workspace enables real-time collaborative document editing. These tools connect study groups seamlessly.</p><p style="margin-top: 1.5rem;"><strong>Building Your Personal Stack</strong></p><p>Select 3-4 core tools that match your workflow. Prioritize tools that integrate well together. Your tech stack should enhance rather than complicate your studies. Start simple and add tools as needed.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('study-tech')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-essay-structure" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('essay-structure')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Mastering Essay Structure</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>The Classic Five-Paragraph Structure</strong></p><p>Introduction with hook and thesis, three body paragraphs each addressing one point, and conclusion that reinforces your argument. This framework works for most academic essays.</p><p style="margin-top: 1.5rem;"><strong>Building Strong Introductions</strong></p><p>Open with an engaging hook—a question, statistic, anecdote, or bold statement. Provide context for your topic. End with a clear thesis statement that guides your entire essay.</p><p style="margin-top: 1.5rem;"><strong>Developing Body Paragraphs</strong></p><p>Begin each paragraph with a topic sentence. Support with evidence, examples, or quotes. Explain how evidence supports your thesis. Use transitions to connect ideas smoothly.</p><p style="margin-top: 1.5rem;"><strong>Crafting Effective Conclusions</strong></p><p>Restate your thesis in fresh language. Summarize key points without simply repeating them. End with reflection or call to action that leaves lasting impact.</p><p style="margin-top: 1.5rem;"><strong>Advanced Structural Variations</strong></p><p>Modify the traditional structure for longer essays or complex arguments. Use nested arguments, reverse order, or thematic organization. Adapt structure to serve your specific purpose and audience.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('essay-structure')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-research-paper" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('research-paper')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Writing Impactful Research Papers</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 10 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Selecting Your Research Topic</strong></p><p>Choose topics that genuinely interest you and have adequate sources available. Make your focus specific enough for depth but broad enough for substantial research material. Avoid topics that are too narrow or too controversial.</p><p style="margin-top: 1.5rem;"><strong>Conducting Comprehensive Research</strong></p><p>Use academic databases like JSTOR, Google Scholar, and your library's resources. Evaluate source credibility, author expertise, and publication date. Take organized notes with proper source attribution from the start.</p><p style="margin-top: 1.5rem;"><strong>Developing Your Thesis</strong></p><p>Create a strong thesis that takes a clear position. Your thesis should be arguable, specific, and supported by research. Refine it as your research deepens and your understanding evolves.</p><p style="margin-top: 1.5rem;"><strong>Organizing Your Paper</strong></p><p>Structure with introduction, literature review, methodology (for empirical research), analysis, and conclusion. Use clear topic sentences and transitions. Maintain logical flow from argument to argument.</p><p style="margin-top: 1.5rem;"><strong>Citations and Attribution</strong></p><p>Use consistent citation format (MLA, APA, Chicago). Properly cite all sources to avoid plagiarism. Create comprehensive bibliography. Use citations to strengthen arguments through credible evidence.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('research-paper')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-success-tips" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('success-tips')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Academic Success Tips & Strategies</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 9 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Time Management Mastery</strong></p><p>Break assignments into smaller tasks with individual deadlines. Start projects early to avoid last-minute stress. Use calendars and task managers to track deadlines. Schedule regular review sessions rather than cramming.</p><p style="margin-top: 1.5rem;"><strong>Active Learning Techniques</strong></p><p>Transform passive reading into active engagement. Summarize material in your own words. Create concept maps and diagrams. Teach concepts to others to deepen understanding.</p><p style="margin-top: 1.5rem;"><strong>Building Strong Note-Taking Skills</strong></p><p>Resist transcribing verbatim—synthesize instead. Use abbreviations and shorthand. Review and reorganize notes within 24 hours. Connect new information to previously learned material.</p><p style="margin-top: 1.5rem;"><strong>Seeking Help and Resources</strong></p><p>Attend office hours and tutoring sessions proactively. Join study groups with motivated peers. Use writing centers and library resources. Don't wait until struggling to seek support.</p><p style="margin-top: 1.5rem;"><strong>Maintaining Balance and Wellness</strong></p><p>Prioritize sleep, exercise, and nutrition—they directly impact academic performance. Take breaks during study sessions. Manage stress through activities you enjoy. Remember that academic success is measured over semesters, not days.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('success-tips')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="newsModal-interview-essays" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffd89b 0%, #ff6b6b 100%); flex-shrink: 0;"><button onclick="closeNewsModal('interview-essays')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Excelling in Interview Essays</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 2026</span><span>⏱️ 6 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Purpose of Interview Essays</strong></p><p>Interview essays capture conversations, personal stories, and reflective insights. They blend journalistic writing with personal narrative, requiring authenticity and clear communication.</p><p style="margin-top: 1.5rem;"><strong>Preparation is Key</strong></p><p>Research your interview subject thoroughly. Prepare thoughtful, open-ended questions that encourage meaningful responses. Let the conversation flow naturally while maintaining focus on your essay's theme.</p><p style="margin-top: 1.5rem;"><strong>Recording and Note-Taking</strong></p><p>Always ask permission before recording. Take detailed notes during the interview, capturing not just words but tone, pauses, and emotions that add depth to your essay.</p><p style="margin-top: 1.5rem;"><strong>Crafting the Essay</strong></p><p>Use direct quotes to bring authenticity. Intersperse quoted dialogue with your analysis and context. Organize chronologically or thematically depending on your essay's purpose.</p><p style="margin-top: 1.5rem;"><strong>Ethical Considerations</strong></p><p>Obtain explicit permission before publishing quotes. Respect confidentiality if requested. Present the interview subject fairly and accurately without distortion.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeNewsModal('interview-essays')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
+
+    <div id="trendingModal-family-bonding" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;"><div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;"><div style="position: relative; height: 250px; background: linear-gradient(135deg, #5a4a6b 0%, #3d2b4d 100%); flex-shrink: 0;"><button onclick="closeTrendingModal('family-bonding')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button></div><div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;"><h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: var(--ink); margin: 0 0 1rem;">Comprehensive Family Bonding Essay</h2><div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 March 2026</span><span>⏱️ 8 min read</span></div><div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;"><p><strong>Understanding Family Dynamics</strong></p><p>Family essays explore relationships, traditions, and shared experiences. They reveal personal growth through family connections and demonstrate self-awareness about your background and values shaped by family bonds.</p><p style="margin-top: 1.5rem;"><strong>Selecting Meaningful Moments</strong></p><p>Choose specific episodes that reveal something significant about your family. Avoid clichés; instead, showcase authentic moments that illustrate deeper truths about family relationships and their impact on you.</p><p style="margin-top: 1.5rem;"><strong>Balancing Multiple Perspectives</strong></p><p>Consider different family members' viewpoints. Show complexity and nuance rather than idealized portrayals. Honest essays acknowledge both challenges and strengths in family dynamics.</p><p style="margin-top: 1.5rem;"><strong>Connecting Personal to Universal</strong></p><p>While your family story is unique, show how themes resonate universally. Help readers understand your family's significance through vivid details and emotional honesty. Connect family experiences to broader life lessons.</p><p style="margin-top: 1.5rem;"><strong>Reflection and Growth</strong></p><p>Demonstrate how family has shaped your values and character. Show self-awareness about your role within family dynamics. Reflect on lessons learned and how they guide your future relationships and decisions.</p></div></div><div style="padding: 3rem 3rem 0 3rem; margin-top: auto; flex-shrink: 0;"><button onclick="closeTrendingModal('family-bonding')" style="width: 100%; background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">Close Article</button></div></div></div>
 
 <footer style="background: #1a1a1a; color: #fff; padding: 3rem 0 2rem;">
   <div class="container">
@@ -576,6 +655,74 @@
 </footer>
 
     <script src="assets/js/main.js"></script>
+    
+    <!-- Article Modal Script -->
+    <script>
+      function openArticleModal() {
+        document.getElementById('articleModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeArticleModal() {
+        document.getElementById('articleModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      function openNewsModal(modalId) {
+        const modal = document.getElementById('newsModal-' + modalId);
+        if (modal) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeNewsModal(modalId) {
+        const modal = document.getElementById('newsModal-' + modalId);
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      }
+
+      function openTrendingModal(modalId) {
+        const modal = document.getElementById('trendingModal-' + modalId);
+        if (modal) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeTrendingModal(modalId) {
+        const modal = document.getElementById('trendingModal-' + modalId);
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      }
+
+      // Close modal when clicking outside of it
+      document.addEventListener('DOMContentLoaded', function() {
+        const articleModal = document.getElementById('articleModal');
+        if (articleModal) {
+          articleModal.addEventListener('click', function(event) {
+            if (event.target === articleModal) {
+              closeArticleModal();
+            }
+          });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            closeArticleModal();
+            document.querySelectorAll('[id^="newsModal-"]').forEach(function(modal) {
+              modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
+          }
+        });
+      });
+    </script>
 
   </body>
 </html>
