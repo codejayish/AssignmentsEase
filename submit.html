@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body>
+  <body class="submit-page">
     <header class="header">
       <div class="container nav">
         <a class="brand" href="index.html">
@@ -33,7 +33,7 @@
     <section class="section page-hero">
       <div class="container">
         <h1>Submit Your Assignment Details</h1>
-        <p style="color: var(--muted);">Please provide additional information about your assignment so we can match you with the perfect expert.</p>
+        <p>Please provide additional information about your assignment so we can match you with the perfect expert.</p>
       </div>
     </section>
 
@@ -42,6 +42,65 @@
         <div class="card" style="max-width: 700px; margin: 0 auto;">
           <h3>Assignment Details</h3>
           <form class="form-grid" id="form-details">
+            <label class="input">
+              Choose type
+              <select name="type" id="type-select" required>
+                <option value="">Select type</option>
+                <option>Annotated Bibliography</option>
+                <option>Application Essay</option>
+                <option>Article</option>
+                <option>Business Plan</option>
+                <option>Capstone Project</option>
+                <option>Case Study</option>
+                <option>Code</option>
+                <option>Content Writing</option>
+                <option>Coursework</option>
+                <option>Creative Writing</option>
+                <option>Dissertation</option>
+                <option>Proposal</option>
+                <option>Editing</option>
+                <option>Essay</option>
+                <option>Excel Assignment</option>
+                <option>Review</option>
+                <option>Math Solving</option>
+                <option>Outline</option>
+                <option>Personal Statement</option>
+                <option>Presentation</option>
+                <option>Reflective Writing</option>
+                <option>Report</option>
+                <option>Research Paper</option>
+                <option>Speech</option>
+                <option>Term paper</option>
+                <option>Test</option>
+                <option>Thesis</option>
+                <option>Q&A</option>
+                <option>Lab Report</option>
+                <option>Homework</option>
+                <option>Assignment</option>
+                <option>Proofreading</option>
+                <option>Rewrite</option>
+                <option>Psychology</option>
+                <option>Literature</option>
+                <option>Sociology</option>
+                <option>Math</option>
+                <option>CPM</option>
+                <option>Statistics</option>
+                <option>Physics</option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+                <option>Accounting</option>
+                <option>Economics</option>
+                <option>Biology</option>
+                <option>Marketing</option>
+                <option>Philosophy</option>
+                <option>Programming</option>
+                <option>Computer Science</option>
+                <option>Nursing</option>
+                <option>History</option>
+                <option>Other types</option>
+              </select>
+            </label>
             <label class="input">
               Your email
               <input type="email" name="email" placeholder="you@email.com" required />
@@ -77,6 +136,34 @@
     </section>
 
     <div id="footer-placeholder"></div>
+
+    <script>
+      // Auto-fill form based on URL parameters
+      function autoFillForm() {
+        const params = new URLSearchParams(window.location.search);
+        const typeParam = params.get('type');
+        const fieldParam = params.get('field');
+        
+        if (typeParam || fieldParam) {
+          const selectElement = document.getElementById('type-select');
+          const valueToSelect = typeParam || fieldParam;
+          
+          // Decode the URL parameter to get the actual value
+          const decodedValue = decodeURIComponent(valueToSelect);
+          
+          // Find and select the matching option
+          for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value === decodedValue) {
+              selectElement.value = decodedValue;
+              break;
+            }
+          }
+        }
+      }
+      
+      // Run on page load
+      document.addEventListener('DOMContentLoaded', autoFillForm);
+    </script>
 
     <script>
       fetch("footer.html")

@@ -373,6 +373,80 @@ button {
   background: #ffffff;
 }
 
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submit-page {
+  background-image: linear-gradient(180deg, rgba(248, 250, 252, 0.92) 0%, rgba(226, 232, 240, 0.92) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.submit-page .section {
+  background: transparent;
+}
+
+.submit-page .page-hero {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.65) 0%, rgba(226, 232, 240, 0.65) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center / cover no-repeat;
+  background-attachment: fixed;
+  min-height: 600px;
+  padding: 6rem 2rem 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.submit-page .page-hero .container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.submit-page .page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  margin: 0 0 1.5rem;
+  animation: slideInDown 0.8s ease-out 0.2s both;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--ink);
+}
+
+.submit-page .page-hero p {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.8;
+  font-weight: 600;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  margin: 0;
+  color: var(--ink);
+}
+
 .experts-header {
   text-align: center;
   max-width: 720px;
@@ -444,13 +518,14 @@ button {
 .experts-carousel-wrap {
   margin-top: 2.25rem;
   position: relative;
+  overflow: visible;
 }
 
 .experts-carousel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(290px, 320px);
-  gap: 2rem;
+  grid-auto-columns: 280px;
+  gap: 1rem;
   padding: 0;
   background: transparent;
   border-radius: 0;
@@ -468,13 +543,13 @@ button {
 .expert-card {
   padding: 0;
   width: 100%;
-  height: 560px;
+  min-width: 260px;
   display: flex;
-  flex-direction: column;
   scroll-snap-align: start;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
+  height: auto;
 }
 
 .expert-card.clicked {
@@ -497,22 +572,23 @@ button {
 
 .expert-card > div {
   background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-  border-radius: 18px;
-  padding: 0;
+  border-radius: 16px;
+  padding: 1rem 1rem 1rem 1rem;
   text-align: left;
-  border: 2.5px solid #d1d5db;
+  border: 1.5px solid #e5e7eb;
   position: relative;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  overflow: hidden;
   background-clip: padding-box;
   outline: 3px solid transparent;
   outline-offset: 0px;
   box-sizing: border-box;
-  min-height: 560px;
+  width: 100%;
+  gap: 0;
+  min-height: auto;
+  justify-content: flex-start;
 }
 
 .expert-card > div::before {
@@ -545,7 +621,7 @@ button {
 .expert-card:hover > div {
   border-color: #3b82f6;
   box-shadow: 0 20px 25px rgba(37, 99, 235, 0.16), 0 8px 16px rgba(37, 99, 235, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-3px) scale(1.01);
   background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
   outline: 3px solid #dbeafe;
   outline-offset: 1px;
@@ -568,37 +644,42 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
 }
 
 .expert-identity {
   display: flex;
-  align-items: center;
-  gap: 0.9rem;
+  align-items: flex-start;
+  gap: 0.75rem;
   min-width: 0;
+  flex: 1;
 }
 
 .expert-avatar {
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   flex: 0 0 auto;
 }
 
 .expert-avatar img {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
   border: 2px solid #ffffff;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .expert-online {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  width: 14px;
-  height: 14px;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
   background: #22c55e;
   border: 2px solid #ffffff;
@@ -606,22 +687,25 @@ button {
 
 .expert-name {
   min-width: 0;
+  flex: 1;
 }
 
 .expert-name strong {
   display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
 }
 
 .expert-reviews {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
+  gap: 0.3rem;
+  color: #22c55e;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0;
 }
 
 .expert-chat {
@@ -636,42 +720,72 @@ button {
   font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.2rem;
   white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 .expert-rating span {
   color: #22c55e;
 }
 
+.expert-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.expert-card-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+  max-height: 100%;
+  justify-content: flex-start;
+  flex: 1;
+}
+
 .expert-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.1rem;
+  gap: 0.4rem;
+  margin: 0;
+  overflow: visible;
+  flex-shrink: 0;
+  line-height: 1.4;
+  align-content: flex-start;
 }
 
 .tag {
   background: #f3f4f6;
-  border: 1px solid rgba(209, 213, 219, 0.5);
-  border-radius: 12px;
-  padding: 0.35rem 0.6rem;
-  font-size: 0.85rem;
-  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  color: #374151;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .expert-footer {
-  margin-top: auto;
+  margin: 0;
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
-  padding-top: 1rem;
+  gap: 0.3rem;
+  padding: 0;
+  border-top: none;
   color: var(--muted);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  line-height: 1.3;
 }
 
 .expert-footer strong {
   color: var(--ink);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .experts-carousel-controls {
@@ -702,7 +816,7 @@ button {
   border-color: #1d4ed8;
   transform: scale(1.1);
   box-shadow: 0 12px 36px rgba(37, 99, 235, 0.35);
-}"
+}
 
 .stats {
   display: grid;
@@ -1158,6 +1272,37 @@ button {
   .cta {
     padding: 2rem;
   }
+}
+
+/* Submit page hero section - must come after generic .page-hero rules */
+.submit-page .page-hero {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.65) 0%, rgba(226, 232, 240, 0.65) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center / cover no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 600px !important;
+  padding: 6rem 2rem 5rem 2rem !important;
+}
+
+.submit-page .page-hero .container {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+  padding: 3rem 2.5rem !important;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  max-width: 800px;
+}
+
+.submit-page .page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem) !important;
+  animation: slideInDown 0.8s ease-out 0.2s both;
+  color: var(--ink) !important;
+}
+
+.submit-page .page-hero p {
+  font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  color: var(--ink) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
