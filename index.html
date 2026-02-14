@@ -141,86 +141,184 @@
         </div>
 
         <div class="card hero-form-card" id="brief">
-          <h3>Get Help</h3>
-          <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
-          <form class="form-grid" id="form-help">
-            <label class="input">
-              Choose type
-              <select name="type" required>
+          
+          <div class="help-form-wrapper">
+            <h3>Get Help</h3>
+            <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+            <form class="form-grid" id="form-help">
+              <label class="input">
+                Choose type
+                <select name="type" required>
+                  <option value="">Select type</option>
+                  <option>Essay</option>
+                  <option>Admissions Essay</option>
+                  <option>PowerPoint Presentation</option>
+                  <option>Paper</option>
+                  <option>Research Paper</option>
+                  <option>Assignment</option>
+                  <option>Homework</option>
+                  <option>Speech</option>
+                  <option>Book Reviews</option>
+                  <option>Coursework</option>
+                  <option>Personal Statement</option>
+                  <option>Ph.D Dissertation</option>
+                  <option>Thesis</option>
+                  <option>Case Study</option>
+                  <option>Term Paper</option>
+                  <option>Lab Report</option>
+                  <option>Editing</option>
+                  <option>Proofreading</option>
+                  <option>Rewrite</option>
+                  <option>Annotated Bibliography</option>
+                  <option>Application Essay</option>
+                  <option>Article</option>
+                  <option>Business Plan</option>
+                  <option>Capstone Project</option>
+                  <option>Code</option>
+                  <option>Content Writing</option>
+                  <option>Creative Writing</option>
+                  <option>Dissertation</option>
+                  <option>Proposal</option>
+                  <option>Excel Assignment</option>
+                  <option>Review</option>
+                  <option>Math Solving</option>
+                  <option>Outline</option>
+                  <option>Presentation</option>
+                  <option>Reflective Writing</option>
+                  <option>Report</option>
+                  <option>Term paper</option>
+                  <option>Test</option>
+                  <option>Q&A</option>
+                  <option>Psychology</option>
+                  <option>Literature</option>
+                  <option>Sociology</option>
+                  <option>Math</option>
+                  <option>CPM</option>
+                  <option>Statistics</option>
+                  <option>Physics</option>
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>Accounting</option>
+                  <option>Economics</option>
+                  <option>Biology</option>
+                  <option>Marketing</option>
+                  <option>Philosophy</option>
+                  <option>Programming</option>
+                  <option>Computer Science</option>
+                  <option>Nursing</option>
+                  <option>History</option>
+                  <option>Other projects we help with</option>
+                  <option>Other types</option>
+                </select>
+              </label>
+              <label class="input">
+                Project Title
+                <input type="text" name="project_title" placeholder="e.g. Behavioral economics review" required />
+              </label>
+              <label class="input">
+                Your email
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </label>
+              <button class="btn btn-primary" type="submit">Get Help</button>
+              <p class="status" data-status-help></p>
+            </form>
+          </div>
+          <div class="quote-form-wrapper">
+            <h3>Get Quote</h3>
+            <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+            <form class="form-grid" id="form-quote">
+              <label class="input">
+                Choose type
+                <select name="projectType" required>
                 <option value="">Select type</option>
-                <option>Essay</option>
-                <option>Admissions Essay</option>
-                <option>PowerPoint Presentation</option>
-                <option>Paper</option>
-                <option>Research Paper</option>
-                <option>Assignment</option>
-                <option>Homework</option>
-                <option>Speech</option>
-                <option>Book Reviews</option>
-                <option>Coursework</option>
-                <option>Personal Statement</option>
-                <option>Ph.D Dissertation</option>
-                <option>Thesis</option>
-                <option>Case Study</option>
-                <option>Term Paper</option>
-                <option>Lab Report</option>
-                <option>Editing</option>
-                <option>Proofreading</option>
-                <option>Rewrite</option>
                 <option>Annotated Bibliography</option>
                 <option>Application Essay</option>
                 <option>Article</option>
                 <option>Business Plan</option>
                 <option>Capstone Project</option>
+                <option>Case Study</option>
                 <option>Code</option>
                 <option>Content Writing</option>
+                <option>Coursework</option>
                 <option>Creative Writing</option>
                 <option>Dissertation</option>
                 <option>Proposal</option>
+                <option>Editing</option>
+                <option>Essay</option>
                 <option>Excel Assignment</option>
                 <option>Review</option>
                 <option>Math Solving</option>
                 <option>Outline</option>
+                <option>Personal Statement</option>
                 <option>Presentation</option>
                 <option>Reflective Writing</option>
                 <option>Report</option>
+                <option>Research Paper</option>
+                <option>Speech</option>
                 <option>Term paper</option>
                 <option>Test</option>
+                <option>Thesis</option>
                 <option>Q&A</option>
-                <option>Psychology</option>
-                <option>Literature</option>
-                <option>Sociology</option>
-                <option>Math</option>
-                <option>CPM</option>
-                <option>Statistics</option>
-                <option>Physics</option>
-                <option>English</option>
-                <option>Spanish</option>
-                <option>French</option>
-                <option>Accounting</option>
-                <option>Economics</option>
-                <option>Biology</option>
-                <option>Marketing</option>
-                <option>Philosophy</option>
-                <option>Programming</option>
-                <option>Computer Science</option>
-                <option>Nursing</option>
-                <option>History</option>
-                <option>Other projects we help with</option>
                 <option>Other types</option>
-              </select>
-            </label>
-            <label class="input">
-              Project Title
-              <input type="text" name="project_title" placeholder="e.g. Behavioral economics review" required />
-            </label>
-            <label class="input">
-              Your email
-              <input type="email" name="email" placeholder="you@email.com" required />
-            </label>
-            <button class="btn btn-primary" type="submit">Get Help</button>
-            <p class="status" data-status-help></p>
-          </form>
+                </select>
+              </label>
+              
+              <div class="" style="display: flex; justify-content: space-between; gap: 15px;">
+                <label class="input" style="width: 100%;">
+                  Education level
+                  <select name="educationLevel" required>
+                  <option value="">Select type</option>
+                  <option>High School</option>
+                  <option selected>College</option>
+                  <option>Bachelor</option>
+                  <option>Master</option>
+                  <option>Ph.D.</option>
+                  </select>
+                  </label>
+                  
+                  <label class="input" style="width: 100%;">
+                  Deadline
+                  <select name="deadline" required>
+                      <option>6 hours</option>
+                      <option>12 hours</option>
+                      <option>24 hours</option>
+                      <option>2 days</option>
+                      <option>3 days</option>
+                      <option>5 days</option>
+                      <option selected>7 days</option>
+                      <option>10 days</option>
+                      <option>2 weeks</option>
+                      <option>1 month</option>
+                      <option>2 months</option>
+                  </select>
+                </label>
+              </div>
+  
+  
+              <div class="form-group input">
+                <label>Pages/words</label>
+                <div class="counter" style="display: flex;  justify-content: space-between;">
+                  <button type="button" id="minus">−</button>
+                  <span id="pages">1 page / 275 words</span>
+                  <button type="button" id="plus">+</button>
+                </div>
+            </div>
+  
+            <div class="" style="display: flex; justify-content: space-between; gap: 15px;">
+                <div class="" style="font-weight: bold;">
+                    <p>Approx. price:</p>
+                </div>
+                
+                <div class="" style="display: flex; gap: 8px;">
+                <span class="old-price">$26.00</span>
+                    <span class="new-price" id="">$20.00</span>
+                </div>
+            </div>
+              <button class="btn btn-primary" type="submit">Get Quote</button>
+              <p class="status" data-status-help></p>
+            </form>
+          </div>
           <p class="experts-ready">Experts are ready to hire now</p>
         </div>
       </div>
@@ -582,5 +680,39 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/quote-form.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const helpWrapper = document.querySelector(".help-form-wrapper");
+        const quoteWrapper = document.querySelector(".quote-form-wrapper");
+        const heading = document.getElementById("form-heading");
+
+        const params = new URLSearchParams(window.location.search);
+        const formType = params.get("form");
+
+        function showHelpForm() {
+          if (helpWrapper) helpWrapper.style.display = "block";
+          if (quoteWrapper) quoteWrapper.style.display = "none";
+          if (heading) heading.textContent = "Get Help";
+        }
+
+        function showQuoteForm() {
+          if (helpWrapper) helpWrapper.style.display = "none";
+          if (quoteWrapper) quoteWrapper.style.display = "block";
+          if (heading) heading.textContent = "Get a Quote";
+        }
+
+        if (formType === "quote") {
+          showQuoteForm();
+        } else {
+          showHelpForm();
+        }
+
+      });
+
+    </script>
+      
+      
   </body>
 </html>

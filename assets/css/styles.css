@@ -36,6 +36,12 @@ html, body {
   line-height: 1.55;
 }
 
+.help-form-wrapper,
+.quote-form-wrapper {
+  display: none;
+}
+
+
 img {
   max-width: 100%;
   height: auto;
@@ -204,6 +210,70 @@ button {
   display: flex;
   gap: 0.6rem;
   align-items: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.counter button {
+  background: #18b56b;
+  border: none;
+  color: white;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.counter span {
+  font-weight: 500;
+}
+
+.price-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price-left p {
+  font-weight: bold;
+}
+
+.price-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #b0b7c3;
+  font-weight: bold;
+}
+
+.new-price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.price-badge {
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  background: #18b56b;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 20px;
 }
 
 .btn {
