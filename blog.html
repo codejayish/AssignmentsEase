@@ -171,7 +171,474 @@
       </div>
     </div>
 
+    <!-- NEWS MODALS -->
+    <!-- News Modal: AI Writing -->
+    <div id="newsModal-ai-writing" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('ai-writing')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">How AI is Impacting Academic Writing</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 12, 2026</span><span>⏱️ 6 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>The Revolution in Writing Tools</strong></p>
+            <p>Artificial intelligence has fundamentally changed how students approach writing. From grammar checking to content generation, AI tools are now integral to the writing process. Understanding how to leverage these tools effectively while maintaining academic integrity is crucial.</p>
+            <p style="margin-top: 2rem;"><strong>Benefits of AI in Writing</strong></p>
+            <p>AI can help students brainstorm ideas, organize thoughts, check grammar, and improve readability. Tools like Grammarly, Hemingway Editor, and advanced language models provide real-time feedback and suggestions. These tools democratize access to quality writing assistance for all students.</p>
+            <p style="margin-top: 2rem;"><strong>Challenges and Concerns</strong></p>
+            <p>While AI offers benefits, there are concerns about over-reliance on these tools and potential plagiarism issues. Students must understand the difference between using AI as a writing aid versus having AI write their assignments. Academic institutions are still developing policies around acceptable AI use.</p>
+            <p style="margin-top: 2rem;"><strong>Best Practices</strong></p>
+            <p>Use AI to enhance your writing, not replace it. Edit and personalize all suggestions. Always cite AI tools used in your work. Focus on developing your own writing voice and critical thinking skills. Consult your professor's guidelines on AI usage before incorporating these tools into your assignments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- News Modal: Writing Mistakes -->
+    <div id="newsModal-writing-mistakes" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); background-image: url('https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('writing-mistakes')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Top Writing Mistakes Students Make</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 11, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Common Writing Pitfalls</strong></p>
+            <p>Even experienced writers make mistakes. Understanding common writing errors can significantly improve your assignments and academic performance. Let's explore the most frequent mistakes students make and how to avoid them.</p>
+            <p style="margin-top: 2rem;"><strong>1. Weak Thesis Statements</strong></p>
+            <p>A vague thesis weakens your entire essay. Your thesis should be specific, arguable, and clearly state your main point. Instead of "Technology is important," write "Social media has fundamentally altered how teenagers form relationships."</p>
+            <p style="margin-top: 2rem;"><strong>2. Poor Organization</strong></p>
+            <p>Jumping between ideas confuses readers. Use clear topic sentences, maintain logical flow, and ensure each paragraph supports your thesis. Outlining before writing helps maintain structure.</p>
+            <p style="margin-top: 2rem;"><strong>3. Inadequate Evidence</strong></p>
+            <p>Claims without support are unconvincing. Always back arguments with credible sources, examples, and data. Use proper citations to give credit to original authors.</p>
+            <p style="margin-top: 2rem;"><strong>4. Grammatical and Spelling Errors</strong></p>
+            <p>Proofreading is essential. Read your work aloud, use grammar checking tools, and have someone else review it. Small errors can undermine your credibility.</p>
+            <p style="margin-top: 2rem;"><strong>5. Inconsistent Tone and Voice</strong></p>
+            <p>Maintain consistent voice throughout. Avoid mixing formal and casual language or constantly changing perspective. Your writing should feel cohesive and intentional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: MLA vs APA -->
+    <div id="newsModal-mla-apa" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('mla-apa')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">MLA vs APA: Complete Guide</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 10, 2026</span><span>⏱️ 8 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Understanding Citation Styles</strong></p>
+            <p>MLA and APA are the two most commonly used citation formats in academic writing. Knowing the differences helps you format your work correctly and maintain academic integrity through proper attribution.</p>
+            <p style="margin-top: 2rem;"><strong>MLA Format Basics</strong></p>
+            <p><strong>In-text citations:</strong> Author's last name and page number in parentheses. Example: (Smith 45)</p>
+            <p><strong>Works Cited:</strong> Alphabetical list at the end. Book example: Smith, John. Title of Book. Publisher, Year.</p>
+            <p><strong>Header:</strong> No separate title page. Include name, instructor, course, and date in upper left corner.</p>
+            <p style="margin-top: 2rem;"><strong>APA Format Basics</strong></p>
+            <p><strong>In-text citations:</strong> Author, year, and page number. Example: (Smith, 2024, p. 45)</p>
+            <p><strong>Reference List:</strong> Alphabetical list. Book example: Smith, J. (2024). Title of book. Publisher.</p>
+            <p><strong>Header:</strong> Includes separate title page with centered title and running head.</p>
+            <p style="margin-top: 2rem;"><strong>Key Differences Summary</strong></p>
+            <p>MLA uses Works Cited while APA uses References. MLA includes page numbers in citations while APA emphasizes publication year. Different disciplines prefer different formats—check your assignment guidelines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Research Methods -->
+    <div id="newsModal-research-methods" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #059669 0%, #047857 100%); background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800&h=400&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.08) saturate(1.04); flex-shrink: 0;">
+          <button onclick="closeNewsModal('research-methods')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Effective Research Methods for Academia</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 9, 2026</span><span>⏱️ 9 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Research Foundation</strong></p>
+            <p>Strong research is the backbone of academic success. From identifying reliable sources to organizing information effectively, mastering research methods elevates the quality of your work.</p>
+            <p style="margin-top: 2rem;"><strong>Finding Quality Sources</strong></p>
+            <p>Use your university library database for peer-reviewed journals and scholarly articles. Google Scholar, JSTOR, and discipline-specific databases offer credible resources. Always evaluate source credibility by checking author expertise, publication date, and institutional affiliation.</p>
+            <p style="margin-top: 2rem;"><strong>Primary vs. Secondary Sources</strong></p>
+            <p>Primary sources are original documents like interviews, surveys, and historical records. Secondary sources analyze or interpret primary sources. A strong research paper typically balances both types.</p>
+            <p style="margin-top: 2rem;"><strong>Note-Taking Strategies</strong></p>
+            <p>Develop a system that works for you. Whether using digital tools or index cards, record the source immediately and summarize key points in your own words. This prevents plagiarism and helps with organization.</p>
+            <p style="margin-top: 2rem;"><strong>Organizing Your Findings</strong></p>
+            <p>Create an outline or mind map before writing. Group related information, identify themes, and determine how evidence supports your thesis. Good organization streamlines the writing process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Critical Analysis -->
+    <div id="newsModal-critical-analysis" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('critical-analysis')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Mastering Critical Analysis</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 8, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Beyond Summary</strong></p>
+            <p>Critical analysis goes beyond summarizing information. It involves evaluating arguments, identifying strengths and weaknesses, and developing your own informed perspective on the material.</p>
+            <p style="margin-top: 2rem;"><strong>Steps to Critical Analysis</strong></p>
+            <p><strong>1. Understand the material:</strong> Read carefully and comprehend the main arguments before forming opinions.</p>
+            <p><strong>2. Ask questions:</strong> What evidence supports this claim? Are there alternative perspectives? What assumptions underlie this argument?</p>
+            <p><strong>3. Evaluate the evidence:</strong> Is it credible? Is it sufficient? Are there logical fallacies?</p>
+            <p><strong>4. Form your judgment:</strong> Based on your analysis, what do you conclude? What is your perspective?</p>
+            <p style="margin-top: 2rem;"><strong>Avoiding Common Pitfalls</strong></p>
+            <p>Don't be overly negative toward every source. Don't rely on personal opinion without supporting evidence. Don't oversimplify complex arguments. Balance criticism with appreciation for strong points.</p>
+            <p style="margin-top: 2rem;"><strong>Writing Your Analysis</strong></p>
+            <p>Present clear arguments with evidence. Acknowledge different perspectives. Show your reasoning process. Use academic language while maintaining clarity. Your analysis should demonstrate deep thinking and genuine engagement with the material.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Time Management -->
+    <div id="newsModal-time-management" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('time-management')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Time Management for Writers</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 7, 2026</span><span>⏱️ 6 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>The Writing Timeline</strong></p>
+            <p>Poor time management leads to rushed, low-quality work. By planning ahead and breaking writing into manageable stages, you can produce better essays with less stress.</p>
+            <p style="margin-top: 2rem;"><strong>Start Early</strong></p>
+            <p>Begin research and planning as soon as you receive an assignment. This gives you time to find quality sources, think critically about your topic, and revise your work. Last-minute writing rarely produces your best work.</p>
+            <p style="margin-top: 2rem;"><strong>Break It Into Stages</strong></p>
+            <p><strong>Research (30%):</strong> Gather sources and take notes. <strong>Planning (20%):</strong> Create outline and organize thoughts. <strong>First draft (30%):</strong> Get ideas down without worrying about perfection. <strong>Revision (20%):</strong> Edit, refine, and polish.</p>
+            <p style="margin-top: 2rem;"><strong>Set Milestones</strong></p>
+            <p>Create intermediate deadlines for each stage. If your essay is due Friday, plan to finish research by Monday, complete outline by Tuesday, finish first draft by Wednesday, and begin revisions by Thursday.</p>
+            <p style="margin-top: 2rem;"><strong>Minimize Distractions</strong></p>
+            <p>Find a quiet space, silence notifications, and use focus techniques like Pomodoro (25 minutes focused work with 5-minute breaks). Consistent, focused writing sessions produce better results than sporadic marathon sessions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Plagiarism -->
+    <div id="newsModal-plagiarism" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('plagiarism')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Understanding Plagiarism & Academic Integrity</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 6, 2026</span><span>⏱️ 8 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>What is Plagiarism?</strong></p>
+            <p>Plagiarism is using someone else's words, ideas, or work without proper attribution. This can be intentional or unintentional, but both violate academic integrity standards and can result in serious consequences.</p>
+            <p style="margin-top: 2rem;"><strong>Types of Plagiarism</strong></p>
+            <p><strong>Direct plagiarism:</strong> Copying text word-for-word without quotes or citations. <strong>Paraphrasing plagiarism:</strong> Rewording without citing the original source. <strong>Self-plagiarism:</strong> Resubmitting your own previous work. <strong>Mosaic plagiarism:</strong> Mixing cited and uncited material.</p>
+            <p style="margin-top: 2rem;"><strong>How to Avoid Plagiarism</strong></p>
+            <p>Always cite your sources, even when paraphrasing. Use quotation marks for direct quotes. Keep track of all sources as you research. When in doubt, cite it. Most importantly, engage with the material and develop your own analysis and voice.</p>
+            <p style="margin-top: 2rem;"><strong>Proper Citation</strong></p>
+            <p>Use appropriate citation format (MLA, APA, Chicago, etc.) consistently throughout your work. Create a works cited or reference page. Include in-text citations for all sources, whether quoted, paraphrased, or summarized.</p>
+            <p style="margin-top: 2rem;"><strong>Consequences</strong></p>
+            <p>Academic institutions take plagiarism seriously. Consequences range from failing the assignment to failing the course or expulsion. Beyond academics, plagiarism damages your reputation and intellectual development. Always prioritize integrity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Digital Tools -->
+    <div id="newsModal-digital-tools" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); background-image: url('https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('digital-tools')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Digital Tools for Research & Writing</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 5, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Technology in Academia</strong></p>
+            <p>Digital tools can dramatically improve your research and writing efficiency. From citation managers to collaborative platforms, leveraging technology helps you produce better work in less time.</p>
+            <p style="margin-top: 2rem;"><strong>Citation Management</strong></p>
+            <p><strong>Zotero, Mendeley, and EndNote</strong> organize sources, generate citations automatically, and integrate with word processors. These tools save hours on formatting bibliographies and eliminate citation errors.</p>
+            <p style="margin-top: 2rem;"><strong>Writing and Editing</strong></p>
+            <p><strong>Grammarly</strong> checks grammar and suggests improvements in real-time. <strong>Hemingway Editor</strong> highlights unclear passages and suggests simplifications. <strong>Microsoft Word/Google Docs</strong> offer built-in grammar checking and collaboration features.</p>
+            <p style="margin-top: 2rem;"><strong>Research Tools</strong></p>
+            <p><strong>Google Scholar</strong> finds peer-reviewed articles. <strong>ResearchGate</strong> connects you with researchers. <strong>LibGuides</strong> from your university library point to discipline-specific resources.</p>
+            <p style="margin-top: 2rem;"><strong>Collaboration Platforms</strong></p>
+            <p><strong>Google Docs/Microsoft 365</strong> enable real-time collaboration. <strong>Trello/Asana</strong> help organize group projects. These platforms facilitate communication and version control.</p>
+            <p style="margin-top: 2rem;"><strong>Choose What Works</strong></p>
+            <p>Not every tool works for every person. Experiment to find what enhances your workflow. Focus on tools that streamline your process without creating additional complications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Modal: Interview Essays -->
+    <div id="newsModal-interview-essays" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffd89b 0%, #ff6b6b 100%); background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeNewsModal('interview-essays')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Excelling in Interview Essays</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 4, 2026</span><span>⏱️ 6 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>What is an Interview Essay?</strong></p>
+            <p>Interview essays combine research with direct personal accounts. They're commonly used in college writing courses and professional settings to tell compelling stories through other people's voices.</p>
+            <p style="margin-top: 2rem;"><strong>Preparation is Key</strong></p>
+            <p>Before the interview, research your subject thoroughly. Write relevant, open-ended questions that encourage detailed responses. Create a comfortable environment and explain the essay's purpose. Record (with permission) or take detailed notes.</p>
+            <p style="margin-top: 2rem;"><strong>During the Interview</strong></p>
+            <p>Listen actively and ask follow-up questions. Let the person elaborate on interesting points. Avoid interrupting or imposing your views. The goal is to capture their authentic voice and perspective.</p>
+            <p style="margin-top: 2rem;"><strong>Writing the Essay</strong></p>
+            <p>Blend quotes with paraphrase and analysis. Use quotation marks for direct quotes and cite your source. Provide context for quotes so readers understand their significance. Your essay should tell a coherent story, not just string together quotes.</p>
+            <p style="margin-top: 2rem;"><strong>Tips for Success</strong></p>
+            <p>Let the subject's personality shine through. Show why this person or topic matters. Reflect on what you learned from the interview. Always get permission before publishing someone's words. Accurate representation builds trust and credibility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRENDING MODALS -->
+    <!-- Trending Modal: Family Bonding -->
+    <div id="trendingModal-family-bonding" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #5a4a6b 0%, #3d2b4d 100%); background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=400&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02); flex-shrink: 0;">
+          <button onclick="closeTrendingModal('family-bonding')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Comprehensive Family Bonding Essay</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 12, 2026</span><span>⏱️ 8 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Understanding Family Bonds</strong></p>
+            <p>Family bonding essays explore relationships, shared experiences, and emotional connections that define family units. These reflective essays reveal personal insights about what family means to you and how it shapes your identity.</p>
+            <p style="margin-top: 2rem;"><strong>Finding Your Angle</strong></p>
+            <p>Rather than describing your entire family history, focus on specific moments that illuminate your relationship. A single vacation, conversation, or shared challenge can reveal deeper truths about family dynamics than a chronological overview.</p>
+            <p style="margin-top: 2rem;"><strong>Creating Vivid Scenes</strong></p>
+            <p>Use sensory details to bring moments to life. Show conversations rather than summarizing them. Describe appearances, emotions, and surroundings. Let readers experience the moments that shaped you, not just hear about them.</p>
+            <p style="margin-top: 2rem;"><strong>Expressing Genuine Emotion</strong></p>
+            <p>Family essays are personal by nature—let your true feelings show. Honesty resonates with readers far more than generic sentiments. It's okay to acknowledge complexity: families are both loving and challenging.</p>
+            <p style="margin-top: 2rem;"><strong>Structure and Reflection</strong></p>
+            <p>Begin with a compelling moment or observation. Develop specific stories and scenes. Reflect on what these experiences mean and how they've influenced you. End with insights about family or yourself you've gained through reflection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Self-Introduction -->
+    <div id="trendingModal-self-intro" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02); flex-shrink: 0;">
+          <button onclick="closeTrendingModal('self-intro')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Self-Introduction Essays</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 11, 2026</span><span>⏱️ 6 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Purpose of Self-Introduction Essays</strong></p>
+            <p>Self-introduction essays, common in admissions applications, help schools understand who you are beyond grades and test scores. They reveal your values, character, and what makes you unique.</p>
+            <p style="margin-top: 2rem;"><strong>What to Include</strong></p>
+            <p>Share meaningful experiences that shaped you. Discuss your interests and passions. Reveal your values and what drives you. Be authentic—admissions officers can spot generic responses. Connect your personal qualities to your academic and professional goals.</p>
+            <p style="margin-top: 2rem;"><strong>Avoiding Clichés</strong></p>
+            <p>Don't just list achievements or accomplishments. Avoid overly formal language that sounds like a resume. Don't try to impress with vocabulary you wouldn't normally use. Instead, write as you naturally speak about topics that genuinely matter to you.</p>
+            <p style="margin-top: 2rem;"><strong>Structure Tips</strong></p>
+            <p>Open with a compelling hook—a striking image, thought, or moment. Develop with specific stories and examples. Use vivid details that make your essay memorable. Conclude by connecting your personal qualities to your future aspirations.</p>
+            <p style="margin-top: 2rem;"><strong>The Voice Matters Most</strong></p>
+            <p>Your unique voice is your greatest asset. Let your personality shine through. Admissions officers read thousands of essays—authenticity stands out. Be honest, be specific, and be yourself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Profile Essay -->
+    <div id="trendingModal-profile-essay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #e8f5ff 0%, #eef2ff 100%); background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=400&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02); flex-shrink: 0;">
+          <button onclick="closeTrendingModal('profile-essay')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Writing Profile Essays</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 10, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>What is a Profile Essay?</strong></p>
+            <p>A profile essay presents a detailed portrait of a person, place, or organization. Through interviews, observation, and research, profile writers create intimate, nuanced pictures that reveal character and significance.</p>
+            <p style="margin-top: 2rem;"><strong>Choosing Your Subject</strong></p>
+            <p>Select someone or something genuinely interesting to you. Interesting subjects have compelling stories, unique perspectives, or unusual accomplishments. Ensure you can access your subject for interviews and observation.</p>
+            <p style="margin-top: 2rem;"><strong>Research and Interview</strong></p>
+            <p>Conduct thorough background research. Prepare thoughtful interview questions. Observe your subject in natural settings if possible. Collect details: appearance, speech patterns, environment, mannerisms. These specifics bring profiles to life.</p>
+            <p style="margin-top: 2rem;"><strong>Creating a Narrative</strong></p>
+            <p>Organize information thematically rather than chronologically. Use quotes to reveal personality and voice. Describe scenes vividly. Balance factual information with personal observation. Your perspective matters—tell readers why this person or place is significant.</p>
+            <p style="margin-top: 2rem;"><strong>The Power of Details</strong></p>
+            <p>Specific details make profiles memorable. Instead of "she was kind," show her kindness through actions. Instead of "it's a busy restaurant," describe the sounds, smells, and energy. Let readers experience your subject directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Botany -->
+    <div id="trendingModal-botany" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #1a5f3f 0%, #2d8659 100%); background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop'); background-size: cover; background-position: center; filter: brightness(1.06) saturate(1.02); flex-shrink: 0;">
+          <button onclick="closeTrendingModal('botany')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Botany: Study Guide & Tips</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 9, 2026</span><span>⏱️ 9 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Understanding Plant Science</strong></p>
+            <p>Botany is the study of plants, from single-celled algae to towering trees. Understanding plant biology is crucial for agriculture, medicine, environmental science, and countless other fields.</p>
+            <p style="margin-top: 2rem;"><strong>Key Concepts to Master</strong></p>
+            <p><strong>Plant Cell Structure:</strong> Cell wall, chloroplasts, large vacuoles distinguish plant cells. <strong>Photosynthesis:</strong> Plants convert light energy to chemical energy. <strong>Plant Parts:</strong> Roots absorb water and nutrients. Stems transport resources. Leaves perform photosynthesis.</p>
+            <p style="margin-top: 2rem;"><strong>Plant Life Cycles</strong></p>
+            <p>Understand seed germination, vegetative growth, reproduction, and senescence. Some plants are annuals (one season), biennials (two seasons), or perennials (many years). Sexual reproduction produces seeds; asexual reproduction creates identical plants.</p>
+            <p style="margin-top: 2rem;"><strong>Study Strategies</strong></p>
+            <p>Create detailed diagrams of plant structures and label all parts. Use flashcards for terminology. Study real plants when possible—observation reinforces learning. Form study groups to discuss difficult concepts. Practice essay questions about plant processes and relationships.</p>
+            <p style="margin-top: 2rem;"><strong>Lab Work Success</strong></p>
+            <p>Follow procedures carefully and record observations precisely. Draw diagrams during microscope work. Ask questions if results seem unusual—this is how real science works. Connect lab observations to lecture concepts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Essay Types -->
+    <div id="trendingModal-essay-types" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #fff4e8 0%, #ffe8cc 100%); background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeTrendingModal('essay-types')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Understanding Different Essay Types</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 8, 2026</span><span>⏱️ 8 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>The Main Essay Categories</strong></p>
+            <p>Different essay types serve different purposes. Understanding what each type requires helps you tailor your writing and meet assignment expectations effectively.</p>
+            <p style="margin-top: 2rem;"><strong>Argumentative Essays</strong></p>
+            <p>Present a clear thesis and support it with evidence. Acknowledge counterarguments and refute them. Aim to persuade readers to accept your position. Research and logical reasoning are essential.</p>
+            <p style="margin-top: 2rem;"><strong>Expository Essays</strong></p>
+            <p>Explain or inform without trying to persuade. Present facts, examples, and analysis. Topics can be historical, scientific, or process-oriented. Clarity and organization are paramount.</p>
+            <p style="margin-top: 2rem;"><strong>Narrative Essays</strong></p>
+            <p>Tell a story with personal significance. Include vivid details and dialogue. Build to a meaningful conclusion or revelation. Show character development and emotional growth.</p>
+            <p style="margin-top: 2rem;"><strong>Descriptive Essays</strong></p>
+            <p>Paint a detailed picture with words. Engage all five senses. Create mood and atmosphere. Help readers experience what you're describing.</p>
+            <p style="margin-top: 2rem;"><strong>Choosing Your Approach</strong></p>
+            <p>Read your assignment carefully to determine which type is required. Some assignments welcome hybrid approaches. Focus on clarity, supporting evidence, and your specific purpose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Study Tech Stack -->
+    <div id="trendingModal-study-tech" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #f5e8ff 0%, #e8dcff 100%); background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeTrendingModal('study-tech')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Building Your Study Tech Stack</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 7, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Technology Enhances Learning</strong></p>
+            <p>The right tools can transform your study experience. From note-taking apps to flashcard systems, strategic technology use boosts retention and efficiency.</p>
+            <p style="margin-top: 2rem;"><strong>Note-Taking Apps</strong></p>
+            <p><strong>Notion</strong> organizes all your study materials in one place. <strong>OneNote</strong> integrates with Microsoft products. <strong>Obsidian</strong> creates interconnected notes. <strong>Apple Notes</strong> offers simplicity across Apple devices.</p>
+            <p style="margin-top: 2rem;"><strong>Flashcard Systems</strong></p>
+            <p><strong>Anki</strong> uses spaced repetition for optimal retention. <strong>Quizlet</strong> offers collaborative studying and games. <strong>RemNote</strong> combines note-taking with flashcards.</p>
+            <p style="margin-top: 2rem;"><strong>Focus and Productivity</strong></p>
+            <p><strong>Forest</strong> gamifies focused work sessions. <strong>Pomoze</strong> implements the Pomodoro technique. <strong>Cold Turkey</strong> blocks distracting websites. <strong>Freedom</strong> restricts phone/computer access during study time.</p>
+            <p style="margin-top: 2rem;"><strong>Collaborative Tools</strong></p>
+            <p><strong>Google Meet</strong> for study sessions. <strong>Discord</strong> for study communities. <strong>Slack</strong> for group communication. <strong>Trello</strong> for project coordination.</p>
+            <p style="margin-top: 2rem;"><strong>Finding Your Combination</strong></p>
+            <p>You don't need every tool. Choose a few that address your specific needs and integrate well together. Test tools for a week before committing. Your tech stack should streamline studying, not complicate it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Essay Structure -->
+    <div id="trendingModal-essay-structure" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #ffeaa7 0%, #ffcb5c 100%); background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeTrendingModal('essay-structure')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Mastering Essay Structure</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 6, 2026</span><span>⏱️ 7 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>The Foundation of Good Writing</strong></p>
+            <p>Essay structure provides the framework for clear communication. A well-structured essay guides readers through your thoughts logically and persuasively.</p>
+            <p style="margin-top: 2rem;"><strong>The Introduction</strong></p>
+            <p>Hook your reader with a compelling opening. Provide background context. Present your thesis statement clearly—this is the main point your essay will prove. The introduction should be roughly 10% of your essay length.</p>
+            <p style="margin-top: 2rem;"><strong>Body Paragraphs</strong></p>
+            <p>Each paragraph should have one main idea. Start with a clear topic sentence. Support with evidence, examples, or analysis. Explain how your evidence relates to your thesis. Use transitions to connect ideas smoothly.</p>
+            <p style="margin-top: 2rem;"><strong>The Conclusion</strong></p>
+            <p>Restate your thesis in new language—don't just repeat it. Summarize main points. Discuss implications or broader significance. End with a thought-provoking statement that leaves readers reflecting on your essay.</p>
+            <p style="margin-top: 2rem;"><strong>Paragraph Organization</strong></p>
+            <p>Topic sentence → Evidence/example → Analysis/explanation → Transition to next paragraph (optional). This "sandwich" structure ensures each paragraph is coherent and purposeful.</p>
+            <p style="margin-top: 2rem;"><strong>Creating Flow</strong></p>
+            <p>Use transition words: "furthermore," "however," "in contrast," "for example." Repeat key terms to maintain coherence. Vary sentence length for readability. Your essay should read smoothly, not jerkily.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Research Papers -->
+    <div id="trendingModal-research-paper" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%); background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeTrendingModal('research-paper')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Writing Impactful Research Papers</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 5, 2026</span><span>⏱️ 10 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Research Papers Explained</strong></p>
+            <p>Research papers present original investigation and analysis on a specific topic. They're longer and more complex than regular essays, requiring substantial research, critical thinking, and formal structure.</p>
+            <p style="margin-top: 2rem;"><strong>Choosing Your Topic</strong></p>
+            <p>Select something that genuinely interests you—this sustains motivation through a long project. Ensure adequate sources exist. Choose a topic specific enough to be manageable but broad enough to find sufficient material. Ask your professor for approval before beginning.</p>
+            <p style="margin-top: 2rem;"><strong>Research Phase</strong></p>
+            <p>Use diverse, credible sources: academic journals, books, government reports. Take detailed notes with full citations. Read actively, annotating and questioning the material. Synthesize information rather than just collecting it. Look for patterns, contradictions, and gaps in existing research.</p>
+            <p style="margin-top: 2rem;"><strong>Developing Your Thesis</strong></p>
+            <p>Your thesis should be arguable and specific. It's not just a topic; it's a claim you'll support throughout the paper. Refine your thesis as you research—it may evolve as you learn more about your subject.</p>
+            <p style="margin-top: 2rem;"><strong>Structure and Writing</strong></p>
+            <p>Include abstract, introduction, literature review, methodology (if applicable), findings/argument, conclusion, and works cited. Each section serves a specific purpose. Maintain formal academic tone throughout. Use clear headings to organize sections.</p>
+            <p style="margin-top: 2rem;"><strong>Revision is Essential</strong></p>
+            <p>First drafts are rarely perfect. Step away, then return with fresh eyes. Check logic, clarity, and coherence. Ensure citations are complete and accurate. Read aloud to catch awkward phrasing. Research papers benefit greatly from multiple revisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Modal: Success Tips -->
+    <div id="trendingModal-success-tips" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center;">
+      <div style="background: white; max-width: 800px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="position: relative; height: 250px; background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%); background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop'); background-size: cover; background-position: center; flex-shrink: 0;">
+          <button onclick="closeTrendingModal('success-tips')" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+        </div>
+        <div style="padding: 3rem; max-height: calc(70vh - 250px); overflow-y: auto; flex-grow: 1;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--ink); margin: 0 0 1rem; line-height: 1.2;">Keys to Academic Success</h2>
+          <div style="display: flex; gap: 1rem; color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;"><span>📅 February 4, 2026</span><span>⏱️ 8 min read</span></div>
+          <div style="color: var(--muted); line-height: 1.8; font-size: 1.05rem;">
+            <p><strong>Success Requires More Than Talent</strong></p>
+            <p>Academic success comes from consistent habits, smart strategies, and genuine engagement with your courses. Here are proven approaches to excel in your studies.</p>
+            <p style="margin-top: 2rem;"><strong>1. Attend Class and Participate</strong></p>
+            <p>Class attendance correlates directly with grades. Pay attention, take notes, and participate in discussions. Professors notice engagement and often write better recommendations for engaged students.</p>
+            <p style="margin-top: 2rem;"><strong>2. Master Time Management</strong></p>
+            <p>Create a realistic schedule. Study consistently rather than cramming. Use a planner or digital calendar. Break large projects into smaller tasks with intermediate deadlines. Work ahead when possible.</p>
+            <p style="margin-top: 2rem;"><strong>3. Build Effective Study Habits</strong></p>
+            <p>Study actively—test yourself, create flashcards, explain concepts aloud. Study in blocks with breaks. Find locations free from distractions. Review material regularly, not just before exams.</p>
+            <p style="margin-top: 2rem;"><strong>4. Seek Help When Needed</strong></p>
+            <p>Visit office hours. Use tutoring services. Form study groups. Ask questions when confused. Getting help is a sign of strength, not weakness.</p>
+            <p style="margin-top: 2rem;"><strong>5. Take Care of Yourself</strong></p>
+            <p>Sleep well, exercise regularly, eat healthy. Mental health matters—use counseling services if needed. Balance academic work with social connection and relaxation. Burnout hurts performance.</p>
+            <p style="margin-top: 2rem;"><strong>6. Reflect and Adjust</strong></p>
+            <p>Review your grades and feedback. Identify patterns in what works and what doesn't. Be willing to change strategies. Growth comes from learning from mistakes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Latest News Section -->
     <section style="padding: 4rem 0;">
