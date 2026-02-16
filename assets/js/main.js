@@ -49,18 +49,36 @@ document.addEventListener("keydown", (event) => {
 
 // Nav dropdown toggles (for mobile / click)
 const navDropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
+let closeDropdownTimeout;
 
 navDropdownToggles.forEach((btn) => {
+  const parent = btn.closest(".nav-dropdown");
+  
   btn.addEventListener("click", (event) => {
-    const parent = btn.closest(".nav-dropdown");
+    clearTimeout(closeDropdownTimeout);
     const isOpen = parent.classList.contains("is-open");
     document.querySelectorAll(".nav-dropdown.is-open").forEach((open) => {
-      open.classList.remove("is-open");
+      if (open !== parent) {
+        open.classList.remove("is-open");
+      }
     });
     if (!isOpen) {
       parent.classList.add("is-open");
+    } else {
+      parent.classList.remove("is-open");
     }
     event.stopPropagation();
+  });
+
+  // Add hover effect for desktop: keep menu open while hovering over parent or menu
+  parent.addEventListener("mouseenter", () => {
+    clearTimeout(closeDropdownTimeout);
+  });
+
+  parent.addEventListener("mouseleave", () => {
+    closeDropdownTimeout = setTimeout(() => {
+      parent.classList.remove("is-open");
+    }, 150);
   });
 });
 
