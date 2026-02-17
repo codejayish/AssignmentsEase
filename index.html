@@ -144,9 +144,9 @@
           
           <div class="help-form-wrapper">
             <h3>Get Help</h3>
-            <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+            <p style="color: var(--ink); font-weight: 600; margin-top: 0;">Tell us what you need and we will match the right expert.</p>
             <form class="form-grid" id="form-help">
-              <label class="input">
+              <label class="input" style="font-weight: 700; color: var(--ink);">
                 Choose type
                 <select name="type" required>
                   <option value="">Select type</option>
@@ -212,11 +212,11 @@
                   <option>Other types</option>
                 </select>
               </label>
-              <label class="input">
+              <label class="input" style="font-weight: 700; color: var(--ink);">
                 Project Title
                 <input type="text" name="project_title" placeholder="e.g. Behavioral economics review" required />
               </label>
-              <label class="input">
+              <label class="input" style="font-weight: 700; color: var(--ink);">
                 Your email
                 <input type="email" name="email" placeholder="you@email.com" required />
               </label>
@@ -228,9 +228,9 @@
           </div>
           <div class="quote-form-wrapper">
             <h3>Get Quote</h3>
-            <p style="color: var(--muted); margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+            <p style="color: var(--ink); font-weight: 600; margin-top: 0;">Tell us what you need and we will match the right expert.</p>
             <form class="form-grid" id="form-quote">
-              <label class="input">
+              <label class="input" style="font-weight: 700; color: var(--ink);">
                 Choose type
                 <select name="projectType" required>
                 <option value="">Select type</option>
@@ -267,7 +267,7 @@
               </label>
               
               <div class="" style="display: flex; justify-content: space-between; gap: 15px;">
-                <label class="input" style="width: 100%;">
+                  <label class="input" style="width: 100%; font-weight: 700; color: var(--ink);">
                   Education level
                   <select name="educationLevel" required>
                   <option value="">Select type</option>
@@ -279,7 +279,7 @@
                   </select>
                   </label>
                   
-                  <label class="input" style="width: 100%;">
+                  <label class="input" style="width: 100%; font-weight: 700; color: var(--ink);">
                   Deadline
                   <select name="deadline" required>
                       <option>6 hours</option>
@@ -321,7 +321,7 @@
               <p class="status" data-status-help></p>
             </form>
           </div>
-          <p class="experts-ready">Experts are ready to hire now</p>
+          <p class="experts-ready" style="font-weight: 700; color: var(--ink);">Experts are ready to hire now</p>
         </div>
       </div>
     </section>
@@ -712,6 +712,28 @@
         }
 
       });
+
+      // Dynamic project naming based on query param
+      const params = new URLSearchParams(window.location.search);
+      const typeParam = params.get("type");
+      if (typeParam) {
+        const heading = document.querySelector("#hero-title");
+        const subtitle = document.querySelector(".hero-subtitle");
+        const select = document.querySelector("[name='type']");
+        
+        const label = typeParam.replace(/%20/g, " ");
+        document.title = label + " Help | AssignmentEase";
+        if (heading) heading.textContent = `Get expert help with your ${label}`;
+        if (subtitle) subtitle.textContent = `Connect with a mentor who specializes in ${label.toLowerCase()} so you can submit clear, on-time work.`;
+        
+        if (select) {
+          [...select.options].forEach((opt) => {
+            if (opt.text.toLowerCase().includes(label.toLowerCase().split(" ")[0])) {
+              opt.selected = true;
+            }
+          });
+        }
+      }
 
     </script>
       

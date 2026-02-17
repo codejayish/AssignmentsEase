@@ -165,15 +165,26 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.nav-dropdown-toggle:hover {
+  color: var(--accent);
 }
 
 .nav-chevron {
   font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown.is-open .nav-chevron,
+.nav-dropdown:hover .nav-chevron {
+  transform: rotate(180deg);
 }
 
 .nav-dropdown-menu {
   position: absolute;
-  top: 150%;
+  top: calc(100% + 0.5rem);
   left: 0;
   min-width: 240px;
   padding: 0.75rem 0.6rem;
@@ -187,23 +198,36 @@ button {
   max-height: 420px;
   overflow-y: auto;
   z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .nav-dropdown-menu a {
-  padding: 0.3rem 0.55rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
   color: var(--muted);
   font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .nav-dropdown-menu a:hover {
   background: var(--accent-soft);
   color: var(--ink);
+  padding-left: 1rem;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
   display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .nav-cta {
