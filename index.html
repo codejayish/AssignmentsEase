@@ -713,6 +713,28 @@
 
       });
 
+      // Dynamic project naming based on query param
+      const params = new URLSearchParams(window.location.search);
+      const typeParam = params.get("type");
+      if (typeParam) {
+        const heading = document.querySelector("#hero-title");
+        const subtitle = document.querySelector(".hero-subtitle");
+        const select = document.querySelector("[name='type']");
+        
+        const label = typeParam.replace(/%20/g, " ");
+        document.title = label + " Help | AssignmentEase";
+        if (heading) heading.textContent = `Get expert help with your ${label}`;
+        if (subtitle) subtitle.textContent = `Connect with a mentor who specializes in ${label.toLowerCase()} so you can submit clear, on-time work.`;
+        
+        if (select) {
+          [...select.options].forEach((opt) => {
+            if (opt.text.toLowerCase().includes(label.toLowerCase().split(" ")[0])) {
+              opt.selected = true;
+            }
+          });
+        }
+      }
+
     </script>
       
       
