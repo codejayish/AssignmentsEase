@@ -157,6 +157,10 @@ button {
   position: relative;
 }
 
+.nav-item {
+  position: relative;
+}
+
 .nav-dropdown-toggle {
   background: none;
   border: none;
@@ -165,6 +169,9 @@ button {
   align-items: center;
   gap: 0.3rem;
   transition: all 0.3s ease;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .nav-dropdown-toggle:hover {
@@ -174,6 +181,7 @@ button {
 .nav-chevron {
   font-size: 0.7rem;
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
 .nav-dropdown.is-open .nav-chevron,
@@ -1327,14 +1335,18 @@ button {
 @media (max-width: 980px) {
   .nav-links {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 70px;
-    right: 1.2rem;
+    right: 0;
+    left: 0;
     background: var(--surface);
-    border-radius: 16px;
-    padding: 1rem;
+    border-radius: 0;
+    padding: 1rem 0;
     flex-direction: column;
     box-shadow: var(--shadow);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 100;
   }
 
   .nav-links.open {
@@ -1346,10 +1358,52 @@ button {
   }
 
   .nav-dropdown-menu {
-    position: static;
+    position: static !important;
+    display: none !important;
     box-shadow: none;
-    border-radius: 10px;
+    border-radius: 0;
     max-height: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    margin: 0;
+    padding: 0.5rem 0;
+    background: #f8f9fa;
+    border: none;
+    border-left: 3px solid var(--accent);
+    margin-left: 0.5rem;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown-menu {
+    display: flex !important;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding-left: 1.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1.5rem;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-dropdown-toggle {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1.5rem !important;
   }
 }
 
@@ -1473,14 +1527,6 @@ button {
     gap: 1rem;
   }
 
-  .nav-dropdown-menu {
-    position: fixed !important;
-    right: 0.8rem !important;
-    left: auto !important;
-    min-width: 200px !important;
-    max-width: calc(100% - 1.6rem) !important;
-  }
-
   .input {
     font-size: 0.9rem;
   }
@@ -1579,6 +1625,95 @@ button {
     top: 60px;
     right: 0.8rem;
   }
+
+  /* ===== Stats Section Mobile Fix ===== */
+  .section[style*="background-color: #fff;"] .container {
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+  }
+
+  .stat {
+    flex: 0 0 calc(50% - 0.75rem) !important;
+    min-width: 140px;
+  }
+
+  .stat h3 {
+    font-size: 1.6rem !important;
+  }
+
+  .stat span {
+    font-size: 0.85rem !important;
+  }
+
+  /* ===== Logo Container Mobile Fix ===== */
+  .logo-container {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .logo-container img {
+    height: 70px !important;
+    width: 70px !important;
+    padding: 8px !important;
+  }
+
+  /* ===== Experts Logos Section Mobile Fix ===== */
+  .experts-logos-section {
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .experts-logos-section > div:first-child {
+    flex: 1 0 100% !important;
+    min-width: 100% !important;
+    padding-left: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* ===== Experts Header Section Fix ===== */
+  .experts-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .experts-header h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .experts-header p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Responsive wrapper for logo and text section */
+  div[style*="border-left: 4px solid var(--accent); padding-left: 1.5rem;"] {
+    font-size: 0.9rem !important;
+    padding-left: 1rem !important;
+    min-width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* ===== Security & Support Tiles Mobile Fix ===== */
+  div[style*="display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;"] {
+    flex-wrap: wrap !important;
+    gap: 1.2rem !important;
+  }
+
+  .tile {
+    flex: 0 0 100% !important;
+    min-width: auto !important;
+    padding: 1.5rem !important;
+  }
+
+  .tile h4 {
+    font-size: 1rem !important;
+  }
+
+  .tile p {
+    font-size: 0.9rem !important;
+  }
 }
 
 /* Small Devices (Tablets & Larger Phones - 480px to 768px) */
@@ -1629,14 +1764,6 @@ button {
   .form-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-
-  .nav-dropdown-menu {
-    position: fixed !important;
-    right: 0.8rem !important;
-    left: auto !important;
-    min-width: 200px !important;
-    max-width: calc(100% - 1.6rem) !important;
   }
 
   .input input,
@@ -1694,6 +1821,41 @@ button {
   .reviews-slide {
     min-width: 88% !important;
     flex: 0 0 88% !important;
+  }
+
+  /* ===== Stats Section Tablet Fix ===== */
+  .stat h3 {
+    font-size: 2rem !important;
+  }
+
+  .stat span {
+    font-size: 0.9rem !important;
+  }
+
+  /* ===== Logo Container Tablet Fix ===== */
+  .logo-container img {
+    height: 85px !important;
+    width: 85px !important;
+  }
+
+  /* ===== Experts Logos Section Tablet Fix ===== */
+  .experts-logos-section {
+    gap: 2rem !important;
+  }
+
+  /* ===== Security & Support Tiles Tablet Fix ===== */
+  div[style*="display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;"] {
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+  }
+
+  .tile {
+    flex: 0 0 calc(50% - 0.75rem) !important;
+    min-width: 200px;
+  }
+
+  .tile h4 {
+    font-size: 1.05rem !important;
   }
 }
 
