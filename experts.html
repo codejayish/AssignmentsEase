@@ -8,6 +8,60 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      /* Mobile Responsive Fixes for Experts Page */
+      @media (max-width: 480px) {
+        #experts-grid,
+        #form-results-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+
+        .expert-hero {
+          padding: 2rem 0 !important;
+        }
+
+        .expert-hero h1 {
+          font-size: 2rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .expert-hero p {
+          font-size: 0.95rem !important;
+        }
+
+        .expert-search-filters {
+          display: flex !important;
+          flex-direction: column !important;
+        }
+
+        .expert-search-filters input,
+        .expert-search-filters select {
+          width: 100% !important;
+        }
+
+        #find-expert-form [style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #find-expert-form [style*="grid-template-columns: 1fr 1fr 1fr"] {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+
+      section[style*="background-attachment: fixed"] {
+        background-attachment: scroll !important;
+      }
+
+      @media (max-width: 480px) {
+        section[style*="background-attachment: fixed"] {
+          background-attachment: scroll !important;
+          padding: 2rem 0 !important;
+        }
+      }
+    </style>
     <link rel="icon" type="image/png" href="assets/img/logo.jpeg" />
   </head>
   <body>

@@ -8,6 +8,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      /* Mobile Responsive Fixes for Reviews Page */
+      @media (max-width: 480px) {
+        .page-hero {
+          background-attachment: scroll !important;
+          padding: 3rem 0 !important;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .page-hero p {
+          font-size: 0.95rem !important;
+        }
+
+        .reviews-container {
+          padding: 2rem 0 !important;
+        }
+
+        .reviews-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+      }
+
+      section[style*="background-attachment: fixed"] {
+        background-attachment: scroll !important;
+      }
+    </style>
     <link rel="icon" type="image/png" href="assets/img/logo.jpeg" />
   </head>
   <body>
