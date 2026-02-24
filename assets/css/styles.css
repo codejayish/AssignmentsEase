@@ -342,22 +342,23 @@ button {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.5rem;
-  margin-left: auto;
-  color: var(--ink);
-  transition: color 0.2s ease;
-}
+    padding: 0.5rem 0.7rem;
+    margin-left: auto;
+    color: var(--ink);
+    transition: all 0.2s ease;
+    border-radius: 8px;
+  }
 
-.menu-toggle:hover,
-.menu-toggle:focus {
-  color: var(--accent);
-  outline: none;
-}
+  .menu-toggle:hover,
+  .menu-toggle:focus {
+    color: var(--accent);
+    outline: none;
+    background: rgba(37, 99, 235, 0.1);
+    transform: scale(1.05);
+  }
 
-.hero {
-  padding: 4.5rem 0 3.5rem;
-  position: relative;
-  overflow: hidden;
+  .menu-toggle:active {
+    transform: scale(0.95);
 }
 
 .hero::before {
@@ -1350,21 +1351,34 @@ button {
     top: 70px;
     right: 0;
     left: 0;
-    background: var(--surface);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
     border-radius: 0;
     padding: 0;
     flex-direction: column;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
     max-height: calc(100vh - 70px);
     overflow-y: auto;
     z-index: 100;
     width: 100%;
     min-width: 100vw;
     margin: 0;
+    border-top: 2px solid var(--accent);
   }
 
   .nav-links.open {
     display: flex;
+    animation: slideDownMenu 0.3s ease-out;
+  }
+
+  @keyframes slideDownMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .menu-toggle {
@@ -1389,10 +1403,23 @@ button {
     transform: none;
     pointer-events: auto;
     margin: 0 !important;
-    padding: 0 0 0 0 !important;
-    background: #f8f9fa;
+    padding: 0.5rem 0 !important;
+    background: linear-gradient(180deg, #f3f6ff 0%, #f8fafb 100%);
     border: none;
-    border-left: 3px solid var(--accent);
+    border-left: 4px solid var(--accent);
+    border-top: 1px solid rgba(37, 99, 235, 0.1);
+    animation: slideDownSubmenu 0.3s ease-out;
+  }
+
+  @keyframes slideDownSubmenu {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
   }
 
   .nav-dropdown.is-open .nav-dropdown-menu {
@@ -1400,26 +1427,60 @@ button {
   }
 
   .nav-dropdown-menu a {
-    padding: 0.75rem 1.5rem 0.75rem 2rem;
+    padding: 0.85rem 1.5rem 0.85rem 2.5rem;
     font-size: 0.95rem;
     color: var(--muted);
     display: block;
     width: 100%;
     text-align: left;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .nav-dropdown-menu a::before {
+    content: "»";
+    position: absolute;
+    left: 1.5rem;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-weight: bold;
   }
 
   .nav-dropdown-menu a:hover {
     background: var(--accent-soft);
-    color: var(--ink);
-    padding-left: 2rem;
+    color: var(--accent-dark);
+    padding-left: 2.8rem;
+    font-weight: 500;
+  }
+
+  .nav-dropdown-menu a:hover::before {
+    opacity: 1;
   }
 
   .nav-link,
   .nav-links a {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: block !important;
     width: 100%;
     text-align: left;
+    color: var(--ink);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-link:hover,
+  .nav-links a:hover {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, transparent 100%);
+    color: var(--accent);
+    border-left-color: var(--accent);
+    padding-left: 1.8rem;
+  }
+
+  .nav-link::after,
+  .nav-links a::after {
+    display: none;
   }
 
   .nav-dropdown-toggle {
@@ -1427,13 +1488,55 @@ button {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.75rem 1.5rem !important;
+    padding: 1rem 1.5rem !important;
     background: none;
     border: none;
+    color: var(--ink);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-dropdown-toggle:hover {
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, transparent 100%);
+    color: var(--accent);
+    border-left-color: var(--accent);
   }
 
   .nav-chevron {
     font-size: 0.7rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .nav-dropdown.is-open .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ===== Mobile Menu Scrollbar Styling ===== */
+  .nav-links::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-links::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb {
+    background: rgba(37, 99, 235, 0.3);
+    border-radius: 3px;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(37, 99, 235, 0.6);
+  }
+
+  /* ===== Nav Item Separator Lines ===== */
+  .nav-links > .nav-item:not(:last-child),
+  .nav-links > a:not(:last-child) {
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
   }
 }
 
@@ -1734,6 +1837,24 @@ button {
     text-align: center !important;
   }
 
+  /* ===== About Page Logos Section Mobile Fix (inline styled container) ===== */
+  div[style*="justify-content: space-evenly"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  div[style*="justify-content: space-evenly"] > div:first-child {
+    width: 100% !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: 4px solid var(--accent) !important;
+    padding-top: 1rem !important;
+  }
+
   /* ===== Experts Header Section Fix ===== */
   .experts-header {
     margin-bottom: 1.5rem;
@@ -1909,6 +2030,25 @@ button {
     object-fit: contain !important;
   }
 
+  /* ===== About Page Logos Section Tablet Fix (inline styled container) ===== */
+  div[style*="justify-content: space-evenly"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  div[style*="justify-content: space-evenly"] > div:first-child {
+    flex: 0 1 100% !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: 4px solid var(--accent) !important;
+    padding-top: 1rem !important;
+  }
+
   /* ===== Experts Logos Section Tablet Fix ===== */
   .experts-logos-section {
     display: flex !important;
@@ -1998,6 +2138,25 @@ button {
   .experts-logos-section > div:first-child {
     flex: 0 0 auto !important;
     min-width: fit-content !important;
+  }
+
+  /* ===== About Page Logos Section Medium Screens Fix (inline styled container) ===== */
+  div[style*="justify-content: space-evenly"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 2rem !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding-bottom: 2rem !important;
+  }
+
+  div[style*="justify-content: space-evenly"] > div:first-child {
+    flex: 0 0 auto !important;
+    text-align: left !important;
+    padding-left: 1.5rem !important;
+    border-left: 4px solid var(--accent) !important;
+    border-top: none !important;
+    padding-top: 0 !important;
   }
 
   .hero-form-card {
@@ -2108,6 +2267,26 @@ button {
 
   .experts-logos-section > div:first-child {
     flex: 0 0 auto !important;
+    min-width: fit-content !important;
+  }
+
+  /* ===== About Page Logos Section Large Screens Fix (inline styled container) ===== */
+  div[style*="justify-content: space-evenly"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 3rem !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    padding-bottom: 2rem !important;
+  }
+
+  div[style*="justify-content: space-evenly"] > div:first-child {
+    flex: 0 0 auto !important;
+    text-align: left !important;
+    padding-left: 1.5rem !important;
+    border-left: 4px solid var(--accent) !important;
+    border-top: none !important;
+    padding-top: 0 !important;
     min-width: fit-content !important;
   }
 
