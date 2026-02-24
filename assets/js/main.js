@@ -6,6 +6,14 @@ if (toggle && navLinks) {
   toggle.addEventListener("click", () => {
     navLinks.classList.toggle("open");
   });
+
+  // Close menu when clicking on a regular nav link (not a dropdown toggle)
+  const regularNavLinks = navLinks.querySelectorAll("a:not(.nav-dropdown-toggle)");
+  regularNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
+  });
 }
 
 const cards = document.querySelectorAll("[data-expandable]");
@@ -53,6 +61,7 @@ let closeDropdownTimeout;
 
 navDropdownToggles.forEach((btn) => {
   const parent = btn.closest(".nav-dropdown");
+  const menu = parent.querySelector(".nav-dropdown-menu");
   
   btn.addEventListener("click", (event) => {
     clearTimeout(closeDropdownTimeout);
@@ -70,6 +79,13 @@ navDropdownToggles.forEach((btn) => {
     event.stopPropagation();
   });
 
+  // Prevent closing when clicking inside the dropdown menu
+  if (menu) {
+    menu.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  }
+
   // Add hover effect for desktop: keep menu open while hovering over parent or menu
   parent.addEventListener("mouseenter", () => {
     clearTimeout(closeDropdownTimeout);
@@ -82,10 +98,13 @@ navDropdownToggles.forEach((btn) => {
   });
 });
 
-document.addEventListener("click", () => {
-  document.querySelectorAll(".nav-dropdown.is-open").forEach((open) => {
-    open.classList.remove("is-open");
-  });
+// Close dropdowns when clicking outside
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".nav-dropdown")) {
+    document.querySelectorAll(".nav-dropdown.is-open").forEach((open) => {
+      open.classList.remove("is-open");
+    });
+  }
 });
 
 // Simple horizontal scroll controls for experts carousel

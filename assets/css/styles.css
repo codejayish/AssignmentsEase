@@ -341,6 +341,17 @@ button {
   background: none;
   border: none;
   font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: var(--accent);
+  outline: none;
 }
 
 .hero {
@@ -1341,12 +1352,15 @@ button {
     left: 0;
     background: var(--surface);
     border-radius: 0;
-    padding: 1rem 0;
+    padding: 0;
     flex-direction: column;
     box-shadow: var(--shadow);
     max-height: calc(100vh - 70px);
     overflow-y: auto;
     z-index: 100;
+    width: 100%;
+    min-width: 100vw;
+    margin: 0;
   }
 
   .nav-links.open {
@@ -1357,9 +1371,16 @@ button {
     display: inline-flex;
   }
 
+  .nav-item,
+  .nav-links a {
+    display: block !important;
+    width: 100%;
+  }
+
   .nav-dropdown-menu {
     position: static !important;
     display: none !important;
+    flex-direction: column;
     box-shadow: none;
     border-radius: 0;
     max-height: none;
@@ -1367,12 +1388,11 @@ button {
     visibility: visible;
     transform: none;
     pointer-events: auto;
-    margin: 0;
-    padding: 0.5rem 0;
+    margin: 0 !important;
+    padding: 0 0 0 0 !important;
     background: #f8f9fa;
     border: none;
     border-left: 3px solid var(--accent);
-    margin-left: 0.5rem;
   }
 
   .nav-dropdown.is-open .nav-dropdown-menu {
@@ -1380,20 +1400,24 @@ button {
   }
 
   .nav-dropdown-menu a {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.5rem 0.75rem 2rem;
     font-size: 0.95rem;
     color: var(--muted);
+    display: block;
+    width: 100%;
+    text-align: left;
   }
 
   .nav-dropdown-menu a:hover {
     background: var(--accent-soft);
     color: var(--ink);
-    padding-left: 1.5rem;
+    padding-left: 2rem;
   }
 
-  .nav-link {
+  .nav-link,
+  .nav-links a {
     padding: 0.75rem 1.5rem;
-    display: block;
+    display: block !important;
     width: 100%;
     text-align: left;
   }
@@ -1404,6 +1428,12 @@ button {
     align-items: center;
     width: 100%;
     padding: 0.75rem 1.5rem !important;
+    background: none;
+    border: none;
+  }
+
+  .nav-chevron {
+    font-size: 0.7rem;
   }
 }
 
@@ -1418,6 +1448,11 @@ button {
 
   .cta {
     padding: 2rem;
+  }
+
+  .nav-link::after,
+  .nav-links a::after {
+    display: none;
   }
 }
 
@@ -1486,6 +1521,19 @@ button {
   .brand-badge {
     width: 35px;
     height: 35px;
+  }
+
+  .nav-links {
+    width: 100% !important;
+    min-width: 100vw !important;
+  }
+
+  .nav-links.open {
+    width: 100% !important;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
   }
 
   .hero {
@@ -1648,30 +1696,42 @@ button {
 
   /* ===== Logo Container Mobile Fix ===== */
   .logo-container {
+    display: flex !important;
     flex-wrap: wrap !important;
-    gap: 1rem !important;
+    gap: 0.8rem !important;
     justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
 
   .logo-container img {
-    height: 70px !important;
-    width: 70px !important;
-    padding: 8px !important;
+    height: 60px !important;
+    width: 60px !important;
+    padding: 6px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
   }
 
   /* ===== Experts Logos Section Mobile Fix ===== */
   .experts-logos-section {
+    display: flex !important;
+    flex-direction: column !important;
     flex-wrap: wrap !important;
     gap: 1.5rem !important;
     justify-content: center !important;
+    align-items: center !important;
     padding-bottom: 1.5rem !important;
+    width: 100% !important;
   }
 
   .experts-logos-section > div:first-child {
     flex: 1 0 100% !important;
+    width: 100% !important;
     min-width: 100% !important;
     padding-left: 1rem !important;
     font-size: 0.9rem !important;
+    text-align: center !important;
   }
 
   /* ===== Experts Header Section Fix ===== */
@@ -1833,14 +1893,36 @@ button {
   }
 
   /* ===== Logo Container Tablet Fix ===== */
+  .logo-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.2rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
   .logo-container img {
-    height: 85px !important;
-    width: 85px !important;
+    height: 80px !important;
+    width: 80px !important;
+    padding: 8px !important;
+    object-fit: contain !important;
   }
 
   /* ===== Experts Logos Section Tablet Fix ===== */
   .experts-logos-section {
+    display: flex !important;
+    flex-wrap: wrap !important;
     gap: 2rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-bottom: 2rem !important;
+    width: 100% !important;
+  }
+
+  .experts-logos-section > div:first-child {
+    flex: 0 1 auto !important;
+    text-align: center !important;
   }
 
   /* ===== Security & Support Tiles Tablet Fix ===== */
@@ -1885,6 +1967,37 @@ button {
   .hero-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 2.5rem;
+  }
+
+  /* ===== Logo Container Medium Screens Fix ===== */
+  .logo-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .logo-container img {
+    height: 95px !important;
+    width: 95px !important;
+    padding: 10px !important;
+    object-fit: contain !important;
+  }
+
+  /* ===== Experts Logos Section Medium Screens Fix ===== */
+  .experts-logos-section {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 3rem !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .experts-logos-section > div:first-child {
+    flex: 0 0 auto !important;
+    min-width: fit-content !important;
   }
 
   .hero-form-card {
@@ -1965,6 +2078,37 @@ button {
 
   .section {
     padding: 4rem 0;
+  }
+
+  /* ===== Logo Container Large Screens Fix ===== */
+  .logo-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 1.8rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .logo-container img {
+    height: 110px !important;
+    width: 110px !important;
+    padding: 10px !important;
+    object-fit: contain !important;
+  }
+
+  /* ===== Experts Logos Section Large Screens Fix ===== */
+  .experts-logos-section {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 3rem !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .experts-logos-section > div:first-child {
+    flex: 0 0 auto !important;
+    min-width: fit-content !important;
   }
 
   .page-grid {
