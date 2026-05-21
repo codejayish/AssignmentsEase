@@ -6,7 +6,7 @@
     <title>About | AssignmentEase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <style>
       .page-hero {
@@ -61,6 +61,57 @@
         animation: pulse 1.5s ease-in-out;
       }
 
+      .about-hero-copy {
+        max-width: 100%;
+        padding-right: 1rem;
+      }
+
+      .about-hero-copy .hero-title {
+        margin: 0 0 1.25rem;
+        line-height: 1.05;
+      }
+
+      .about-hero-copy .hero-title-primary {
+        display: block;
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        font-size: clamp(2.25rem, 3.75vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.08;
+        color: var(--accent);
+        letter-spacing: -0.6px;
+        text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+      }
+
+      .about-hero-copy .hero-title-accent {
+        display: block;
+        margin-top: 0.2rem;
+        font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+        font-size: clamp(1.65rem, 2.65vw, 2.45rem);
+        font-weight: 400;
+        font-style: italic;
+        line-height: 1.15;
+        color: var(--accent);
+        letter-spacing: -0.2px;
+      }
+
+      .about-hero-copy .page-hero-subtitle {
+        color: var(--ink);
+        font-size: clamp(1rem, 1.35vw, 1.2rem);
+        line-height: 1.65;
+        font-weight: 600;
+        margin: 0;
+        max-width: 36rem;
+      }
+
+      .page-hero.about-page-hero {
+        height: auto;
+        min-height: 650px;
+      }
+
+      .page-hero.about-page-hero .page-hero-grid {
+        padding: 4.5rem 2rem;
+      }
+
       /* Mobile Responsive Fixes */
       @media (max-width: 480px) {
         .page-hero {
@@ -75,15 +126,24 @@
           padding: 2rem 1rem !important;
         }
 
-        .page-hero h1 {
-          font-size: 2.2rem !important;
-          margin-bottom: 1.5rem !important;
-          line-height: 1.2 !important;
+        .about-hero-copy .hero-title {
+          margin-bottom: 1rem !important;
         }
 
-        .page-hero-subtitle {
-          font-size: 1rem !important;
-          line-height: 1.6 !important;
+        .about-hero-copy .hero-title-primary {
+          font-size: 1.75rem !important;
+          line-height: 1.1 !important;
+        }
+
+        .about-hero-copy .hero-title-accent {
+          font-size: 1.35rem !important;
+          line-height: 1.15 !important;
+        }
+
+        .about-hero-copy .page-hero-subtitle {
+          font-size: 0.95rem !important;
+          line-height: 1.55 !important;
+          max-width: none !important;
         }
 
         .page-hero-phone {
@@ -157,9 +217,25 @@
           grid-template-columns: 1fr !important;
         }
 
-        .page-hero h1 {
-          font-size: 2.8rem !important;
-          margin-bottom: 1.5rem !important;
+        .about-hero-copy .hero-title {
+          margin-bottom: 1rem !important;
+        }
+
+        .about-hero-copy .hero-title-primary {
+          font-size: 2rem !important;
+        }
+
+        .about-hero-copy .hero-title-accent {
+          font-size: 1.5rem !important;
+        }
+
+        .about-hero-copy .page-hero-subtitle {
+          font-size: 1.05rem !important;
+          line-height: 1.6 !important;
+        }
+
+        .page-hero.about-page-hero .page-hero-grid {
+          padding: 3rem 1.5rem !important;
         }
 
         .page-hero-phone {
@@ -264,13 +340,16 @@
       </div>
     </header>
 
-    <section class="page-hero" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url('assets/img/bg.jpg') center/cover no-repeat !important; background-attachment: fixed; height: 650px;">
+    <section class="page-hero about-page-hero" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url('assets/img/bg.jpg') center/cover no-repeat !important; background-attachment: fixed;">
       <div class="container" style="max-width: 1400px;">
-        <div class="page-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding: 6rem 2rem;">
+        <div class="page-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
           <!-- Left Column: Text -->
-          <div style="z-index: 2; padding-right: 2rem;">
-            <h1 class="hero-title" style="font-size: 5rem; font-weight: 900; line-height: 1.15; margin-bottom: 3rem; color: var(--accent); letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);">About AssignmentEase</h1>
-            <p class="hero-subtitle page-hero-subtitle" style="color: var(--ink); font-size: 1.4rem; line-height: 1.9; font-weight: 600;">AssignmentEase is a student-first platform built by students who understand academic pressure. We connect you with experts from top universities who deliver precise, high-quality work on time. Whether it's assignments, research papers, or urgent deadlines, we provide reliable support to help you stay ahead confidently.</p>
+          <div class="about-hero-copy" style="z-index: 2;">
+            <h1 class="hero-title">
+              <span class="hero-title-primary">Expert assignment help</span>
+              <span class="hero-title-accent">on time, every time</span>
+            </h1>
+            <p class="hero-subtitle page-hero-subtitle">AssignmentEase connects students with verified subject experts for essays, research papers, coursework, and last-minute deadlines. Tell us what you need, review your quote, and get original work delivered on time — privately and plagiarism-checked.</p>
           </div>
 
           <!-- Right Column: Mobile Phone Frame with Image -->
