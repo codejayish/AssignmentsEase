@@ -2466,6 +2466,161 @@ button {
   }
 }
 
+/* ══════════════════════════════════════════════════
+   GLOBAL DESIGN TOKENS — extended palette
+   ══════════════════════════════════════════════════ */
+:root {
+  --amber:      #f59e0b;
+  --amber-dark: #d97706;
+  --amber-soft: #fef3c7;
+  --green:      #10b981;
+  --green-soft: #d1fae5;
+  --blue-950:   #1e3a8a;
+  --blue-400:   #60a5fa;
+}
+
+/* ── Text highlight utilities ──────────────────── */
+mark, .hl {
+  background: linear-gradient(120deg, rgba(251,191,36,0.22) 0%, rgba(245,158,11,0.38) 100%);
+  border-radius: 3px;
+  padding: 0 3px 1px;
+  color: inherit;
+  font-style: normal;
+  font-weight: 700;
+}
+.hl-blue {
+  background: linear-gradient(120deg, rgba(37,99,235,0.12) 0%, rgba(37,99,235,0.22) 100%);
+  border-radius: 3px;
+  padding: 0 3px 1px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+.hl-green {
+  background: linear-gradient(120deg, rgba(16,185,129,0.12) 0%, rgba(16,185,129,0.24) 100%);
+  border-radius: 3px;
+  padding: 0 3px 1px;
+  font-weight: 700;
+  color: #065f46;
+}
+
+/* ── Gradient heading text ─────────────────────── */
+.h-grad {
+  background: linear-gradient(135deg, var(--blue-950) 0%, var(--accent) 55%, var(--blue-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Scroll-reveal (transition-based) ─────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity   0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr.in-view { opacity: 1; transform: none; }
+.sr.d1 { transition-delay: 0.08s; }
+.sr.d2 { transition-delay: 0.16s; }
+.sr.d3 { transition-delay: 0.24s; }
+.sr.d4 { transition-delay: 0.32s; }
+.sr.d5 { transition-delay: 0.40s; }
+.sr.d6 { transition-delay: 0.48s; }
+
+/* ── Star ratings ──────────────────────────────── */
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.6rem;
+}
+.stars span {
+  color: #f59e0b;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Stat counter nums ─────────────────────────── */
+.counter-num {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+}
+
+/* ── Section divider accent line ───────────────── */
+.section-accent-line {
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--blue-400) 100%);
+  margin: 0 auto 1.5rem;
+}
+.section-accent-line.left { margin: 0 0 1.5rem; }
+
+/* ── Form card polish ──────────────────────────── */
+.hero-form-card {
+  border-top: 4px solid var(--accent);
+}
+.form-trust-bar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.6rem 0 0.2rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+.form-trust-bar span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ── Live badge on form ────────────────────────── */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(0.85); }
+}
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 1.4s ease-in-out infinite;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* ── CTA section enhancement ───────────────────── */
+.cta {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1d4ed8 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(96,165,250,0.10);
+  pointer-events: none;
+}
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(245,158,11,0.07);
+  pointer-events: none;
+}
+.cta h2, .cta p { position: relative; z-index: 1; }
+.cta > div { position: relative; z-index: 1; }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
@@ -2586,3 +2741,432 @@ body:has(.hero-form-card) .whatsapp-chatbot-tooltip {
   }
 }
 
+/* ══════════════════════════════════════════════════════════
+   COMPREHENSIVE RESPONSIVE PATCH
+   Covers: hero new elements, stats cards, step cards,
+   feature cards, form card, testimonials, CTA, about page,
+   page-hero inner pages, background-attachment iOS fix,
+   font-size clamp overrides for every breakpoint.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 1. Disable background-attachment:fixed on all mobile/tablet ──
+   iOS ignores it and it hurts performance on Android too.          */
+@media (max-width: 1024px) {
+  .hero,
+  .page-hero,
+  section,
+  [style*="background-attachment"] {
+    background-attachment: scroll !important;
+  }
+}
+
+/* ── 2. Sticky form card: disable sticky on mobile ──────────────── */
+@media (max-width: 768px) {
+  .hero-form-card {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SMALL PHONES  ≤ 480 px
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* ── Hero title (new two-line structure) ── */
+  .hero-title {
+    font-size: 2rem   !important;
+    line-height: 1.1  !important;
+    letter-spacing: -0.4px !important;
+    margin-bottom: 1rem !important;
+  }
+  .ht-line2 {
+    padding-bottom: 6px !important;
+  }
+  .ht-cursor { display: none !important; }
+
+  /* ── Hero subtitle ── */
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.65  !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  /* ── Hero section padding ── */
+  .hero {
+    padding: 2rem 0 2.5rem !important;
+    overflow: hidden;
+  }
+
+  /* ── Hero badges ── */
+  .hero-badges {
+    gap: 0.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .badge {
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.65rem !important;
+  }
+
+  /* ── Stats cards — 2 × 2 grid ── */
+  .stat-block {
+    flex: 0 0 calc(50% - 0.75rem) !important;
+    min-width: 130px !important;
+    padding: 1.1rem 0.75rem !important;
+    border-radius: 12px !important;
+  }
+  .stat-block .stat-num {
+    font-size: 1.65rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .stat-block .stat-label {
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+  }
+  .stat-icon {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* ── Step cards ── */
+  .step-number-bg {
+    font-size: 3.5rem !important;
+    opacity: 0.05     !important;
+    top: -5px !important;
+    right: 8px !important;
+  }
+
+  /* ── Feature icon wrap ── */
+  .feature-icon-wrap {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* ── Form card ── */
+  .hero-form-card {
+    padding: 1.4rem !important;
+  }
+  .form-live-bar {
+    font-size: 0.74rem !important;
+  }
+  .form-trust-bar {
+    gap: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    justify-content: flex-start !important;
+  }
+  .form-trust-bar span {
+    font-size: 0.72rem !important;
+  }
+
+  /* ── Testimonials ── */
+  .t-stars {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .testimonial-card {
+    padding: 1.4rem !important;
+  }
+
+  /* ── Section titles ── */
+  .section-title {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  .section-title h2 {
+    font-size: 1.65rem !important;
+  }
+  .section-title p {
+    font-size: 0.88rem !important;
+    max-width: 100% !important;
+  }
+
+  /* ── Section accent line ── */
+  .section-accent-line {
+    width: 40px !important;
+    height: 3px !important;
+  }
+
+  /* ── CTA section ── */
+  .cta {
+    padding: 2rem 1.2rem !important;
+    text-align: center !important;
+    grid-template-columns: 1fr !important;
+  }
+  .cta h2 { font-size: 1.5rem !important; }
+  .cta p  { font-size: 0.9rem !important; }
+  .cta > div:last-child {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100%;
+  }
+  .cta .btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* ── FAQ ── */
+  .faq details  { padding: 0.9rem 1rem !important; }
+  .faq summary  { font-size: 0.92rem !important; }
+  .faq p        { font-size: 0.88rem !important; }
+
+  /* ── Inner page hero (about, experts, reviews …) ── */
+  .page-hero {
+    padding: 2.5rem 0 !important;
+    min-height: auto !important;
+  }
+  .page-hero h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.2  !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .page-hero p {
+    font-size: 0.92rem !important;
+    line-height: 1.6  !important;
+  }
+
+  /* ── About page: phone frame ── */
+  .page-hero-phone {
+    width: 280px !important;
+    height: 370px !important;
+    border-radius: 36px !important;
+    padding: 12px !important;
+  }
+  .page-hero-phone-inner {
+    border-radius: 28px !important;
+  }
+  .page-hero-notch {
+    width: 110px !important;
+    height: 26px !important;
+  }
+  .page-hero-whatsapp {
+    font-size: 0.82rem !important;
+    padding: 0.7rem 1.8rem !important;
+  }
+
+  /* ── About float CTA ── */
+  .float-cta-wrap {
+    padding: 1.5rem 0.75rem 2.5rem !important;
+  }
+  .float-cta-card {
+    padding: 1.4rem 1.2rem !important;
+    gap: 0.9rem !important;
+  }
+  .float-cta-headline {
+    font-size: 1.05rem !important;
+  }
+  .float-cta-sub {
+    font-size: 0.8rem !important;
+  }
+  .float-cta-badge {
+    right: 1rem !important;
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0.7rem !important;
+  }
+  .float-cta-trust span {
+    font-size: 0.75rem !important;
+  }
+
+  /* ── About: values grid — single column ── */
+  .values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+  }
+
+  /* ── About: quality cards ── */
+  .quality-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .quality-card {
+    padding: 1.5rem !important;
+  }
+  .quality-card h3 {
+    font-size: 1.25rem !important;
+  }
+
+  /* ── About: numbers section ── */
+  .numbers-section {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    align-items: flex-start !important;
+  }
+
+  /* ── Expert cards carousel ── */
+  .experts-carousel {
+    grid-auto-columns: 240px !important;
+  }
+
+  /* ── Section padding ── */
+  .section {
+    padding: 2rem 0 !important;
+  }
+
+  /* ── Carousel controls ── */
+  .carousel-btn {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   TABLETS  481 px – 768 px
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  /* ── Hero title ── */
+  .hero-title {
+    font-size: 2.4rem !important;
+    line-height: 1.1 !important;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem !important;
+    line-height: 1.75  !important;
+  }
+
+  /* ── Stats — 2-col ── */
+  .stat-block {
+    flex: 0 0 calc(50% - 0.75rem) !important;
+    min-width: 160px !important;
+  }
+  .stat-block .stat-num {
+    font-size: 2rem !important;
+  }
+
+  /* ── Step backdrop ── */
+  .step-number-bg { font-size: 4rem !important; }
+
+  /* ── Section title ── */
+  .section-title {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  .section-title p { max-width: 100% !important; }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 2rem !important;
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  .cta > div:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+  }
+
+  /* ── About float CTA ── */
+  .float-cta-card {
+    flex-wrap: wrap !important;
+  }
+  .float-cta-actions {
+    flex-direction: row !important;
+    width: 100%;
+  }
+
+  /* ── About phone frame ── */
+  .page-hero-phone {
+    width: 300px !important;
+    height: 410px !important;
+  }
+
+  /* ── Values grid ── */
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Section padding ── */
+  .section { padding: 2.5rem 0 !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MEDIUM SCREENS  769 px – 1024 px  (laptop / small desktop)
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* ── Hero title ── */
+  .hero-title {
+    font-size: 3rem !important;
+    line-height: 1.08 !important;
+  }
+
+  /* ── Stats — 2 × 2 or auto ── */
+  .stat-block { flex: 0 0 calc(50% - 0.75rem) !important; }
+  .stat-block .stat-num { font-size: 2.1rem !important; }
+
+  /* ── Section title direction ── */
+  .section-title {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.4rem !important;
+  }
+
+  /* ── About page hero grid ── */
+  .about-page-hero .page-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Feature icon wrap ── */
+  .feature-icon-wrap { width: 48px !important; height: 48px !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   LARGE DESKTOP  ≥ 1025 px — polish & max-width guard
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+
+  /* ── Stats — all 4 in one row ── */
+  .stat-block { flex: 1 1 0 !important; min-width: 160px !important; }
+
+  /* ── Section title normal direction ── */
+  .section-title {
+    flex-direction: row !important;
+    align-items: flex-end !important;
+  }
+
+  /* ── Step cards — 4 columns ── */
+  .steps { grid-template-columns: repeat(4, 1fr) !important; }
+
+  /* ── Feature cards — 4 columns ── */
+  .features { grid-template-columns: repeat(4, 1fr) !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   CLAMP-BASED FLUID TYPOGRAPHY (all sizes, no breakpoint)
+   ══════════════════════════════════════════════════════════ */
+.ht-line1 {
+  /* 1.75rem at 320px → 4rem at 1200px */
+  font-size: clamp(1.75rem, 5.5vw + 0.4rem, 4rem) !important;
+}
+.ht-line2 {
+  /* let em value control it relative to parent which uses clamp */
+  font-size: 0.58em !important;
+}
+
+/* Section heading clamp */
+.section-title h2,
+.section .section-title h2 {
+  font-size: clamp(1.45rem, 2.2vw + 0.6rem, 2.4rem) !important;
+}
+
+/* Page hero h1 clamp */
+.page-hero h1 {
+  font-size: clamp(1.6rem, 3vw + 0.5rem, 2.8rem) !important;
+}
+
+/* About hero primary title clamp */
+.about-hero-copy .hero-title-primary {
+  font-size: clamp(1.8rem, 3.5vw + 0.4rem, 3.5rem) !important;
+}
+.about-hero-copy .hero-title-accent {
+  font-size: clamp(1.3rem, 2.5vw + 0.2rem, 2.4rem) !important;
+}
+
+/* Stats big number clamp */
+.stat-block .stat-num {
+  font-size: clamp(1.6rem, 2.5vw + 0.5rem, 2.4rem) !important;
+}

@@ -1,92 +1,403 @@
-#whatsapp-float-btn,
-.whatsapp-chatbot {
-  position: fixed !important;
-  bottom: 1.5rem !important;
-  right: 1.5rem !important;
-  left: auto !important;
-  top: auto !important;
-  z-index: 2147483647 !important;
-  width: 4rem !important;
-  height: 4rem !important;
-  min-width: 4rem !important;
-  min-height: 4rem !important;
-  border-radius: 50% !important;
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+/* ── WhatsApp Floating Chatbot v3 ─────────────────────────── */
+
+/* ── Wrapper ── */
+.wa-wrap {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 2147483640;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.wa-wrap.wa-left {
+  right: auto;
+  left: 1.5rem;
+  align-items: flex-start;
+}
+
+/* ── Ripple rings ── */
+.wa-ring {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.36);
+  animation: waRipple 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.wa-wrap.wa-left .wa-ring { right: auto; left: 0; }
+.wa-ring-2 { animation-delay: 1.4s; }
+
+@keyframes waRipple {
+  0%   { transform: scale(1);   opacity: 0.72; }
+  100% { transform: scale(2.7); opacity: 0;    }
+}
+
+/* ── Notification badge ── */
+.wa-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 22px;
+  height: 22px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.55);
+  animation: waBadgeBounce 1s ease-in-out 2s 3;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.wa-wrap.wa-left .wa-badge { right: auto; left: -3px; }
+
+@keyframes waBadgeBounce {
+  0%, 100% { transform: scale(1);    }
+  40%       { transform: scale(1.45); }
+  70%       { transform: scale(0.82); }
+}
+
+/* ── "Chat with us" label ── */
+.wa-label {
+  background: #fff;
+  color: #075e54;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: waLabelIn 0.45s ease 1.2s both;
+  align-self: flex-end;
+  border: 1.5px solid rgba(37, 211, 102, 0.35);
+  transition: background 0.18s, color 0.18s;
+}
+
+.wa-wrap.wa-left .wa-label { align-self: flex-start; }
+.wa-label:hover { background: #f0fdf4; color: #128c7e; }
+
+@keyframes waLabelIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ── Main button ── */
+.wa-btn {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2fe073 0%, #25d366 45%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 6px 24px rgba(37, 211, 102, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  pointer-events: auto;
+  animation: waFloat 3.8s ease-in-out infinite;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  flex-shrink: 0;
+}
+
+.wa-btn:hover,
+.wa-btn:focus-visible {
+  transform: scale(1.1) translateY(-3px) !important;
+  animation-play-state: paused;
+  box-shadow:
+    0 12px 32px rgba(37, 211, 102, 0.70),
+    0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.wa-btn svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.18));
+}
+
+@keyframes waFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   WhatsApp Chat Preview (shown on hover)
+   ════════════════════════════════════════════════════════════ */
+.wa-chat-preview {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 298px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.22),
+    0 3px 10px rgba(0, 0, 0, 0.10);
+  opacity: 0;
+  transform: translateY(16px) scale(0.93);
+  transition:
+    opacity 0.28s cubic-bezier(0.22, 0.68, 0, 1.2),
+    transform 0.28s cubic-bezier(0.22, 0.68, 0, 1.2);
+  pointer-events: none;
+  transform-origin: bottom right;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  will-change: opacity, transform;
+}
+
+.wa-wrap.wa-left .wa-chat-preview {
+  right: auto;
+  left: 0;
+  transform-origin: bottom left;
+}
+
+/* Show on hover OR via JS class */
+.wa-wrap:hover .wa-chat-preview,
+.wa-chat-preview.wa-cp-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ── Header bar ── */
+.wa-cp-header {
+  background: #075e54;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.wa-cp-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #25d366, #128c7e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.wa-cp-avatar svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.wa-cp-meta { flex: 1; min-width: 0; }
+
+.wa-cp-name {
+  display: block;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wa-cp-status {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1px;
+}
+
+.wa-cp-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: waDotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes waDotPulse {
+  0%, 100% { opacity: 1;    transform: scale(1);    }
+  50%       { opacity: 0.35; transform: scale(0.82); }
+}
+
+.wa-cp-open {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  padding: 0.18rem 0.48rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.wa-cp-open:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* ── Messages area ── */
+.wa-cp-body {
+  background-color: #e5ddd5;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9c3bc' fill-opacity='0.32' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  padding: 0.7rem 0.65rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+}
+
+/* ── Message rows ── */
+.wa-cp-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 84%;
+}
+
+.wa-cp-msg-out { align-self: flex-end; }
+.wa-cp-msg-in  { align-self: flex-start; }
+
+/* ── Bubble ── */
+.wa-cp-bubble {
+  padding: 0.42rem 0.65rem 0.22rem;
+  font-size: 0.79rem;
+  line-height: 1.5;
+  color: #111b21;
+  position: relative;
+  word-break: break-word;
+}
+
+.wa-cp-msg-out .wa-cp-bubble {
+  background: #d9fdd3;
+  border-radius: 8px 8px 0 8px;
+}
+
+.wa-cp-msg-in .wa-cp-bubble {
+  background: #ffffff;
+  border-radius: 8px 8px 8px 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.09);
+}
+
+/* ── Timestamp row ── */
+.wa-cp-time {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  font-size: 0.63rem;
+  color: rgba(0,0,0,0.36);
+  padding: 0 0.65rem 0.28rem;
+}
+
+.wa-cp-msg-out .wa-cp-time { color: #8b9a7d; }
+
+.wa-cp-ticks {
+  display: inline-flex;
+  align-items: center;
+  color: #53bdeb;
+  font-size: 0.72rem;
+  line-height: 1;
+  margin-left: 1px;
+}
+
+/* ── Typing indicator ── */
+.wa-cp-typing {
+  align-self: flex-start;
+  background: #ffffff;
+  border-radius: 8px 8px 8px 0;
+  padding: 0.55rem 0.8rem;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.09);
+}
+
+.wa-cp-typing span {
+  width: 7px;
+  height: 7px;
+  background: #8da4a7;
+  border-radius: 50%;
+  display: block;
+  animation: waTypingBounce 1.4s ease-in-out infinite;
+}
+
+.wa-cp-typing span:nth-child(2) { animation-delay: 0.2s; }
+.wa-cp-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes waTypingBounce {
+  0%, 55%, 100% { transform: translateY(0);   opacity: 0.45; }
+  28%            { transform: translateY(-6px); opacity: 1;    }
+}
+
+/* ── CTA footer ── */
+.wa-cp-footer {
+  background: #f0f2f5;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 0.5rem 0.65rem;
+}
+
+.wa-cp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #fff !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
   text-decoration: none !important;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45) !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  cursor: pointer !important;
-  box-sizing: border-box !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: chatbotPulse 2.5s ease-in-out infinite;
+  transition: opacity 0.18s, transform 0.18s;
+  box-shadow: 0 2px 10px rgba(37, 211, 102, 0.35);
+  letter-spacing: 0.01em;
 }
 
-#whatsapp-float-btn:hover,
-.whatsapp-chatbot:hover {
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55) !important;
+.wa-cp-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
-#whatsapp-float-btn svg,
-.whatsapp-chatbot svg {
-  width: 1.75rem !important;
-  height: 1.75rem !important;
-  fill: #fff !important;
-  display: block !important;
-  flex-shrink: 0 !important;
-}
-
-.whatsapp-chatbot-tooltip {
-  display: none;
-}
-
-body.page-index #whatsapp-float-btn,
-body.page-index .whatsapp-chatbot,
-body.page-index .whatsapp-chatbot {
-  right: auto !important;
-  left: 1.5rem !important;
-}
-
-@keyframes chatbotPulse {
-  0%,
-  100% {
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
-  }
-
-  50% {
-    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65);
-  }
-}
-
+/* ── Mobile adjustments ── */
 @media (max-width: 480px) {
-  #whatsapp-float-btn,
-  .whatsapp-chatbot {
-    width: 3.5rem !important;
-    height: 3.5rem !important;
-    min-width: 3.5rem !important;
-    min-height: 3.5rem !important;
-    bottom: 1rem !important;
-    right: 1rem !important;
+  .wa-wrap        { bottom: 1rem; right: 1rem; }
+  .wa-wrap.wa-left { left: 1rem; right: auto; }
+
+  .wa-btn  { width: 54px; height: 54px; }
+  .wa-ring { width: 54px; height: 54px; }
+  .wa-btn svg { width: 28px; height: 28px; }
+
+  .wa-chat-preview {
+    width: 265px;
+    bottom: 70px;
+    font-size: 0.82rem;
   }
 
-  body.page-index #whatsapp-float-btn,
-  body.page-index .whatsapp-chatbot {
-    left: 1rem !important;
-    right: auto !important;
-  }
-
-  #whatsapp-float-btn svg,
-  .whatsapp-chatbot svg {
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-  }
+  .wa-badge { width: 20px; height: 20px; font-size: 0.63rem; }
+  .wa-label { font-size: 0.72rem; }
 }

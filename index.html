@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,39 +10,351 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/styles.css?v=3" />
-    <link rel="stylesheet" href="assets/css/whatsapp-chatbot.css?v=1" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+    <link rel="stylesheet" href="assets/css/whatsapp-chatbot.css?v=3" />
     <style>
+      /* ── base animations (used across page) ─────────────── */
       @keyframes fadeInDown {
         from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
+        to   { opacity: 1; transform: translateY(0); }
       }
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        to   { opacity: 1; transform: translateY(0); }
       }
       @keyframes slideInLeft {
         from { opacity: 0; transform: translateX(-30px); }
-        to { opacity: 1; transform: translateX(0); }
+        to   { opacity: 1; transform: translateX(0); }
       }
       @keyframes slideInRight {
         from { opacity: 0; transform: translateX(30px); }
-        to { opacity: 1; transform: translateX(0); }
+        to   { opacity: 1; transform: translateX(0); }
       }
       @keyframes scaleIn {
         from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
+        to   { opacity: 1; transform: scale(1); }
       }
       @keyframes slideUp {
         from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
+        to   { opacity: 1; transform: translateY(0); }
       }
-      .hero-title { animation: fadeInDown 0.8s ease-out; }
-      .hero-subtitle { animation: fadeInUp 0.8s ease-out 0.2s both; }
-      .step-card { animation: slideUp 0.6s ease-out; }
-      .tile-special { animation: scaleIn 0.6s ease-out; }
-      .feature-card { animation: fadeInUp 0.6s ease-out; }
+
+      /* ── hero heading ────────────────────────────────────── */
+      @keyframes heroBlurUp {
+        from { opacity: 0; transform: translateY(56px) skewY(2.5deg); filter: blur(10px); }
+        to   { opacity: 1; transform: translateY(0)    skewY(0deg);   filter: blur(0);   }
+      }
+      @keyframes shimmerFlow {
+        0%   { background-position: -300% center; }
+        100% { background-position:  300% center; }
+      }
+      @keyframes taglineSlide {
+        from { opacity: 0; transform: translateX(-44px); letter-spacing: -0.12em; }
+        to   { opacity: 1; transform: translateX(0);     letter-spacing: 0.04em;  }
+      }
+      @keyframes underlineDraw {
+        from { width: 0;    opacity: 0; }
+        to   { width: 100%; opacity: 1; }
+      }
+      @keyframes subtitleReveal {
+        from { opacity: 0; transform: translateY(22px); filter: blur(3px); }
+        to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+      }
+      @keyframes badgePop {
+        from { opacity: 0; transform: translateY(12px) scale(0.85); }
+        to   { opacity: 1; transform: translateY(0)    scale(1);    }
+      }
+      @keyframes wordReveal {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes cursorBlink {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0; }
+      }
+
+      /* ── hero title ──────────────────────────────────────── */
+      .hero-title {
+        animation: none !important;
+        margin-bottom: 0.6rem !important;
+      }
+      .ht-line1 {
+        display: block;
+        background: linear-gradient(
+          120deg,
+          #ffffff 0%, #93c5fd 18%, #ffffff 36%,
+          #bfdbfe 54%, #ffffff 72%, #93c5fd 90%, #ffffff 100%
+        );
+        background-size: 300% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation:
+          heroBlurUp  1s   cubic-bezier(0.16,1,0.3,1) 0.1s  both,
+          shimmerFlow 5s   linear                      1.2s  infinite;
+      }
+      .ht-line2 {
+        display: block;
+        color: #fbbf24;
+        font-size: 0.58em;
+        font-weight: 800;
+        font-style: italic;
+        letter-spacing: 0.04em;
+        position: relative;
+        padding-bottom: 10px;
+        margin-top: 0.3rem;
+        animation: taglineSlide 0.95s cubic-bezier(0.16,1,0.3,1) 0.65s both;
+      }
+      .ht-line2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 60%, transparent 100%);
+        border-radius: 2px;
+        animation: underlineDraw 0.85s ease-out 1.4s both;
+      }
+      .ht-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 0.75em;
+        background: #fbbf24;
+        border-radius: 2px;
+        margin-left: 4px;
+        vertical-align: middle;
+        animation: cursorBlink 1s step-end 2.4s infinite;
+        opacity: 0;
+        animation-fill-mode: forwards;
+      }
+
+      /* ── hero subtitle ───────────────────────────────────── */
+      .hero-subtitle {
+        animation: subtitleReveal 1s cubic-bezier(0.16,1,0.3,1) 1.05s both !important;
+      }
+      .hero-subtitle .hw {
+        display: inline-block;
+        opacity: 0;
+        animation: wordReveal 0.4s ease-out both;
+      }
+
+      /* ── badge stagger ───────────────────────────────────── */
+      .hero-badges .badge { opacity: 0; animation: badgePop 0.5s ease-out both; }
+      .hero-badges:first-child .badge:nth-child(1) { animation-delay: 1.6s; }
+      .hero-badges:first-child .badge:nth-child(2) { animation-delay: 1.75s; }
+      .hero-badges:first-child .badge:nth-child(3) { animation-delay: 1.9s; }
+      .hero-badges:first-child .badge:nth-child(4) { animation-delay: 2.05s; }
+      .hero-badges:first-child .badge:nth-child(5) { animation-delay: 2.2s; }
+      .hero-badges:first-child .badge:nth-child(6) { animation-delay: 2.35s; }
+      .hero-badges:last-child  .badge:nth-child(1) { animation-delay: 2.5s; }
+      .hero-badges:last-child  .badge:nth-child(2) { animation-delay: 2.65s; }
+      .hero-badges:last-child  .badge:nth-child(3) { animation-delay: 2.8s; }
+
+      /* ── other section cards ─────────────────────────────── */
+      .step-card        { animation: slideUp  0.6s ease-out; }
+      .tile-special     { animation: scaleIn  0.6s ease-out; }
+      .feature-card     { animation: fadeInUp 0.6s ease-out; }
       .testimonial-card { animation: fadeInUp 0.6s ease-out; }
+
+      /* ── Section heading gradient (light-bg sections) ──── */
+      .section-title h2,
+      .section .section-title h2 {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #60a5fa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── Stats section ──────────────────────────────────── */
+      .stat-block {
+        text-align: center;
+        flex: 1;
+        padding: 1.8rem 1.2rem;
+        border-radius: 16px;
+        background: #fff;
+        border: 1px solid rgba(37,99,235,0.1);
+        box-shadow: 0 4px 20px rgba(37,99,235,0.06);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+      }
+      .stat-block:hover {
+        box-shadow: 0 12px 36px rgba(37,99,235,0.14);
+        transform: translateY(-4px);
+      }
+      .stat-block .stat-num {
+        font-size: 2.4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .stat-block .stat-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      .stat-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+        display: block;
+      }
+
+      /* ── Step card number backdrop ──────────────────────── */
+      .step-number-bg {
+        position: absolute;
+        top: -10px;
+        right: 14px;
+        font-size: 5rem;
+        font-weight: 900;
+        line-height: 1;
+        opacity: 0.07;
+        color: #2563eb;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* ── Feature card icons ─────────────────────────────── */
+      .feature-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 1rem;
+        box-shadow: 0 4px 14px rgba(37,99,235,0.18);
+      }
+
+      /* ── Testimonial star row ───────────────────────────── */
+      .t-stars { color: #f59e0b; font-size: 0.95rem; margin-bottom: 0.8rem; letter-spacing: 2px; }
+      .testimonial-card { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+      .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px var(--t-shadow, rgba(37,99,235,0.14)); }
+
+      /* ── FAQ open animation ─────────────────────────────── */
+      .faq details[open] p {
+        animation: fadeInUp 0.3s ease-out both;
+      }
+
+      /* ── Important text highlights in dark sections ──────── */
+      .on-dark-hl {
+        color: #fbbf24;
+        font-weight: 800;
+      }
+
+      /* ── Section muted override to use softer palette ──── */
+      .section-muted {
+        background: linear-gradient(160deg, #f0f5ff 0%, #fafbff 60%, #f5f7fb 100%) !important;
+      }
+
+      /* ── Form card header strip ─────────────────────────── */
+      .form-live-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #16a34a;
+        margin-bottom: 0.4rem;
+      }
+
+      /* ── CTA section button pulse ───────────────────────── */
+      @keyframes btnPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+        50%       { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+      }
+      .cta .btn-primary { animation: btnPulse 2.4s ease-in-out infinite; }
+
+      /* ── Section chip / label ────────────────────────────── */
+      .section-chip {
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        color: #2563eb; font-size: 0.72rem; font-weight: 800;
+        padding: 0.26rem 0.7rem; border-radius: 999px;
+        border: 1px solid rgba(37,99,235,0.2);
+        margin-bottom: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .section-title .section-chip { margin-bottom: 0.5rem; }
+
+      /* ── Experts section heading gradient ────────────────── */
+      .experts-header .eh-title {
+        font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 1rem;
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #60a5fa 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        animation: heroBlurUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+      }
+      .experts-header .eh-sub {
+        font-size: 1.1rem; font-weight: 600; color: #374151; line-height: 1.8;
+      }
+
+      /* ── University logo hover ───────────────────────────── */
+      .uni-logo { transition: transform 0.3s ease, filter 0.3s ease; cursor: pointer; }
+      .uni-logo:hover {
+        transform: scale(1.1) translateY(-4px);
+        filter: drop-shadow(0 4px 16px rgba(37,99,235,0.3));
+      }
+
+      /* ── How It Works step connector ────────────────────── */
+      @media (min-width: 769px) {
+        .steps-connected { position: relative; }
+        .steps-connected::before {
+          content: ''; position: absolute;
+          top: 38px; left: 14%; right: 14%; height: 2px;
+          background: linear-gradient(90deg, #2563eb 0%, #10b981 33%, #f59e0b 66%, #ec4899 100%);
+          opacity: 0.18; z-index: 0; border-radius: 1px;
+        }
+        .steps-connected .step-card { z-index: 1; }
+      }
+
+      /* ── Service tile hover classes ──────────────────────── */
+      .tile { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+      .t-blue:hover   { box-shadow: 0 14px 36px rgba(37,99,235,0.16);   transform: translateY(-5px); }
+      .t-green:hover  { box-shadow: 0 14px 36px rgba(16,185,129,0.16);  transform: translateY(-5px); }
+      .t-amber:hover  { box-shadow: 0 14px 36px rgba(245,158,11,0.16);  transform: translateY(-5px); }
+      .t-pink:hover   { box-shadow: 0 14px 36px rgba(236,72,153,0.16);  transform: translateY(-5px); }
+      .t-cyan:hover   { box-shadow: 0 14px 36px rgba(6,182,212,0.16);   transform: translateY(-5px); }
+      .t-purple:hover { box-shadow: 0 14px 36px rgba(147,51,234,0.16);  transform: translateY(-5px); }
+
+      /* ── Service tile icon chip ──────────────────────────── */
+      .tile-icon-chip {
+        width: 46px; height: 46px; border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.4rem; margin-bottom: 0.9rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+
+      /* ── Feature card hover classes ──────────────────────── */
+      .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .fc-blue:hover   { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(37,99,235,0.14); }
+      .fc-green:hover  { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(16,185,129,0.14); }
+      .fc-amber:hover  { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(245,158,11,0.14); }
+      .fc-pink:hover   { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(236,72,153,0.14); }
+
+      /* ── Security tile hover ─────────────────────────────── */
+      .sec-tile { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+      .sec-tile:hover { box-shadow: 0 14px 36px rgba(37,99,235,0.16); transform: translateY(-6px); }
+      .sec-icon { font-size: 2.2rem; display: block; margin-bottom: 0.65rem; }
+
+      /* ── Stats bottom accent ─────────────────────────────── */
+      .stat-block { position: relative; overflow: hidden; }
+      .stat-block::after {
+        content: ''; position: absolute;
+        bottom: 0; left: 15%; right: 15%; height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(37,99,235,0.22), transparent);
+        border-radius: 1px;
+      }
+
+      /* ── Testimonial decorative large quote ──────────────── */
+      .testimonial-card { position: relative; overflow: hidden; }
+      .testimonial-card::before {
+        content: '\201C';
+        position: absolute; top: 0; right: 1rem;
+        font-size: 6rem; font-weight: 900; line-height: 1;
+        opacity: 0.055; font-family: Georgia, serif; pointer-events: none;
+      }
     </style>
     <link rel="icon" type="image/png" href="assets/img/logo.jpeg" />
   </head>
@@ -135,10 +447,12 @@
             <span class="badge" style="background: rgba(255, 255, 255, 0.25); color: #fff; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.35);">Complete Confidentiality</span>
             <span class="badge" style="background: rgba(255, 255, 255, 0.25); color: #fff; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.35);">Money back guarantee</span>
           </div>
-          <h1 class="hero-title" id="hero-title" style="font-size: 4.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.8px; color: #fff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);">Get expert assignment help from verified specialists</h1>
-          <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 700; line-height: 1.8; color: #fff; max-width: 720px; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);">
-            AssignmentEase connects you with verified academic mentors, transparent pricing, and a clean workflow so
-            every project ships on time without the stress.
+          <h1 class="hero-title" id="hero-title" style="font-size: 4.4rem; font-weight: 900; line-height: 1.08; margin-bottom: 1.6rem; letter-spacing: -1px;">
+            <span class="ht-line1">Expert Assignment Help</span>
+            <span class="ht-line2">On Time, Every Time<span class="ht-cursor"></span></span>
+          </h1>
+          <p class="hero-subtitle" id="hero-subtitle" style="font-size: 1.25rem; font-weight: 500; line-height: 1.9; color: rgba(255,255,255,0.92); max-width: 680px; margin-bottom: 1.8rem;">
+            AssignmentEase connects students with <strong style="color:#fff;font-weight:700;">verified subject experts</strong> for essays, research papers, coursework, and last-minute deadlines. Tell us what you need, review your quote, and get original work delivered on time&nbsp;&mdash; <strong style="color:#fbbf24;font-weight:700;">privately and plagiarism&#8209;checked.</strong>
           </p>
           <div class="hero-badges">
             <span class="badge" style="background: rgba(255, 255, 255, 0.25); color: #fff; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.35);">4.9 average rating</span>
@@ -150,8 +464,9 @@
         <div class="card hero-form-card" id="brief">
           
           <div class="help-form-wrapper">
-            <h3>Get Help</h3>
-            <p style="color: var(--ink); font-weight: 600; margin-top: 0;">Tell us what you need and we will match the right expert.</p>
+            <div class="form-live-bar"><span class="live-dot"></span> Experts online now — avg. match time <strong>15 min</strong></div>
+            <h3 style="margin-top:0.2rem;">Get Help</h3>
+            <p style="color: var(--ink); font-weight: 600; margin-top: 0;">Tell us what you need and we will match the <mark>right expert</mark>.</p>
             <form id="form-help" style="display: flex; flex-direction: column; gap: 1rem;">
               <label class="input" style="font-weight: 700; color: var(--ink); width: 100%;">
                 Choose type
@@ -318,8 +633,8 @@
                 </div>
                 
                 <div class="" style="display: flex; gap: 8px;">
-                <span class="old-price">$26.00</span>
-                    <span class="new-price" id="">$20.00</span>
+                <span class="old-price">$13.00</span>
+                    <span class="new-price" id="">$10.00</span>
                 </div>
             </div>
               <button class="btn btn-primary" type="submit">Get Quote</button>
@@ -327,26 +642,32 @@
             </form>
           </div>
           <p class="experts-ready" style="font-weight: 700; color: var(--ink);">Experts are ready to hire now</p>
+          <div class="form-trust-bar">
+            <span>🔒 100% private</span>
+            <span>✅ No hidden fees</span>
+            <span>🔄 Free revisions</span>
+            <span>⭐ 4.9 rated</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section section-experts" style="background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(243, 244, 246, 0.95) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
-        <div class="experts-header">
-          <h2 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 1rem;">Who Are the Experts?</h2>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #374151; line-height: 1.8;">We engage alumni of the world's top universities and colleges to become AssignmentEase experts. We carefully check each candidate's academic and professional background before hiring.</p>
+        <div class="experts-header" style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-chip">🎓 Verified Academic Talent</span>
+          <h2 class="eh-title">Who Are the Experts?</h2>
+          <p class="eh-sub" style="max-width: 700px; margin: 0 auto;">We engage alumni of the world's top universities and colleges to become AssignmentEase experts. We carefully check each candidate's academic and professional background before hiring.</p>
         </div>
         <div class="experts-logos-section" style="display: flex; justify-content: space-evenly; align-items: center; gap: 3rem; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line);">
           <div style="font-size: 1.05rem; color: var(--muted); font-weight: 600; border-left: 4px solid var(--accent); padding-left: 1.5rem; min-width: fit-content;">Our experts have graduated from<br/>the best universities in the world</div>
-          <div class="logo-container" style="display: flex; gap: 1.8rem; align-items: center; flex-wrap: nowrap;">
-            <img src="assets/img/logo-oxford.jpeg" alt="Oxford" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
-            <img src="assets/img/logo-harvard.jpeg" alt="Harvard" style="height: 75px; width: 75px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"/>
-            <img src="assets/img/logo-cambridge.png" alt="Cambridge" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
-            <img src="assets/img/logo-mit.png" alt="MIT" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
-            <img src="assets/img/logo-iitkgp.png" alt="IIT KGP" style="height: 110px; width: 110px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
-            <img src="assets/img/logo-iitbmb.png" alt="IITBMB" style="height: 64px; width: 64px; object-fit: contain; padding: 10px; transition: all 0.3s ease; cursor: pointer;"onmouseover="this.style.transform='scale(1.08)'"onmouseout="this.style.transform='scale(1)'"/>
-
+          <div class="logo-container" style="display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; justify-content: center;">
+            <img src="assets/img/logo-oxford.jpeg" alt="Oxford"    class="uni-logo" style="height: 110px; width: 110px; object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-harvard.jpeg" alt="Harvard"  class="uni-logo" style="height: 75px;  width: 75px;  object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-cambridge.png" alt="Cambridge" class="uni-logo" style="height: 110px; width: 110px; object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-mit.png" alt="MIT"           class="uni-logo" style="height: 110px; width: 110px; object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-iitkgp.png" alt="IIT KGP"   class="uni-logo" style="height: 110px; width: 110px; object-fit: contain; padding: 10px;" />
+            <img src="assets/img/logo-iitbmb.png" alt="IITBMB"    class="uni-logo" style="height: 64px;  width: 64px;  object-fit: contain; padding: 10px;" />
           </div>
         </div>
 
@@ -357,51 +678,68 @@
     <section class="section" style="background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(25, 118, 210, 0.2) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
         <div class="section-title">
+          <span class="section-chip">⚡ Simple 4-step process</span>
           <h2>How It Works</h2>
           <p>Stay in control. You choose the mentor, chat directly, and keep every file in one clean workspace.</p>
         </div>
-        <div class="steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <div class="step-card" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3f6ff 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #2563eb; animation: slideInLeft 0.6s ease-out;">
-            <div style="width: 50px; height: 50px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">1</div>
-            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Fill in a brief</strong>
-            <p style="color: var(--muted); line-height: 1.6;">Tell us what you need help with, describe your project requirements, and set the deadline.</p>
+        <div class="steps steps-connected" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="step-card sr d1" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3f6ff 100%); border-radius: 16px; padding: 2rem; position: relative; border-left: 4px solid #2563eb; overflow: hidden;">
+            <span class="step-number-bg">1</span>
+            <div style="width: 52px; height: 52px; background: linear-gradient(135deg,#2563eb,#1d4ed8); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; margin-bottom: 1.2rem; box-shadow: 0 6px 18px rgba(37,99,235,0.35);">1</div>
+            <strong style="font-size: 1.1rem; display: block; margin-bottom: 0.75rem; color: #1e3a8a;">Fill in a brief</strong>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Tell us what you need help with, describe your project requirements, and <mark>set the deadline</mark>.</p>
           </div>
-          <div class="step-card" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #10b981; animation: slideInRight 0.6s ease-out 0.1s both;">
-            <div style="width: 50px; height: 50px; background: #10b981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">2</div>
-            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Choose an expert</strong>
-            <p style="color: var(--muted); line-height: 1.6;">Receive offers from those who can help with assignments, compare their ratings, and pick the best one for your task.</p>
+          <div class="step-card sr d2" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%); border-radius: 16px; padding: 2rem; position: relative; border-left: 4px solid #10b981; overflow: hidden;">
+            <span class="step-number-bg" style="color:#10b981;">2</span>
+            <div style="width: 52px; height: 52px; background: linear-gradient(135deg,#10b981,#059669); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; margin-bottom: 1.2rem; box-shadow: 0 6px 18px rgba(16,185,129,0.35);">2</div>
+            <strong style="font-size: 1.1rem; display: block; margin-bottom: 0.75rem; color: #064e3b;">Choose an expert</strong>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Receive offers, <mark>compare ratings</mark>, and pick the best specialist for your task — all from your dashboard.</p>
           </div>
-          <div class="step-card" style="background: linear-gradient(135deg, #fff3e0 0%, #fffbf5 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #f59e0b; animation: slideInLeft 0.6s ease-out 0.2s both;">
-            <div style="width: 50px; height: 50px; background: #f59e0b; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">3</div>
-            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Get it done on time</strong>
-            <p style="color: var(--muted); line-height: 1.6;">Chat with the expert directly, discuss your project in detail, and get professional academic assistance by the deadline.</p>
+          <div class="step-card sr d3" style="background: linear-gradient(135deg, #fff3e0 0%, #fffbf5 100%); border-radius: 16px; padding: 2rem; position: relative; border-left: 4px solid #f59e0b; overflow: hidden;">
+            <span class="step-number-bg" style="color:#f59e0b;">3</span>
+            <div style="width: 52px; height: 52px; background: linear-gradient(135deg,#f59e0b,#d97706); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; margin-bottom: 1.2rem; box-shadow: 0 6px 18px rgba(245,158,11,0.35);">3</div>
+            <strong style="font-size: 1.1rem; display: block; margin-bottom: 0.75rem; color: #78350f;">Get it done on time</strong>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Chat directly with the expert, track progress, and receive <mark>professional work by your deadline</mark>.</p>
           </div>
-          <div class="step-card" style="background: linear-gradient(135deg, #fce4ec 0%, #fdf6f9 100%); border-radius: 12px; padding: 2rem; position: relative; border-left: 4px solid #ec4899; animation: slideInRight 0.6s ease-out 0.3s both;">
-            <div style="width: 50px; height: 50px; background: #ec4899; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;">4</div>
-            <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem;">Make it perfect</strong>
-            <p style="color: var(--muted); line-height: 1.6;">Get your finished assignment checked for plagiarism and errors, and request revisions if needed — it's all free.</p>
+          <div class="step-card sr d4" style="background: linear-gradient(135deg, #fce4ec 0%, #fdf6f9 100%); border-radius: 16px; padding: 2rem; position: relative; border-left: 4px solid #ec4899; overflow: hidden;">
+            <span class="step-number-bg" style="color:#ec4899;">4</span>
+            <div style="width: 52px; height: 52px; background: linear-gradient(135deg,#ec4899,#db2777); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; margin-bottom: 1.2rem; box-shadow: 0 6px 18px rgba(236,72,153,0.35);">4</div>
+            <strong style="font-size: 1.1rem; display: block; margin-bottom: 0.75rem; color: #831843;">Make it perfect</strong>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Receive a plagiarism report, request <mark>free revisions</mark> until the brief is 100% satisfied.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background-color: #fff;">
-      <div class="container" style="display: flex; gap: 3rem; justify-content: space-around; align-items: center; flex-wrap: nowrap;">
-        <div class="stat" style="text-align: center; flex: 1;">
-          <h3 style="font-size: 2.4rem; font-weight: 900; background: linear-gradient(135deg, #2563eb, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 0.5rem 0;">12+ years</h3>
-          <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Helping learners across disciplines</span>
-        </div>
-        <div class="stat" style="text-align: center; flex: 1;">
-          <h3 style="font-size: 2.4rem; font-weight: 900; background: linear-gradient(135deg, #1976d2, #1565c0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 0.5rem 0;">5k+ experts</h3>
-          <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Graduates from top universities</span>
-        </div>
-        <div class="stat" style="text-align: center; flex: 1;">
-          <h3 style="font-size: 2.4rem; font-weight: 900; background: linear-gradient(135deg, #1565c0, #0d47a1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 0.5rem 0;">400k+</h3>
-          <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Projects completed with care</span>
-        </div>
-        <div class="stat" style="text-align: center; flex: 1;">
-          <h3 style="font-size: 2.4rem; font-weight: 900; background: linear-gradient(135deg, #0d47a1, #0a3d91); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 0.5rem 0;">4.9 / 5</h3>
-          <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Average satisfaction score</span>
+    <section class="section" style="background: linear-gradient(160deg,#f0f5ff 0%,#fafbff 60%,#f5f7fb 100%); padding: 3rem 0;">
+      <div class="container">
+        <div class="section-accent-line" style="margin: 0 auto 2rem;"></div>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: stretch; flex-wrap: wrap;">
+
+          <div class="stat-block sr d1">
+            <span class="stat-icon">🕐</span>
+            <span class="stat-num"><span class="counter-num" data-target="12" data-suffix="+" data-after=" yrs">12+</span></span>
+            <span class="stat-label">Years helping learners across disciplines</span>
+          </div>
+
+          <div class="stat-block sr d2">
+            <span class="stat-icon">🎓</span>
+            <span class="stat-num"><span class="counter-num" data-target="5" data-suffix="k+">5k+</span></span>
+            <span class="stat-label">Verified experts from top universities</span>
+          </div>
+
+          <div class="stat-block sr d3">
+            <span class="stat-icon">📋</span>
+            <span class="stat-num"><span class="counter-num" data-target="400" data-suffix="k+">400k+</span></span>
+            <span class="stat-label">Projects completed with care</span>
+          </div>
+
+          <div class="stat-block sr d4">
+            <span class="stat-icon">⭐</span>
+            <span class="stat-num" style="font-variant-numeric:tabular-nums;">4.9<span style="font-size:1.2rem;font-weight:700;color:#6b7280;"> / 5</span></span>
+            <span class="stat-label">Average satisfaction score</span>
+          </div>
+
         </div>
       </div>
     </section>
@@ -409,12 +747,14 @@
     <section class="section section-muted" style="background-image: linear-gradient(135deg, rgba(243, 244, 246, 0.95) 0%, rgba(249, 250, 251, 0.98) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
         <div class="section-title">
+          <span class="section-chip">📚 100+ disciplines</span>
           <h2>What Makes Assignment Help From Our Experts So Special?</h2>
           <p>AssignmentEase gives you a chance to cooperate with top experts within different fields of study. Work on your projects being guided by a professional and be sure everything will be done by the deadline.</p>
         </div>
         <div class="tiles" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e3f2fd 0%, #e8eef7 100%); border-radius: 12px; padding: 2rem; border: 1px solid #bbdefb; animation: scaleIn 0.6s ease-out; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-            <h4 style="color: #1e40af; font-weight: 700; margin-bottom: 0.5rem;">Essay & report support</h4>
+          <div class="tile card-expand t-blue sr d1" data-expandable style="background: linear-gradient(135deg, #e3f2fd 0%, #e8eef7 100%); border-radius: 14px; padding: 2rem; border: 1px solid #bbdefb; animation: scaleIn 0.6s ease-out;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#dbeafe,#bfdbfe);">✍️</div>
+            <h4 style="color: #1e40af; font-weight: 700; margin-bottom: 0.5rem;">Essay &amp; report support</h4>
             <p style="color: var(--muted);">Outline guidance, structure, and citation formatting across major styles.</p>
             <span class="expand-hint" style="color: #2563eb; font-size: 0.9rem;">Click to expand</span>
             <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(37, 99, 235, 0.1);">
@@ -423,8 +763,9 @@
             </div>
             <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f4 100%); border-radius: 12px; padding: 2rem; border: 1px solid #c8e6c9; animation: scaleIn 0.6s ease-out 0.1s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(16, 185, 129, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-            <h4 style="color: #065f46; font-weight: 700; margin-bottom: 0.5rem;">Proofreading & polishing</h4>
+          <div class="tile card-expand t-green sr d2" data-expandable style="background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f4 100%); border-radius: 14px; padding: 2rem; border: 1px solid #c8e6c9; animation: scaleIn 0.6s ease-out 0.1s both;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#d1fae5,#a7f3d0);">🔍</div>
+            <h4 style="color: #065f46; font-weight: 700; margin-bottom: 0.5rem;">Proofreading &amp; polishing</h4>
             <p style="color: var(--muted);">Grammar, clarity, and tone review with tracked changes and comments.</p>
             <span class="expand-hint" style="color: #10b981; font-size: 0.9rem;">Click to expand</span>
             <div class="expand-content" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(16, 185, 129, 0.1);">
@@ -433,7 +774,8 @@
             </div>
             <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #fff3e0 0%, #fef8f5 100%); border-radius: 12px; padding: 2rem; border: 1px solid #ffe0b2; animation: scaleIn 0.6s ease-out 0.2s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(245, 158, 11, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile card-expand t-amber sr d3" data-expandable style="background: linear-gradient(135deg, #fff3e0 0%, #fef8f5 100%); border-radius: 14px; padding: 2rem; border: 1px solid #ffe0b2; animation: scaleIn 0.6s ease-out 0.2s both;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#fef3c7,#fde68a);">💻</div>
             <h4 style="color: #92400e; font-weight: 700; margin-bottom: 0.5rem;">Programming projects</h4>
             <p style="color: var(--muted);">Milestone planning, debugging assistance, and review-ready documentation.</p>
             <span class="expand-hint" style="color: #f59e0b; font-size: 0.9rem;">Click to expand</span>
@@ -443,7 +785,8 @@
             </div>
             <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #f59e0b; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #fce4ec 0%, #fdf7fa 100%); border-radius: 12px; padding: 2rem; border: 1px solid #f8bbd0; animation: scaleIn 0.6s ease-out 0.3s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(236, 72, 153, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile card-expand t-pink sr d4" data-expandable style="background: linear-gradient(135deg, #fce4ec 0%, #fdf7fa 100%); border-radius: 14px; padding: 2rem; border: 1px solid #f8bbd0; animation: scaleIn 0.6s ease-out 0.3s both;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#fce7f3,#fbcfe8);">🖼️</div>
             <h4 style="color: #831843; font-weight: 700; margin-bottom: 0.5rem;">Presentation design</h4>
             <p style="color: var(--muted);">Slide structure, visual hierarchy, and speaking notes for confidence.</p>
             <span class="expand-hint" style="color: #ec4899; font-size: 0.9rem;">Click to expand</span>
@@ -453,7 +796,8 @@
             </div>
             <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #ec4899; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #e0f7fa 0%, #f0fafb 100%); border-radius: 12px; padding: 2rem; border: 1px solid #b3e5fc; animation: scaleIn 0.6s ease-out 0.4s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(6, 182, 212, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile card-expand t-cyan sr d5" data-expandable style="background: linear-gradient(135deg, #e0f7fa 0%, #f0fafb 100%); border-radius: 14px; padding: 2rem; border: 1px solid #b3e5fc; animation: scaleIn 0.6s ease-out 0.4s both;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#cffafe,#a5f3fc);">🔬</div>
             <h4 style="color: #164e63; font-weight: 700; margin-bottom: 0.5rem;">Research planning</h4>
             <p style="color: var(--muted);">Source selection, method alignment, and annotated bibliography prep.</p>
             <span class="expand-hint" style="color: #06b6d4; font-size: 0.9rem;">Click to expand</span>
@@ -463,7 +807,8 @@
             </div>
             <button class="close-btn" type="button" data-close-card style="display: none; margin-top: 1rem; background: #06b6d4; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Close</button>
           </div>
-          <div class="tile card-expand" data-expandable style="background: linear-gradient(135deg, #f3e5f5 0%, #faf7fc 100%); border-radius: 12px; padding: 2rem; border: 1px solid #e1bee7; animation: scaleIn 0.6s ease-out 0.5s both; transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 32px rgba(147, 51, 234, 0.15)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile card-expand t-purple sr d6" data-expandable style="background: linear-gradient(135deg, #f3e5f5 0%, #faf7fc 100%); border-radius: 14px; padding: 2rem; border: 1px solid #e1bee7; animation: scaleIn 0.6s ease-out 0.5s both;">
+            <div class="tile-icon-chip" style="background: linear-gradient(135deg,#ede9fe,#ddd6fe);">📊</div>
             <h4 style="color: #581c87; font-weight: 700; margin-bottom: 0.5rem;">Data analysis</h4>
             <p style="color: var(--muted);">Interpretation, visualization, and results write-ups in plain language.</p>
             <span class="expand-hint" style="color: #a855f7; font-size: 0.9rem;">Click to expand</span>
@@ -480,33 +825,34 @@
     <section class="section" style="background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(25, 118, 210, 0.25) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
         <div class="section-title">
+          <span class="section-chip">✓ Why we're different</span>
           <h2>Why learners choose us</h2>
           <p>We built a clear, supportive workflow so you can focus on learning, not logistics.</p>
         </div>
         <div class="features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">✓</div>
-            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Verified specialists</h4>
-            <p style="color: var(--muted); line-height: 1.6;">Every expert goes through credential checks, sample projects, and skill assessments.</p>
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, transparent); border-radius: 0 0 12px 12px;"></div>
+          <div class="feature-card fc-blue sr d1" style="text-align: center; padding: 2rem; border-radius: 16px; background: #fff; position: relative; border: 1px solid rgba(37,99,235,0.08); box-shadow: 0 2px 12px rgba(37,99,235,0.05);">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg,#dbeafe,#eff6ff);">✓</div>
+            <h4 style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem; color: #1e3a8a;"><span class="hl-blue">Verified</span> specialists</h4>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Every expert passes credential checks, sample projects, and rigorous skill assessments.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, transparent); border-radius: 0 0 16px 16px;"></div>
           </div>
-          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.1s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Quality assurance</h4>
-            <p style="color: var(--muted); line-height: 1.6;">We run every submission through originality and clarity checks before delivery.</p>
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10b981, transparent); border-radius: 0 0 12px 12px;"></div>
+          <div class="feature-card fc-green sr d2" style="text-align: center; padding: 2rem; border-radius: 16px; background: #fff; position: relative; border: 1px solid rgba(16,185,129,0.1); box-shadow: 0 2px 12px rgba(16,185,129,0.05);">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg,#d1fae5,#f0fdf4);">🎯</div>
+            <h4 style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem; color: #064e3b;"><span class="hl-green">Quality</span> assurance</h4>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Every submission runs through originality and clarity checks <mark>before delivery</mark>.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10b981, transparent); border-radius: 0 0 16px 16px;"></div>
           </div>
-          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.2s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
-            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Subject coverage</h4>
-            <p style="color: var(--muted); line-height: 1.6;">From finance to software engineering, our network spans 100+ disciplines.</p>
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #f59e0b, transparent); border-radius: 0 0 12px 12px;"></div>
+          <div class="feature-card fc-amber sr d3" style="text-align: center; padding: 2rem; border-radius: 16px; background: #fff; position: relative; border: 1px solid rgba(245,158,11,0.1); box-shadow: 0 2px 12px rgba(245,158,11,0.05);">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg,#fef3c7,#fffbeb);">📚</div>
+            <h4 style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem; color: #78350f;"><mark>100+</mark> disciplines covered</h4>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">From finance to software engineering — our expert network spans every academic field.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #f59e0b, transparent); border-radius: 0 0 16px 16px;"></div>
           </div>
-          <div class="feature-card" style="text-align: center; padding: 2rem; border-radius: 12px; background: #f9fafb; transition: all 0.3s ease; position: relative; animation: fadeInUp 0.6s ease-out 0.3s both;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 36px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
-            <h4 style="font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; color: #111;">Support on demand</h4>
-            <p style="color: var(--muted); line-height: 1.6;">Reach our team around the clock to adjust timelines or add milestones.</p>
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ec4899, transparent); border-radius: 0 0 12px 12px;"></div>
+          <div class="feature-card fc-pink sr d4" style="text-align: center; padding: 2rem; border-radius: 16px; background: #fff; position: relative; border: 1px solid rgba(236,72,153,0.1); box-shadow: 0 2px 12px rgba(236,72,153,0.05);">
+            <div class="feature-icon-wrap" style="background: linear-gradient(135deg,#fce7f3,#fdf2f8);">⚡</div>
+            <h4 style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem; color: #831843;">24/7 <span class="hl" style="color:#92400e;">support</span> on demand</h4>
+            <p style="color: var(--muted); line-height: 1.65; margin: 0;">Reach our team anytime to adjust timelines, add milestones, or request urgent help.</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ec4899, transparent); border-radius: 0 0 16px 16px;"></div>
           </div>
         </div>
       </div>
@@ -515,19 +861,23 @@
     <section class="section section-muted" style="background-image: linear-gradient(135deg, rgba(243, 244, 246, 0.92) 0%, rgba(249, 250, 251, 0.95) 100%), url('https://images.unsplash.com/photo-1614008375854-a66b41529a69?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
         <div class="section-title" style="text-align: center; margin-bottom: 3rem;">
-          <h2>Security & Support</h2>
+          <span class="section-chip">🔒 Safe &amp; reliable</span>
+          <h2>Security &amp; Support</h2>
           <p>Your data stays private, payment steps are clear, and every project includes a revision window.</p>
         </div>
-        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;">
-          <div class="tile" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3f6ff 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #2563eb; animation: fadeInUp 0.6s ease-out; flex: 1; min-width: 280px;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.15)'; this.style.transform='translateY(-6px)'; this.style.transition='all 0.3s ease';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <div class="tile sec-tile sr d1" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3f6ff 100%); border-radius: 14px; padding: 2rem 2rem 1.8rem; border-left: 4px solid #2563eb; animation: fadeInUp 0.6s ease-out; flex: 1; min-width: 280px;">
+            <span class="sec-icon">🔐</span>
             <h4 style="color: #2563eb; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Secure payments</h4>
             <p style="color: var(--muted); line-height: 1.6;">Milestone-based releases keep progress transparent.</p>
           </div>
-          <div class="tile" style="background: linear-gradient(135deg, #bbdefb 0%, #e0ecff 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #1976d2; animation: fadeInUp 0.6s ease-out 0.1s both; flex: 1; min-width: 280px;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.15)'; this.style.transform='translateY(-6px)'; this.style.transition='all 0.3s ease';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile sec-tile sr d2" style="background: linear-gradient(135deg, #dbeafe 0%, #e0ecff 100%); border-radius: 14px; padding: 2rem 2rem 1.8rem; border-left: 4px solid #1976d2; animation: fadeInUp 0.6s ease-out 0.1s both; flex: 1; min-width: 280px;">
+            <span class="sec-icon">🛡️</span>
             <h4 style="color: #1976d2; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Private workspace</h4>
             <p style="color: var(--muted); line-height: 1.6;">Files and chats stay in one protected place.</p>
           </div>
-          <div class="tile" style="background: linear-gradient(135deg, #90caf9 0%, #bbdefb 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #1565c0; animation: fadeInUp 0.6s ease-out 0.2s both; flex: 1; min-width: 280px;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.15)'; this.style.transform='translateY(-6px)'; this.style.transition='all 0.3s ease';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+          <div class="tile sec-tile sr d3" style="background: linear-gradient(135deg, #bfdbfe 0%, #dbeafe 100%); border-radius: 14px; padding: 2rem 2rem 1.8rem; border-left: 4px solid #1565c0; animation: fadeInUp 0.6s ease-out 0.2s both; flex: 1; min-width: 280px;">
+            <span class="sec-icon">🔄</span>
             <h4 style="color: #1565c0; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Revision ready</h4>
             <p style="color: var(--muted); line-height: 1.6;">Request adjustments until the brief is satisfied.</p>
           </div>
@@ -538,41 +888,48 @@
     <section class="section" style="background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(25, 118, 210, 0.15) 100%), url('https://images.unsplash.com/photo-1507842217343-583f20270319?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;">
       <div class="container">
         <div class="section-title">
+          <span class="section-chip">⭐ 4.9 / 5 rated</span>
           <h2>What Our Users Say</h2>
           <p>Feedback from recent projects across writing, STEM, and business disciplines.</p>
         </div>
         <div class="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <div class="testimonial-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #f8fbfe 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #2563eb; animation: fadeInUp 0.6s ease-out;" onmouseover="this.style.boxShadow='0 12px 32px rgba(37, 99, 235, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #2563eb;">”</div>
-            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"The expert matched to me had exactly the right background for my project. AssignmentEase's matching process understood my requirements perfectly, and the expert delivered excellent work on time."</p>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 40px; height: 40px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">RP</div>
+          <div class=”testimonial-card sr d1” style=”--t-shadow: rgba(37,99,235,0.14); background: linear-gradient(135deg, #f0f9ff 0%, #f8fbfe 100%); border-radius: 16px; padding: 2rem; border-left: 4px solid #2563eb;”>
+            <div class=”t-stars”>★★★★★</div>
+            <div style=”font-size: 2rem; margin-bottom: 0.6rem; color: #2563eb; line-height: 1;”>”</div>
+            <p style=”font-style: italic; color: #374151; margin-bottom: 1.5rem; line-height: 1.8;”>”The expert matched to me had exactly the right background. The <mark>matching process was perfect</mark>, and my work was delivered on time — no stress at all.”</p>
+            <div style=”display: flex; align-items: center; gap: 1rem;”>
+              <div style=”width: 42px; height: 42px; background: linear-gradient(135deg,#2563eb,#1d4ed8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(37,99,235,0.3);”>RP</div>
               <div>
-                <strong style="display: block; color: #111;">Riya P.</strong>
-                <span style="color: var(--muted); font-size: 0.9rem;">Business Studies</span>
+                <strong style=”display: block; color: #111; font-size: 0.95rem;”>Riya P.</strong>
+                <span style=”color: var(--muted); font-size: 0.82rem;”>Business Studies</span>
               </div>
+              <span style=”margin-left: auto; font-size: 0.78rem; font-weight: 600; color: #2563eb; background: #eff6ff; padding: 0.25rem 0.6rem; border-radius: 999px;”>Verified</span>
             </div>
           </div>
-          <div class="testimonial-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #f8fdfa 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #10b981; animation: fadeInUp 0.6s ease-out 0.1s both;" onmouseover="this.style.boxShadow='0 12px 32px rgba(16, 185, 129, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #10b981;">”</div>
-            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"I submitted my requirements and within 15 minutes had expert options. I could review their profiles, expertise, and ratings. The selected expert was the perfect fit. I really appreciated the ability to suggest preferences through the platform."</p>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 40px; height: 40px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">ML</div>
+          <div class=”testimonial-card sr d2” style=”--t-shadow: rgba(16,185,129,0.14); background: linear-gradient(135deg, #f0fdf4 0%, #f8fdfa 100%); border-radius: 16px; padding: 2rem; border-left: 4px solid #10b981;”>
+            <div class=”t-stars”>★★★★★</div>
+            <div style=”font-size: 2rem; margin-bottom: 0.6rem; color: #10b981; line-height: 1;”>”</div>
+            <p style=”font-style: italic; color: #374151; margin-bottom: 1.5rem; line-height: 1.8;”>”Within <mark>15 minutes</mark> I had expert options with full profiles and ratings. The selected expert was a perfect fit — I loved being able to choose my preference.”</p>
+            <div style=”display: flex; align-items: center; gap: 1rem;”>
+              <div style=”width: 42px; height: 42px; background: linear-gradient(135deg,#10b981,#059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(16,185,129,0.3);”>ML</div>
               <div>
-                <strong style="display: block; color: #111;">Marcus L.</strong>
-                <span style="color: var(--muted); font-size: 0.9rem;">STEM - Engineering</span>
+                <strong style=”display: block; color: #111; font-size: 0.95rem;”>Marcus L.</strong>
+                <span style=”color: var(--muted); font-size: 0.82rem;”>STEM – Engineering</span>
               </div>
+              <span style=”margin-left: auto; font-size: 0.78rem; font-weight: 600; color: #10b981; background: #f0fdf4; padding: 0.25rem 0.6rem; border-radius: 999px;”>Verified</span>
             </div>
           </div>
-          <div class="testimonial-card" style="background: linear-gradient(135deg, #fdf2f8 0%, #fef8fc 100%); border-radius: 12px; padding: 2rem; border-left: 4px solid #ec4899; animation: fadeInUp 0.6s ease-out 0.2s both;" onmouseover="this.style.boxShadow='0 12px 32px rgba(236, 72, 153, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #ec4899;">”</div>
-            <p style="font-style: italic; color: #333; margin-bottom: 1.5rem; line-height: 1.8;">"AssignmentEase handled the entire process - I just described what I needed and they matched me with a qualified expert. The communication through the platform was organized, and I could request revisions all in one place. Exactly what I needed."</p>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 40px; height: 40px; background: #ec4899; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">JA</div>
+          <div class=”testimonial-card sr d3” style=”--t-shadow: rgba(236,72,153,0.14); background: linear-gradient(135deg, #fdf2f8 0%, #fef8fc 100%); border-radius: 16px; padding: 2rem; border-left: 4px solid #ec4899;”>
+            <div class=”t-stars”>★★★★★</div>
+            <div style=”font-size: 2rem; margin-bottom: 0.6rem; color: #ec4899; line-height: 1;”>”</div>
+            <p style=”font-style: italic; color: #374151; margin-bottom: 1.5rem; line-height: 1.8;”>”I described what I needed and they matched me instantly. <mark>Communication was seamless</mark>, revisions were free, and everything was handled in one place.”</p>
+            <div style=”display: flex; align-items: center; gap: 1rem;”>
+              <div style=”width: 42px; height: 42px; background: linear-gradient(135deg,#ec4899,#db2777); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(236,72,153,0.3);”>JA</div>
               <div>
-                <strong style="display: block; color: #111;">Jenna A.</strong>
-                <span style="color: var(--muted); font-size: 0.9rem;">Psychology</span>
+                <strong style=”display: block; color: #111; font-size: 0.95rem;”>Jenna A.</strong>
+                <span style=”color: var(--muted); font-size: 0.82rem;”>Psychology</span>
               </div>
+              <span style=”margin-left: auto; font-size: 0.78rem; font-weight: 600; color: #ec4899; background: #fdf2f8; padding: 0.25rem 0.6rem; border-radius: 999px;”>Verified</span>
             </div>
           </div>
         </div>
@@ -586,21 +943,21 @@
           <p>Quick answers about how we work, timelines, and quality checks.</p>
         </div>
         <div class="faq">
-          <details>
+          <details class="sr d1">
             <summary>How fast can I get matched with an expert?</summary>
-            <p>Most briefs are matched within 15 minutes during peak hours, and within 1 hour off-peak.</p>
+            <p>Most briefs are matched <strong>within 15 minutes</strong> during peak hours, and within 1 hour off-peak.</p>
           </details>
-          <details>
+          <details class="sr d2">
             <summary>Can I request revisions?</summary>
-            <p>Yes. Every project includes a revision window so you can refine the final delivery.</p>
+            <p>Yes. Every project includes a <strong>free revision window</strong> so you can refine the final delivery until it meets your brief.</p>
           </details>
-          <details>
+          <details class="sr d3">
             <summary>Do you help with urgent deadlines?</summary>
-            <p>We support urgent tasks as long as there is enough time for a quality review.</p>
+            <p>Yes — we support <strong>same-day and 6-hour urgent tasks</strong> as long as there is enough time for a quality review.</p>
           </details>
-          <details>
+          <details class="sr d4">
             <summary>What subjects are covered?</summary>
-            <p>We cover 100+ subjects including business, STEM, humanities, and creative fields.</p>
+            <p>We cover <strong>100+ subjects</strong> including business, STEM, humanities, law, nursing, and creative fields.</p>
           </details>
         </div>
       </div>
@@ -710,10 +1067,106 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="assets/js/whatsapp-chatbot.js?v=4"></script>
+    <script>
+      /* Word-by-word reveal for hero subtitle */
+      (function () {
+        var subtitle = document.getElementById('hero-subtitle');
+        if (!subtitle) return;
+        /* Only animate on first load (no URL params changing the text) */
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('type') || params.get('field')) return;
+
+        /* Gather all child nodes, split text nodes into word spans */
+        function wrapWords(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            var frag = document.createDocumentFragment();
+            var words = node.textContent.split(/(\s+)/);
+            words.forEach(function (w) {
+              if (/^\s+$/.test(w)) {
+                frag.appendChild(document.createTextNode(w));
+              } else if (w) {
+                var span = document.createElement('span');
+                span.className = 'hw';
+                span.textContent = w;
+                frag.appendChild(span);
+              }
+            });
+            node.parentNode.replaceChild(frag, node);
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            Array.from(node.childNodes).forEach(wrapWords);
+          }
+        }
+
+        /* Clone, wrap, replace */
+        var clone = subtitle.cloneNode(true);
+        Array.from(clone.childNodes).forEach(wrapWords);
+        subtitle.innerHTML = clone.innerHTML;
+
+        /* Stagger delays starting after subtitle's own reveal delay (1.05s) */
+        var baseDelay = 1.3;
+        subtitle.querySelectorAll('.hw').forEach(function (el, i) {
+          el.style.animationDelay = (baseDelay + i * 0.038) + 's';
+        });
+      })();
+    </script>
+    <script src="assets/js/whatsapp-chatbot.js?v=3"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/quote-form.js"></script>
-      
-      
+
+    <script>
+      /* ── Scroll-reveal (IntersectionObserver) ────────────── */
+      (function () {
+        if (!('IntersectionObserver' in window)) {
+          document.querySelectorAll('.sr').forEach(function (el) { el.classList.add('in-view'); });
+          return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.sr').forEach(function (el) { obs.observe(el); });
+      })();
+
+      /* ── Animated stat counters ──────────────────────────── */
+      (function () {
+        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+        function animateCounter(el) {
+          var target   = parseFloat(el.dataset.target);
+          var suffix   = el.dataset.suffix || '';
+          var after    = el.dataset.after  || '';
+          var duration = 1800;
+          var start    = null;
+          var isFloat  = (target !== Math.floor(target));
+
+          function step(ts) {
+            if (!start) start = ts;
+            var p   = Math.min((ts - start) / duration, 1);
+            var val = easeOutQuart(p) * target;
+            el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix + after;
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        if (!('IntersectionObserver' in window)) return;
+        var cObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              cObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-num').forEach(function (el) { cObs.observe(el); });
+      })();
+    </script>
   </body>
 </html>
+
+

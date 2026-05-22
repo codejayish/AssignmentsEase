@@ -1,32 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     let pages = 1;
-    const pricePerPage = 20;
-  
+
     const pagesText = document.getElementById("pages");
     const priceText = document.querySelector(".new-price");
     const oldPriceText = document.querySelector(".old-price");
-  
+
     const plusBtn = document.getElementById("plus");
     const minusBtn = document.getElementById("minus");
-  
+
+    // Tiered pricing: $10/page for pages 1–5, $8/page beyond 5
+    function calcPrice(n) {
+      if (n <= 5) return n * 10;
+      return 50 + (n - 5) * 8;
+    }
+
     // ======================
     // COUNTER LOGIC
     // ======================
     function updateUI() {
       const words = pages * 275;
-  
+      const label = pages === 1 ? "page" : "pages";
+
       if (pagesText) {
-        pagesText.textContent = `${pages} page / ${words} words`;
+        pagesText.textContent = `${pages} ${label} / ${words} words`;
       }
-  
-      const originalPrice = pages * 26;
-      const discountedPrice = pages * pricePerPage;
-  
+
+      const discountedPrice = calcPrice(pages);
+      const originalPrice = Math.round(discountedPrice * 1.3);
+
       if (oldPriceText) {
         oldPriceText.textContent = `$${originalPrice.toFixed(2)}`;
       }
-  
+
       if (priceText) {
         priceText.textContent = `$${discountedPrice.toFixed(2)}`;
       }

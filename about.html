@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/styles.css?v=3" />
-    <link rel="stylesheet" href="assets/css/whatsapp-chatbot.css?v=1" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+    <link rel="stylesheet" href="assets/css/whatsapp-chatbot.css?v=3" />
     <style>
       .page-hero {
         background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('assets/img/bg.jpg') center/cover no-repeat !important;
-        background-attachment: fixed !important;
+        background-attachment: fixed; /* no !important — media query in styles.css overrides to scroll on mobile */
       }
       @keyframes fadeInDown {
         from { opacity: 0; transform: translateY(-20px); }
@@ -34,11 +34,27 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0.8; }
       }
+      @keyframes heroBlurUp {
+        from { opacity: 0; transform: translateY(48px) skewY(2deg); filter: blur(8px); }
+        to   { opacity: 1; transform: translateY(0)    skewY(0deg); filter: blur(0);   }
+      }
+      @keyframes shimmerFlow {
+        0%   { background-position: -300% center; }
+        100% { background-position:  300% center; }
+      }
+      @keyframes taglineSlide {
+        from { opacity: 0; transform: translateX(-36px); letter-spacing: -0.08em; }
+        to   { opacity: 1; transform: translateX(0);     letter-spacing: normal;   }
+      }
+      @keyframes underlineDraw {
+        from { width: 0;    opacity: 0; }
+        to   { width: 100%; opacity: 1; }
+      }
       .hero-title {
-        animation: fadeInDown 0.8s ease-out;
+        animation: none;
       }
       .hero-subtitle {
-        animation: fadeInUp 0.8s ease-out 0.2s both;
+        animation: fadeInUp 0.8s ease-out 0.8s both;
       }
       .value-card {
         animation: fadeInUp 0.6s ease-out;
@@ -68,31 +84,55 @@
       }
 
       .about-hero-copy .hero-title {
-        margin: 0 0 1.25rem;
+        margin: 0 0 1.4rem;
         line-height: 1.05;
       }
 
       .about-hero-copy .hero-title-primary {
         display: block;
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
-        font-size: clamp(2.25rem, 3.75vw, 3.5rem);
+        font-size: clamp(3rem, 5vw, 5rem);
         font-weight: 900;
-        line-height: 1.08;
-        color: var(--accent);
-        letter-spacing: -0.6px;
-        text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+        line-height: 1.06;
+        letter-spacing: -1px;
+        background: linear-gradient(
+          120deg,
+          #1e3a8a 0%, #2563eb 22%, #60a5fa 42%,
+          #2563eb 62%, #1e3a8a 82%, #3b82f6 100%
+        );
+        background-size: 300% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation:
+          heroBlurUp  0.95s cubic-bezier(0.16,1,0.3,1) 0.1s  both,
+          shimmerFlow 5.5s linear                       1.2s  infinite;
       }
 
       .about-hero-copy .hero-title-accent {
         display: block;
-        margin-top: 0.2rem;
+        position: relative;
+        margin-top: 0.4rem;
+        padding-bottom: 10px;
         font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
-        font-size: clamp(1.65rem, 2.65vw, 2.45rem);
+        font-size: clamp(2.1rem, 3.4vw, 3.4rem);
         font-weight: 400;
         font-style: italic;
         line-height: 1.15;
-        color: var(--accent);
-        letter-spacing: -0.2px;
+        color: #f59e0b;
+        letter-spacing: 0.01em;
+        animation: taglineSlide 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s both;
+      }
+
+      .about-hero-copy .hero-title-accent::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 60%, transparent 100%);
+        border-radius: 2px;
+        animation: underlineDraw 0.8s ease-out 1.4s both;
       }
 
       .about-hero-copy .page-hero-subtitle {
@@ -106,11 +146,13 @@
 
       .page-hero.about-page-hero {
         height: auto;
-        min-height: 650px;
+        min-height: 580px;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
       }
 
       .page-hero.about-page-hero .page-hero-grid {
-        padding: 4.5rem 2rem;
+        padding: 1.2rem 2rem 2.5rem;
       }
 
       /* Mobile Responsive Fixes */
@@ -118,13 +160,13 @@
         .page-hero {
           background-attachment: scroll !important;
           height: auto !important;
-          padding: 2rem 0 !important;
+          padding: 1.5rem 0 2rem !important;
         }
 
         .page-hero-grid {
           grid-template-columns: 1fr !important;
           gap: 1.5rem !important;
-          padding: 2rem 1rem !important;
+          padding: 0.5rem 1rem 1.5rem !important;
         }
 
         .about-hero-copy .hero-title {
@@ -132,12 +174,13 @@
         }
 
         .about-hero-copy .hero-title-primary {
-          font-size: 1.75rem !important;
-          line-height: 1.1 !important;
+          font-size: 2rem !important;
+          line-height: 1.08 !important;
+          letter-spacing: -0.5px !important;
         }
 
         .about-hero-copy .hero-title-accent {
-          font-size: 1.35rem !important;
+          font-size: 1.55rem !important;
           line-height: 1.15 !important;
         }
 
@@ -223,11 +266,11 @@
         }
 
         .about-hero-copy .hero-title-primary {
-          font-size: 2rem !important;
+          font-size: 2.6rem !important;
         }
 
         .about-hero-copy .hero-title-accent {
-          font-size: 1.5rem !important;
+          font-size: 1.9rem !important;
         }
 
         .about-hero-copy .page-hero-subtitle {
@@ -236,7 +279,7 @@
         }
 
         .page-hero.about-page-hero .page-hero-grid {
-          padding: 3rem 1.5rem !important;
+          padding: 1rem 1.5rem 2rem !important;
         }
 
         .page-hero-phone {
@@ -261,6 +304,232 @@
           height: 60px !important;
           width: 60px !important;
         }
+      }
+
+      /* ── Floating CTA Card ─────────────────────────────────── */
+      @keyframes floatCTAReveal {
+        from { opacity: 0; transform: translateY(44px) scale(0.93); filter: blur(6px); }
+        to   { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0);   }
+      }
+      @keyframes floatBob {
+        0%, 100% { transform: translateY(0);   box-shadow: 0 16px 56px rgba(37,99,235,0.22), 0 4px 16px rgba(0,0,0,0.06); }
+        50%       { transform: translateY(-9px); box-shadow: 0 28px 72px rgba(37,99,235,0.32), 0 8px 24px rgba(0,0,0,0.08); }
+      }
+      @keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50%       { transform: scale(1.06); }
+      }
+      @keyframes borderShimmer {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+      }
+      @keyframes trustFadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .float-cta-wrap {
+        display: flex;
+        justify-content: center;
+        padding: 2.5rem 1rem 3.5rem;
+      }
+
+      .float-cta-card {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem 2rem;
+        max-width: 880px;
+        width: 100%;
+        background: #fff;
+        border-radius: 24px;
+        padding: 2rem 2.4rem;
+        overflow: hidden;
+        animation: floatCTAReveal 1s cubic-bezier(0.16,1,0.3,1) 0.4s both,
+                   floatBob 4.5s ease-in-out 1.6s infinite;
+        /* animated gradient border via outline trick */
+        border: 2px solid transparent;
+        background-clip: padding-box;
+      }
+      /* gradient border overlay */
+      .float-cta-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 26px;
+        background: linear-gradient(120deg, #2563eb, #60a5fa, #fbbf24, #2563eb);
+        background-size: 300% 300%;
+        animation: borderShimmer 4s linear infinite;
+        z-index: -1;
+      }
+      /* inner bg so content stays white */
+      .float-cta-card::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        border-radius: 22px;
+        background: #fff;
+        z-index: 0;
+      }
+      .float-cta-card > * { position: relative; z-index: 1; }
+
+      /* decorative blob */
+      .float-cta-blob {
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* badge */
+      .float-cta-badge {
+        position: absolute;
+        top: -1px;
+        right: 2rem;
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        padding: 0.3rem 0.9rem;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 4px 12px rgba(251,191,36,0.4);
+        animation: badgePulse 2.5s ease-in-out 2s infinite;
+        z-index: 2;
+      }
+
+      /* icon */
+      .float-cta-icon-wrap {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 14px rgba(37,99,235,0.15);
+      }
+
+      /* body text */
+      .float-cta-body { flex: 1; min-width: 220px; }
+      .float-cta-headline {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #111827;
+        line-height: 1.35;
+        margin: 0 0 0.35rem;
+      }
+      .float-cta-headline strong { color: #2563eb; }
+      .float-cta-sub {
+        font-size: 0.88rem;
+        color: #6b7280;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      /* action buttons */
+      .float-cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        flex-shrink: 0;
+      }
+      .float-cta-primary {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.6rem;
+        border-radius: 12px;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+        transition: all 0.25s ease;
+      }
+      .float-cta-primary:hover {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        box-shadow: 0 8px 24px rgba(37,99,235,0.5);
+        transform: translateY(-2px);
+        color: #fff;
+      }
+      .float-cta-ghost {
+        background: transparent;
+        color: #2563eb;
+        font-weight: 600;
+        font-size: 0.88rem;
+        padding: 0.55rem 1.2rem;
+        border-radius: 10px;
+        border: 1.5px solid #bfdbfe;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.2s ease;
+      }
+      .float-cta-ghost:hover {
+        background: #eff6ff;
+        border-color: #2563eb;
+        color: #1d4ed8;
+      }
+
+      /* trust row */
+      .float-cta-trust {
+        width: 100%;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        border-top: 1px solid #f0f4ff;
+        padding-top: 1rem;
+        margin-top: 0.2rem;
+        animation: trustFadeIn 0.6s ease-out 1.6s both;
+      }
+      .float-cta-trust span {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #6b7280;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      /* Mobile: stack float-cta */
+      @media (max-width: 600px) {
+        .float-cta-card {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1.5rem;
+          gap: 1rem;
+        }
+        .float-cta-actions {
+          flex-direction: row;
+          width: 100%;
+        }
+        .float-cta-primary, .float-cta-ghost { flex: 1; }
+        .float-cta-trust { gap: 0.8rem; }
+      }
+
+      /* ── Scroll reveal for cards ───────────────────────────── */
+      @keyframes revealUp {
+        from { opacity: 0; transform: translateY(42px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .reveal { opacity: 0; }
+      .reveal.in-view { animation: revealUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+      .reveal.in-view.delay-1 { animation-delay: 0.1s; }
+      .reveal.in-view.delay-2 { animation-delay: 0.2s; }
+      .reveal.in-view.delay-3 { animation-delay: 0.3s; }
+      .reveal.in-view.delay-4 { animation-delay: 0.4s; }
+
+      /* ── Animated stat counters ───────────────────────────── */
+      .stat-num {
+        display: inline-block;
+        font-variant-numeric: tabular-nums;
       }
 
     </style>
@@ -379,6 +648,46 @@
             </div>
           </div>
         </div>
+
+        <!-- ── Floating CTA card ─────────────────────────── -->
+        <div class="float-cta-wrap">
+          <div class="float-cta-card" id="about-float-cta">
+            <div class="float-cta-blob"></div>
+            <span class="float-cta-badge">Instant ⚡</span>
+
+            <!-- Icon -->
+            <div class="float-cta-icon-wrap" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="3" width="18" height="24" rx="3" stroke="#2563eb" stroke-width="2"/>
+                <path d="M8 10h10M8 14h10M8 18h6" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="23" cy="23" r="6" fill="#2563eb"/>
+                <path d="M20.5 23l1.5 1.5 3-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Body text -->
+            <div class="float-cta-body">
+              <p class="float-cta-headline">Fill the form &amp; get the <strong>price quote right away</strong></p>
+              <p class="float-cta-sub">No commitment &nbsp;•&nbsp; Free quote &nbsp;•&nbsp; Takes under 60 seconds</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="float-cta-actions">
+              <a href="index.html?form=quote#brief" class="float-cta-primary">Get My Quote &rarr;</a>
+              <a href="index.html?form=help#brief"  class="float-cta-ghost">Get Help Instead</a>
+            </div>
+
+            <!-- Trust indicators -->
+            <div class="float-cta-trust">
+              <span>⭐ 4.9&nbsp;/&nbsp;5 rating</span>
+              <span>🔒 100% confidential</span>
+              <span>✅ No hidden fees</span>
+              <span>🕐 Match in 15 mins</span>
+            </div>
+          </div>
+        </div>
+        <!-- ─────────────────────────────────────────────── -->
+
       </div>
     </section>
 
@@ -386,16 +695,16 @@
       <div class="container" style="max-width: 1100px;">
         <h2 class="section-title-mobile" style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 2.5rem;">AssignmentEase in Numbers</h2>
         <div class="numbers-section" style="display: flex; justify-content: center; gap: 4rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-          <div style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
-            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;">400K+</div>
+          <div class="reveal" style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
+            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;"><span class="stat-num" data-target="400" data-suffix="K+">400K+</span></div>
             <div style="font-size: 1.1rem; font-weight: 600; color: var(--ink);">Orders Completed</div>
           </div>
-          <div style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
-            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;">5K+</div>
+          <div class="reveal delay-1" style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
+            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;"><span class="stat-num" data-target="5" data-suffix="K+">5K+</span></div>
             <div style="font-size: 1.1rem; font-weight: 600; color: var(--ink);">Trusted Experts</div>
           </div>
-          <div style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
-            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;">48K+</div>
+          <div class="reveal delay-2" style="border-left: 4px solid var(--accent); padding: 0 2.5rem 0 1.5rem; min-width: 180px;">
+            <div style="font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem;"><span class="stat-num" data-target="48" data-suffix="K+">48K+</span></div>
             <div style="font-size: 1.1rem; font-weight: 600; color: var(--ink);">Satisfied Clients</div>
           </div>
         </div>
@@ -419,26 +728,26 @@
         <h2 class="section-title-mobile" style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--ink); margin-bottom: 2.5rem;">Our Values</h2>
         <div class="values-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
           <!-- Row 1: Text | Image -->
-          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card reveal" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Protective</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We provide a warranty on every project so that every client could make any edits, if needed, for free. Only after the client accepts their project as completed, we transfer payment to the expert.</div>
           </div>
           <img src="assets/img/protective.png" alt="Protective" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
           <!-- Row 2: Image | Text -->
           <img src="assets/img/smart.png" alt="Smart" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
-          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card reveal delay-1" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Smart</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We use fast, convenient, and modern payment tools and solutions, such as Paypal, Payoneer, Visa/Mastercard, for payments and withdrawals. And we're constantly working on adding more options.</div>
           </div>
           <!-- Row 3: Text | Image -->
-          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card reveal delay-2" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Secure</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">We care about security, therefore we encrypt all personal data to make every user feel safe while using AssignmentEase and we don't share any personal information with any third parties without your permission.</div>
           </div>
           <img src="assets/img/secure.png" alt="Secure" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
           <!-- Row 4: Image | Text -->
           <img src="assets/img/supportive.png" alt="Supportive" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
-          <div class="value-card" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
+          <div class="value-card reveal delay-3" style="display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(37,99,235,0.07);">
             <div style="font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem;">Stay Supportive</div>
             <div style="font-size: 1.05rem; color: var(--muted); line-height: 1.5;">And, of course, our Support team is here for you 24/7. Feel free to contact us whenever you need it!</div>
           </div>
@@ -466,7 +775,7 @@
 
         <div class="quality-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2.5rem;">
           <!-- Verification Card -->
-          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #e0ecff 0%, #f0f7ff 100%); border-radius: 18px; border-left: 6px solid var(--accent); position: relative; overflow: hidden;">
+          <div class="quality-card reveal" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #e0ecff 0%, #f0f7ff 100%); border-radius: 18px; border-left: 6px solid var(--accent); position: relative; overflow: hidden;">
             <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(37, 99, 235, 0.1); border-radius: 50%;"></div>
             <div style="font-size: 3rem; color: var(--accent); position: relative; z-index: 1;">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -484,7 +793,7 @@
           </div>
 
           <!-- Skill Test Card -->
-          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15); border-top: 6px solid var(--accent); position: relative;">
+          <div class="quality-card reveal delay-1" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15); border-top: 6px solid var(--accent); position: relative;">
             <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%); border-radius: 0 18px 0 20px;"></div>
             <div style="font-size: 3rem; color: var(--accent);">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -503,7 +812,7 @@
           </div>
 
           <!-- Quality Analysis Card -->
-          <div class="quality-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f0ff 100%); border-radius: 18px; border-right: 6px solid var(--accent); position: relative; overflow: hidden;">
+          <div class="quality-card reveal delay-2" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: linear-gradient(135deg, #f0f7ff 0%, #e8f0ff 100%); border-radius: 18px; border-right: 6px solid var(--accent); position: relative; overflow: hidden;">
             <div style="position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; background: rgba(37, 99, 235, 0.08); border-radius: 50%;"></div>
             <div style="font-size: 3rem; color: var(--accent); position: relative; z-index: 1;">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,7 +859,57 @@
         });
     </script>
 
-    <script src="assets/js/whatsapp-chatbot.js?v=4"></script>
+    <script src="assets/js/whatsapp-chatbot.js?v=3"></script>
     <script src="assets/js/main.js?v=2"></script>
+
+    <script>
+      /* ── Scroll-reveal via IntersectionObserver ─────────── */
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function(el) { revealObserver.observe(el); });
+      } else {
+        revealEls.forEach(function(el) { el.classList.add('in-view'); });
+      }
+
+      /* ── Animated number counters ───────────────────────── */
+      function animateCounter(el) {
+        var target = parseInt(el.dataset.target, 10);
+        var suffix = el.dataset.suffix || '';
+        var duration = 1800;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 4); /* ease-out-quart */
+          var val = Math.round(ease * target);
+          el.textContent = val + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.stat-num').forEach(function(el) {
+        counterObserver.observe(el);
+      });
+    </script>
   </body>
 </html>
+
+
