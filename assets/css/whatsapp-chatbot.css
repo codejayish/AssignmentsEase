@@ -1,0 +1,92 @@
+#whatsapp-float-btn,
+.whatsapp-chatbot {
+  position: fixed !important;
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 2147483647 !important;
+  width: 4rem !important;
+  height: 4rem !important;
+  min-width: 4rem !important;
+  min-height: 4rem !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: chatbotPulse 2.5s ease-in-out infinite;
+}
+
+#whatsapp-float-btn:hover,
+.whatsapp-chatbot:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55) !important;
+}
+
+#whatsapp-float-btn svg,
+.whatsapp-chatbot svg {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  fill: #fff !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.whatsapp-chatbot-tooltip {
+  display: none;
+}
+
+body.page-index #whatsapp-float-btn,
+body.page-index .whatsapp-chatbot,
+body.page-index .whatsapp-chatbot {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+@keyframes chatbotPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65);
+  }
+}
+
+@media (max-width: 480px) {
+  #whatsapp-float-btn,
+  .whatsapp-chatbot {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    min-width: 3.5rem !important;
+    min-height: 3.5rem !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+
+  body.page-index #whatsapp-float-btn,
+  body.page-index .whatsapp-chatbot {
+    left: 1rem !important;
+    right: auto !important;
+  }
+
+  #whatsapp-float-btn svg,
+  .whatsapp-chatbot svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}

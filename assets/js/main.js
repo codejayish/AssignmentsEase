@@ -61,6 +61,8 @@ let closeDropdownTimeout;
 
 navDropdownToggles.forEach((btn) => {
   const parent = btn.closest(".nav-dropdown");
+  if (!parent) return;
+
   const menu = parent.querySelector(".nav-dropdown-menu");
   
   btn.addEventListener("click", (event) => {
@@ -336,3 +338,4 @@ if (detailsForm) {
     }
   });
 }
+

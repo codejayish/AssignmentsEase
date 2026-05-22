@@ -42,6 +42,15 @@ html, body {
   display: none;
 }
 
+/* Index home: show Get Help form by default */
+body.page-index .help-form-wrapper {
+  display: block;
+}
+
+body.page-index .quote-form-wrapper {
+  display: none;
+}
+
 
 img {
   max-width: 100%;
@@ -2461,6 +2470,119 @@ button {
   * {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+
+  .whatsapp-chatbot {
+    animation: none !important;
+  }
+}
+
+/* Floating WhatsApp chatbot (all pages) */
+.whatsapp-chatbot {
+  position: fixed !important;
+  right: 1.5rem !important;
+  bottom: 1.5rem !important;
+  left: auto !important;
+  z-index: 2147483000 !important;
+  pointer-events: auto !important;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: chatbotPulse 2.5s ease-in-out infinite;
+}
+
+.whatsapp-chatbot:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
+}
+
+.whatsapp-chatbot:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.5);
+  outline-offset: 3px;
+}
+
+.whatsapp-chatbot svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: currentColor;
+}
+
+.whatsapp-chatbot-tooltip {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  bottom: 50%;
+  transform: translateY(50%);
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.whatsapp-chatbot:hover .whatsapp-chatbot-tooltip,
+.whatsapp-chatbot:focus-visible .whatsapp-chatbot-tooltip {
+  opacity: 1;
+}
+
+@keyframes chatbotPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65);
+  }
+}
+
+/* Home page: sticky form sits on the right — move chatbot to bottom-left */
+body.page-index .whatsapp-chatbot,
+body:has(.hero-form-card) .whatsapp-chatbot {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+body.page-index .whatsapp-chatbot-tooltip,
+body:has(.hero-form-card) .whatsapp-chatbot-tooltip {
+  right: auto;
+  left: calc(100% + 0.75rem);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-chatbot {
+    right: 1rem !important;
+    bottom: 1rem !important;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  body.page-index .whatsapp-chatbot,
+  body:has(.hero-form-card) .whatsapp-chatbot {
+    left: 1rem !important;
+    right: auto !important;
+  }
+
+  .whatsapp-chatbot svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .whatsapp-chatbot-tooltip {
+    display: none;
   }
 }
 
