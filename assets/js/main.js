@@ -316,8 +316,9 @@ if (detailsForm) {
 
       // Send admin notification email with file URL
       await sendEmails({
+        to_email: "support@assignmenthelpglobal.com",
         client_email: payload.email,
-        subject: "Assignment request submitted",
+        subject: "New Assignment Request: " + (assignmentType || "Assignment"),
         type: assignmentType || "Assignment",
         message: emailMessage,
         deadline: payload.deadline,
