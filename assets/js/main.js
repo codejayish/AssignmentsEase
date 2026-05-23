@@ -247,99 +247,82 @@ if (detailsForm) {
 
   detailsForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!supabaseClient && EMAILJS_SERVICE_ID.startsWith("YOUR_")) {
-      setStatus(detailsStatus, "Please configure Supabase or EmailJS before deploying.", true);
-      return;
-    }
-    setStatus(detailsStatus, "Uploading...");
+    setStatus(detailsStatus, "Submitting...");
 
     const formData = new FormData(detailsForm);
     const attachment = formData.get("attachment");
+    const assignmentType = sessionStorage.getItem("assignmentType") || "";
+    const projectTitle  = sessionStorage.getItem("projectTitle") || "";
     let fileUrl = "";
 
-    try {
-      // Upload file to Supabase storage if provided
-      if (supabaseClient && attachment && attachment.name) {
-        try {
-          const filePath = `uploads/${Date.now()}-${attachment.name}`;
-          const { error: uploadError } = await supabaseClient.storage.from("assignments").upload(filePath, attachment, {
-            cacheControl: '3600',
-            upsert: false
-          });
-          
-          if (uploadError) {
-            console.error("Upload error:", uploadError);
-            // If upload fails due to RLS, continue without file URL
-            if (uploadError.message.includes("row-level security") || uploadError.message.includes("RLS")) {
-              setStatus(detailsStatus, "Warning: File upload failed due to security policy. Please configure RLS policies in Supabase. Continuing with form submission...");
-            } else {
-              throw uploadError;
-            }
-          } else {
-            const { data } = supabaseClient.storage.from("assignments").getPublicUrl(filePath);
-            fileUrl = data.publicUrl || "";
-          }
-        } catch (uploadErr) {
-          console.error("File upload error:", uploadErr);
-          // Continue with form submission even if file upload fails
-          setStatus(detailsStatus, "Warning: File could not be uploaded. Form will be submitted without attachment.");
+    // Step 1: file upload (non-fatal)
+    if (supabaseClient && attachment && attachment.name) {
+      try {
+        const filePath = `uploads/${Date.now()}-${attachment.name}`;
+        const { error: uploadError } = await supabaseClient.storage
+          .from("assignments").upload(filePath, attachment, { cacheControl: "3600", upsert: false });
+        if (uploadError) {
+          console.warn("File upload skipped:", uploadError.message);
+        } else {
+          const { data } = supabaseClient.storage.from("assignments").getPublicUrl(filePath);
+          fileUrl = data.publicUrl || "";
         }
+      } catch (e) {
+        console.warn("File upload error:", e);
       }
+    }
 
-      // Get stored data from sessionStorage
-      const assignmentType = sessionStorage.getItem("assignmentType") || "";
-      const projectTitle = sessionStorage.getItem("projectTitle") || "";
+    const payload = {
+      email:       formData.get("email"),
+      description: formData.get("description"),
+      deadline:    formData.get("deadline"),
+      invite:      formData.get("invite") || "",
+      auto_match:  formData.get("auto_match"),
+      file_url:    fileUrl,
+      form:        "details",
+    };
 
-      // Prepare payload with only columns that exist in the requests table
-      const payload = {
-        email: formData.get("email"),
-        description: formData.get("description"),
-        deadline: formData.get("deadline"),
-        invite: formData.get("invite") || "",
-        auto_match: formData.get("auto_match"),
-        file_url: fileUrl,
-        created_at: new Date().toISOString(),
-        form: "details",
-      };
-
-      // Save to Supabase (only existing columns)
-      if (supabaseClient) {
+    // Step 2: save to Supabase (non-fatal)
+    if (supabaseClient) {
+      try {
         const { error } = await supabaseClient.from("requests").insert(payload);
-        if (error) {
-          console.error("Database error:", error);
-          throw error;
-        }
+        if (error) console.warn("Supabase insert skipped:", error.message);
+      } catch (e) {
+        console.warn("Supabase error:", e);
       }
+    }
 
-      // Prepare email message with all details including type and project title
-      const emailMessage = `Assignment Type: ${assignmentType || "Not specified"}\nProject Title: ${projectTitle || "Not specified"}\nDescription: ${payload.description}\nDeadline: ${payload.deadline}\nAuto Match: ${payload.auto_match === "yes" ? "Yes" : "No"}\n${payload.invite ? `Invited Expert: ${payload.invite}\n` : ""}${fileUrl ? `File URL: ${fileUrl}` : "No file attached"}`;
+    // Step 3: send email (required)
+    try {
+      const emailMessage =
+        `Assignment Type: ${assignmentType || "Not specified"}\n` +
+        `Project Title: ${projectTitle || "Not specified"}\n` +
+        `Description: ${payload.description}\n` +
+        `Deadline: ${payload.deadline}\n` +
+        `Auto Match: ${payload.auto_match === "yes" ? "Yes" : "No"}\n` +
+        (payload.invite ? `Invited Expert: ${payload.invite}\n` : "") +
+        (fileUrl ? `File URL: ${fileUrl}` : "No file attached");
 
-      // Send admin notification email with file URL
       await sendEmails({
-        to_email: "support@assignmenthelpglobal.com",
+        to_email:     "support@assignmenthelpglobal.com",
         client_email: payload.email,
-        subject: "New Assignment Request: " + (assignmentType || "Assignment"),
-        type: assignmentType || "Assignment",
-        message: emailMessage,
-        deadline: payload.deadline,
-        file_url: fileUrl || "No file attached",
+        subject:      "New Assignment Request: " + (assignmentType || "Assignment"),
+        type:         assignmentType || "Assignment",
+        message:      emailMessage,
+        deadline:     payload.deadline,
+        file_url:     fileUrl || "No file attached",
       });
 
-      // Clear sessionStorage
       sessionStorage.removeItem("assignmentType");
       sessionStorage.removeItem("projectTitle");
       sessionStorage.removeItem("assignmentEmail");
-
       detailsForm.reset();
       setStatus(detailsStatus, "Submitted! We will review your request and contact you shortly.");
-      
-      // Redirect to home page after 3 seconds
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 3000);
-    } catch (error) {
-      console.error("Error:", error);
-      setStatus(detailsStatus, "Upload failed. Please try again.", true);
+      setTimeout(() => { window.location.href = "index.html"; }, 3000);
+
+    } catch (emailError) {
+      console.error("Email error:", emailError);
+      setStatus(detailsStatus, "Submission failed. Please email us directly at support@assignmenthelpglobal.com", true);
     }
   });
 }
