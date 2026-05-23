@@ -183,7 +183,7 @@ const SUPABASE_URL = "https://wghchidyrpolghlitdgv.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_XdYFndKqAXrwW7YpZLw71Q_S4ABc2Ka";
 const EMAILJS_PUBLIC_KEY = "UDi_HinNkNwLWG9qx";
 const EMAILJS_SERVICE_ID = "service_gkk6k9k";
-const EMAILJS_ADMIN_TEMPLATE_ID = "template_qx2shzh";
+const EMAILJS_ADMIN_TEMPLATE_ID = "template_w7aeu26";
 
 const setStatus = (el, message, isError = false) => {
   if (!el) return;
