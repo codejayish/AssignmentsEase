@@ -4,7 +4,9 @@ const overlay = document.querySelector("[data-overlay]");
 
 if (toggle && navLinks) {
   toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+    const isOpen = navLinks.classList.toggle("open");
+    toggle.classList.toggle("is-open", isOpen);
+    toggle.setAttribute("aria-expanded", isOpen);
   });
 
   // Close menu when clicking on a regular nav link (not a dropdown toggle)
@@ -12,6 +14,8 @@ if (toggle && navLinks) {
   regularNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
     });
   });
 }
@@ -175,8 +179,8 @@ const detailsForm = document.querySelector("#form-details");
 const helpStatus = document.querySelector("[data-status-help]");
 const detailsStatus = document.querySelector("[data-status-details]");
 
-const SUPABASE_URL = "https://hpjpoqpwowcvargwrwpn.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwanBvcXB3b3djdmFyZ3dyd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyMDA1NzAsImV4cCI6MjA4NTc3NjU3MH0.u0g-9ggMIMkDxaLQMJ1UmRy7RmINIgpes8wbSAVG3JA";
+const SUPABASE_URL = "https://wghchidyrpolghlitdgv.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_XdYFndKqAXrwW7YpZLw71Q_S4ABc2Ka";
 const EMAILJS_PUBLIC_KEY = "UDi_HinNkNwLWG9qx";
 const EMAILJS_SERVICE_ID = "service_gkk6k9k";
 const EMAILJS_ADMIN_TEMPLATE_ID = "template_qx2shzh";

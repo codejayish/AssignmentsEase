@@ -9,10 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const plusBtn = document.getElementById("plus");
     const minusBtn = document.getElementById("minus");
 
-    // Tiered pricing: $10/page for pages 1–5, $8/page beyond 5
+    // $10/page, capped at $120
     function calcPrice(n) {
-      if (n <= 5) return n * 10;
-      return 50 + (n - 5) * 8;
+      return Math.min(n * 10, 120);
     }
 
     // ======================
