@@ -65,4 +65,30 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Blog: in-depth study guides -->
+  <url>
+    <loc>https://www.assignmenthelpglobal.com/blog-how-to-write-a-nursing-case-study.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.assignmenthelpglobal.com/blog-how-to-write-a-literature-review.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.assignmenthelpglobal.com/blog-harvard-referencing-guide.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.assignmenthelpglobal.com/blog-finish-assignment-night-before-deadline.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
