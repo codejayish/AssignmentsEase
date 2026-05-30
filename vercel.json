@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/about.html" }
-  ],
   "headers": [
     {
       "source": "/assets/css/(.*)",
