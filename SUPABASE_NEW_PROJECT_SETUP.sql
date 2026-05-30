@@ -28,6 +28,7 @@ CREATE POLICY "anon_insert"
   TO anon
   WITH CHECK (true);
 
+
 -- 4. Allow service_role to read everything (for your admin use)
 CREATE POLICY "service_role_all"
   ON public.requests

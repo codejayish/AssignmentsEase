@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Google needs to crawl CSS & JS to render and rank pages — do not block them.
+# Only block non-content files.
+Disallow: /SUPABASE_NEW_PROJECT_SETUP.sql
+
+# Sitemap location
+Sitemap: https://www.assignmenthelpglobal.com/sitemap.xml

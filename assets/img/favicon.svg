@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="fg" cx="38%" cy="28%" r="70%">
+      <stop offset="0%"   stop-color="#f7e57c"/>
+      <stop offset="40%"  stop-color="#d4a824"/>
+      <stop offset="100%" stop-color="#7a580a"/>
+    </radialGradient>
+    <radialGradient id="bg" cx="40%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#1e3a9e"/>
+      <stop offset="100%" stop-color="#060c2c"/>
+    </radialGradient>
+    <radialGradient id="gb" cx="36%" cy="34%" r="64%">
+      <stop offset="0%"   stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </radialGradient>
+  </defs>
+  <!-- Gold ring -->
+  <circle cx="32" cy="32" r="31.5" fill="url(#fg)"/>
+  <!-- Navy background -->
+  <circle cx="32" cy="32" r="28"   fill="url(#bg)"/>
+  <!-- Globe -->
+  <circle cx="32" cy="32" r="14"   fill="url(#gb)"/>
+  <!-- Globe lines -->
+  <ellipse cx="32" cy="32" rx="14" ry="5.5" fill="none" stroke="#bfdbfe" stroke-width="0.9" opacity="0.7"/>
+  <line x1="18" y1="32" x2="46" y2="32" stroke="#bfdbfe" stroke-width="0.9" opacity="0.7"/>
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#93c5fd" stroke-width="1.2" opacity="0.6"/>
+  <!-- Small open book at bottom of globe -->
+  <path d="M22 43 Q32 39 42 43 L42 50 Q32 47 22 50 Z" fill="#22c55e" opacity="0.95"/>
+  <line x1="32" y1="39" x2="32" y2="50" stroke="#38bdf8" stroke-width="1.2"/>
+  <!-- Arrow up -->
+  <line x1="30" y1="37" x2="27" y2="22" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="27,19 23,27 31,25" fill="#166534"/>
+</svg>

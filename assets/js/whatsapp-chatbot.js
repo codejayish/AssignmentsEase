@@ -52,11 +52,9 @@
       el.remove();
     });
 
-    var isLeft = document.body.classList.contains('page-index');
-
     var wrap = document.createElement('div');
     wrap.id = 'wa-wrap';
-    wrap.className = 'wa-wrap' + (isLeft ? ' wa-left' : '');
+    wrap.className = 'wa-wrap';
 
     wrap.innerHTML = [
       '<span class="wa-ring wa-ring-1" aria-hidden="true"></span>',

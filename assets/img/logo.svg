@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="g-gold" cx="38%" cy="28%" r="70%" gradientUnits="userSpaceOnUse" gradientTransform="translate(200,200) scale(1) translate(-200,-200)">
+      <stop offset="0%"   stop-color="#f7e57c"/>
+      <stop offset="28%"  stop-color="#d4a824"/>
+      <stop offset="62%"  stop-color="#a07514"/>
+      <stop offset="100%" stop-color="#7a580a"/>
+    </radialGradient>
+    <radialGradient id="g-navy" cx="38%" cy="32%" r="68%">
+      <stop offset="0%"   stop-color="#1e3a9e"/>
+      <stop offset="55%"  stop-color="#0f206a"/>
+      <stop offset="100%" stop-color="#060c2c"/>
+    </radialGradient>
+    <linearGradient id="g-book-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="g-book-r" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="g-book-c" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="g-arrow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+    <radialGradient id="g-globe" cx="36%" cy="34%" r="64%">
+      <stop offset="0%"   stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </radialGradient>
+    <clipPath id="clip-badge">
+      <circle cx="200" cy="200" r="176"/>
+    </clipPath>
+  </defs>
+
+  <!-- Gold outer ring -->
+  <circle cx="200" cy="200" r="199" fill="url(#g-gold)"/>
+  <!-- Thin dark separator -->
+  <circle cx="200" cy="200" r="180" fill="#8b6914"/>
+  <!-- Navy background -->
+  <circle cx="200" cy="200" r="176" fill="url(#g-navy)"/>
+
+  <!-- Star dots along top arc -->
+  <g clip-path="url(#clip-badge)" fill="#f5d168">
+    <circle cx="104" cy="138" r="2.5"/>
+    <circle cx="116" cy="118" r="2"/>
+    <circle cx="132" cy="101" r="2.5"/>
+    <circle cx="150" cy="87"  r="2"/>
+    <circle cx="170" cy="77"  r="3"/>
+    <circle cx="192" cy="71"  r="2"/>
+    <circle cx="213" cy="72"  r="2.5"/>
+    <circle cx="234" cy="80"  r="2"/>
+    <circle cx="253" cy="93"  r="2.5"/>
+    <circle cx="269" cy="110" r="2"/>
+    <circle cx="281" cy="130" r="2.5"/>
+    <circle cx="120" cy="155" r="1.5"/>
+    <circle cx="145" cy="82"  r="1.5"/>
+    <circle cx="261" cy="148" r="1.5"/>
+  </g>
+
+  <!-- ── OPEN BOOK ── -->
+  <!-- Left cover -->
+  <path d="M108 212 C136 192 168 190 196 198 L196 262 C168 255 136 257 108 272 Z"
+        fill="url(#g-book-l)" clip-path="url(#clip-badge)"/>
+  <!-- Right cover -->
+  <path d="M204 198 C232 190 264 192 292 212 L292 272 C264 257 232 255 204 262 Z"
+        fill="url(#g-book-r)" clip-path="url(#clip-badge)"/>
+  <!-- Spine -->
+  <path d="M196 198 Q200 194 204 198 L204 262 Q200 258 196 262 Z"
+        fill="url(#g-book-c)"/>
+  <!-- Page lines left -->
+  <g stroke="#d1fae5" stroke-width="1.3" opacity="0.45" clip-path="url(#clip-badge)">
+    <line x1="118" y1="219" x2="189" y2="212"/>
+    <line x1="118" y1="230" x2="189" y2="223"/>
+    <line x1="118" y1="241" x2="189" y2="234"/>
+    <line x1="118" y1="252" x2="189" y2="245"/>
+  </g>
+  <!-- Page lines right -->
+  <g stroke="#d1fae5" stroke-width="1.3" opacity="0.45" clip-path="url(#clip-badge)">
+    <line x1="211" y1="212" x2="282" y2="219"/>
+    <line x1="211" y1="223" x2="282" y2="230"/>
+    <line x1="211" y1="234" x2="282" y2="241"/>
+    <line x1="211" y1="245" x2="282" y2="252"/>
+  </g>
+  <!-- Book shadow -->
+  <ellipse cx="200" cy="270" rx="92" ry="7" fill="#052e16" opacity="0.5" clip-path="url(#clip-badge)"/>
+
+  <!-- ── GLOBE (top-right area) ── -->
+  <circle cx="258" cy="148" r="31" fill="url(#g-globe)" opacity="0.93" clip-path="url(#clip-badge)"/>
+  <g clip-path="url(#clip-badge)" stroke="#bfdbfe" stroke-width="1.1" fill="none" opacity="0.6">
+    <ellipse cx="258" cy="148" rx="31" ry="11.5"/>
+    <ellipse cx="258" cy="148" rx="11.5" ry="31"/>
+    <line x1="227" y1="148" x2="289" y2="148"/>
+    <line x1="258" y1="117" x2="258" y2="179"/>
+  </g>
+  <circle cx="258" cy="148" r="31" fill="none" stroke="#93c5fd" stroke-width="1.8" opacity="0.7" clip-path="url(#clip-badge)"/>
+
+  <!-- ── ARROW (from book up toward globe) ── -->
+  <path d="M188 202 Q216 168 244 132"
+        stroke="url(#g-arrow)" stroke-width="9" fill="none"
+        stroke-linecap="round" clip-path="url(#clip-badge)"/>
+  <!-- Arrow head -->
+  <polygon points="245,118 231,143 256,140" fill="#166534" clip-path="url(#clip-badge)"/>
+  <polygon points="245,118 231,143 256,140" fill="#4ade80" opacity="0.55" clip-path="url(#clip-badge)"/>
+
+  <!-- ── TEXT ── -->
+  <!-- ASSIGNMENT HELP -->
+  <text x="200" y="298"
+        text-anchor="middle"
+        fill="#1e3a8a"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="900"
+        font-size="18.5"
+        letter-spacing="1">ASSIGNMENT HELP</text>
+  <!-- GLOBAL -->
+  <text x="200" y="327"
+        text-anchor="middle"
+        fill="#22c55e"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="900"
+        font-size="29"
+        letter-spacing="5">GLOBAL</text>
+  <!-- Tagline -->
+  <text x="200" y="350"
+        text-anchor="middle"
+        fill="#cbd5e1"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11"
+        letter-spacing="0.6">Unlock Your Potential</text>
+</svg>

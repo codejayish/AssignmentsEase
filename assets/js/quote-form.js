@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         sessionStorage.setItem("assignmentType", formData.get("type") || "");
         sessionStorage.setItem("projectTitle", formData.get("project_title") || "");
-        sessionStorage.setItem("email", formData.get("email") || "");
+        sessionStorage.setItem("assignmentEmail", formData.get("email") || "");
         sessionStorage.setItem("pages", pages);
   
         window.location.href = "submit.html";

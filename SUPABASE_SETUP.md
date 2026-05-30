@@ -60,6 +60,6 @@ After updating the policies:
 ### Current Configuration
 
 Your Supabase credentials are already configured in `assets/js/main.js`:
-- URL: `https://hpjpoqpwowcvargwrwpn.supabase.co`
+- URL: `https://wghchidyrpolghlitdgv.supabase.co`
 - Bucket name: `assignments`
 - Storage path: `uploads/`
