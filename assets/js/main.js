@@ -282,17 +282,23 @@ if (detailsForm) {
       form:        "details",
     };
 
-    // Step 2: save to Supabase (non-fatal)
+    // Step 2: save to Supabase — track success so a saved lead always counts.
+    let savedToDb = false;
     if (supabaseClient) {
       try {
         const { error } = await supabaseClient.from("requests").insert(payload);
-        if (error) console.warn("Supabase insert skipped:", error.message);
+        if (error) {
+          console.warn("Supabase insert failed:", error.message);
+        } else {
+          savedToDb = true;
+        }
       } catch (e) {
         console.warn("Supabase error:", e);
       }
     }
 
-    // Step 3: send email (required)
+    // Step 3: send notification email — track success independently.
+    let emailSent = false;
     try {
       const emailMessage =
         `Assignment Type: ${assignmentType || "Not specified"}\n` +
@@ -312,17 +318,22 @@ if (detailsForm) {
         deadline:     payload.deadline,
         file_url:     fileUrl || "No file attached",
       });
+      emailSent = true;
+    } catch (emailError) {
+      console.error("Email error:", emailError);
+    }
 
+    // Treat as success if the lead was captured by EITHER channel, so a paid
+    // ad lead is never silently lost just because one service was down.
+    if (savedToDb || emailSent) {
       sessionStorage.removeItem("assignmentType");
       sessionStorage.removeItem("projectTitle");
       sessionStorage.removeItem("assignmentEmail");
       detailsForm.reset();
-      setStatus(detailsStatus, "Submitted! We will review your request and contact you shortly.");
-      setTimeout(() => { window.location.href = "index.html"; }, 3000);
-
-    } catch (emailError) {
-      console.error("Email error:", emailError);
-      setStatus(detailsStatus, "Submission failed. Please email us directly at support@assignmenthelpglobal.com", true);
+      setStatus(detailsStatus, "Submitted! Redirecting…");
+      window.location.href = "thank-you.html";
+    } else {
+      setStatus(detailsStatus, "We couldn't submit your request automatically. Please email us directly at support@assignmenthelpglobal.com", true);
     }
   });
 }
