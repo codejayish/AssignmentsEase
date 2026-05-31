@@ -13,9 +13,8 @@
    ========================================================================= */
 
 (function () {
-  // ⬇⬇⬇  REPLACE THIS with your real Meta Pixel ID before running ads  ⬇⬇⬇
-  var META_PIXEL_ID = "YOUR_META_PIXEL_ID";
-  // ⬆⬆⬆  (e.g. "1234567890123456")  ⬆⬆⬆
+  // Meta Pixel / Dataset ID for Assignment Help Global
+  var META_PIXEL_ID = "969668595834907";
 
   // Don't load the pixel until a real ID is set — avoids console errors
   // and accidental bad data while the site is still in placeholder mode.
